@@ -70,11 +70,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-<<<<<<< HEAD
+
 	<h1>Welcome to Gobinda Da!</h1>
-=======
-	<h1>Welcome to CodeIgniter! fghfhfhdfhd</h1>
->>>>>>> ed55457517c24c3558ba270b65f26b48be81ece6
+
 
 	<div id="body">
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>

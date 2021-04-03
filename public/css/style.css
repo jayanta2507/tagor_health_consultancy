@@ -11,7 +11,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: -webkit-linear-gradient(left, #7579ff, #b224ef);
+  background: -webkit-linear-gradient(left, #1237f1, #ffffff);
   font-family: 'Nunito', sans-serif;
 }
 
@@ -89,11 +89,11 @@ button{
   text-transform: uppercase;
   font-weight: 600;
   font-family: 'Nunito', sans-serif;
-  background: -webkit-linear-gradient(left, #7579ff, #b224ef);
+  background: -webkit-linear-gradient(left, #7579ff, #0c0727);
 }
 
 .submit:hover{
-  background: -webkit-linear-gradient(left, #b224ef, #7579ff);
+  background: -webkit-linear-gradient(left, #0c0727, #7579ff);
 }
 
 .forgot-pass{
@@ -167,7 +167,7 @@ button{
   top: 0;
   width: 900px;
   height: 100%;
-  background-image: url(images/bg.jpg);
+  background-image: url(2.jpg);
   background-size: cover;
   transition: -webkit-transform 1.2s ease-in-out;
   transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
