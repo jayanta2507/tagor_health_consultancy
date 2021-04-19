@@ -25,11 +25,7 @@
 <input type ="text" placeholder="Search..">
 </ul>
 </div><p>
-   
 
-
-
-   
 </header>
 
 
