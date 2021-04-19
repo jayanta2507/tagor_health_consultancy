@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>Tagor Health Consultancy</title>
    <div style="background-image:url('images/2.jpg');">
-    <link rel="stylesheet" href="style1.css">    
+    //<link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost/tagor_health_consultancy/public/css/style1.css">    
 </head>
 <body>
 

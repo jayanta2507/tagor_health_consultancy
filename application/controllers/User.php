@@ -29,6 +29,15 @@ class User extends CI_Controller {
 
 	public function submit_registration(){
 		$data = $_REQUEST;
+	}
+
+	public function home(){
+		$this->load->view('User/home');
+	}
+
+
+	public function submit_home(){
+		$this->load->view('User/home');
 
 		/*echo "<pre>";
 		print_r($data);
