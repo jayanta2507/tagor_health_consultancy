@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--Code by Divinector (www.divinectorweb.com)-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +25,11 @@
 <input type ="text" placeholder="Search..">
 </ul>
 </div><p>
+   
 
+
+
+   
 </header>
 
 
