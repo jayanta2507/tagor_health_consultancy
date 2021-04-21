@@ -24,7 +24,7 @@ class User extends CI_Controller {
 
 
 	public function submit_login(){
-		$this->load->view('User/registration');
+		$data = $_REQUEST;
 	}
 
 	public function submit_registration(){
