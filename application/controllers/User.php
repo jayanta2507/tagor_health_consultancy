@@ -47,4 +47,12 @@ class User extends CI_Controller {
 	public function submit_forgotpassword(){
 		$this->load->view('User/forgotpassword');
 	}
+	public function profile_details(){
+		$this->load->view('User/profile_details');
+	}
+
+
+	public function submit_profile_details(){
+		$this->load->view('User/profile_details');
+	}
 }
