@@ -38,11 +38,13 @@ class User extends CI_Controller {
 
 	public function submit_home(){
 		$this->load->view('User/home');
+	}
+	public function forgotpassword(){
+		$this->load->view('User/forgotpassword');
+	}
 
-		/*echo "<pre>";
-		print_r($data);
-		die();
-		*/
-		$registration = $this->user_model->user_registration($data);
+
+	public function submit_forgotpassword(){
+		$this->load->view('User/forgotpassword');
 	}
 }

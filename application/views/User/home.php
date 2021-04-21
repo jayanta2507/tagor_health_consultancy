@@ -21,7 +21,7 @@
 <li><a href="#">About Us</a></li>
 <li><a href="#">Facilites</a></li>
 <li><a href="#">Contact Us</a></li>
-<li><a href="regester.php">Registration</a></li>
+<li><a href="http://localhost/tagor_health_consultancy/index.php/user_login">Registration</a></li>
 <li><a href="#">Location</a></li>
 <input type ="text" placeholder="Search..">
 </ul>

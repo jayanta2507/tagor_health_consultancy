@@ -29,13 +29,13 @@
           </label>
 
           <button class="submit" type="button">Sign In</button>
-          <p class="forgot-pass">Forgot Password ?</p>
+          <a href ="http://localhost/tagor_health_consultancy/index.php/user_forgotpassword">Forgot Password ?</a>
         </form>
       
 
       <div class="social-media">
         <ul>
-          <li><img src="http://localhost/tagor_health_consultancy/public/images/facebook.png"></li>
+          <li><img src=  ></li>
           <li><img src="http://localhost/tagor_health_consultancy/public/images/twitter.png"></li>
           <li><img src="http://localhost/tagor_health_consultancy/public/images/linkedin.png"></li>
           <li><img src="http://localhost/tagor_health_consultancy/public/images/instagram.png"></li>
@@ -87,4 +87,4 @@
   </div>
 <script type="text/javascript" src="http://localhost/tagor_health_consultancy/public/js/script.js"></script>
 </body>
-</html>
+</html> 
