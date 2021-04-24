@@ -18,7 +18,7 @@
             <input type="password" name="pswd" autocomplete="false">
           </label>
 
-          <button class="submit" type="button">Conform</button>
+          <button class="submit" type="button">Confirm</button>
 </div>
 </div>
 </boady>
