@@ -7,6 +7,9 @@ class User extends CI_Controller {
 	function __construct() {
 	    parent::__construct();
 	    $this->load->model('user_model');
+	    $this->load->helper(array('form','url'));
+        $this->load->library(array('session', 'form_validation', 'email'));
+        //$this->load->database();
 	}
 
 	public function index()
@@ -28,7 +31,59 @@ class User extends CI_Controller {
 	}
 
 	public function submit_registration(){
-		$data = $_REQUEST;
+		//$data = $_REQUEST;
+
+		//set validation rules
+        $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[3]|max_length[30]');
+
+        $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email|is_unique[users.email]');
+
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|sha1');
+
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]|sha1');
+
+
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+
+        	//echo "string"; die();
+            // fails
+            $this->login();
+        }
+        else
+        {
+            //insert the user registration details into database
+            $data = array(
+                'name' => $this->input->post('name'),
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post('password')
+            );
+            
+           /* echo "<pre>";
+            print_r($data);
+            die();*/
+
+            // insert form data into database
+            if ($this->user_model->insertUser($data))
+            {
+                // successfully sent mail
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Registered!</div>');
+                    redirect('user/login');
+            }
+            else
+            {
+                // error
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
+                redirect('user/register');
+            }
+        }
+
+
+
+
+		//$this->user_model->user_registration($data);
 	}
 
 	public function home(){
@@ -39,6 +94,8 @@ class User extends CI_Controller {
 	public function submit_home(){
 		$this->load->view('User/home');
 	}
+
+
 	public function forgotpassword(){
 		$this->load->view('User/forgotpassword');
 	}
@@ -47,6 +104,8 @@ class User extends CI_Controller {
 	public function submit_forgotpassword(){
 		$this->load->view('User/forgotpassword');
 	}
+
+
 	public function profile_details(){
 		$this->load->view('User/profile_details');
 	}

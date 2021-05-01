@@ -61,30 +61,38 @@
         </div>      
 
       <div class="form sign-up">
+        <?php echo $this->session->flashdata('msg'); ?>
+        
         <h2>Sign Up</h2>
-
         <form action="<?php echo base_url(); ?>submit_registration" method="post">
           <label>
             <span>Name</span>
             <input type="text" name="name">
+            <span class="text-danger"><?php echo form_error('name'); ?></span>
           </label>
           <label>
             <span>Email</span>
             <input type="email" name="email">
+            <span class="text-danger"><?php echo form_error('email'); ?></span>
           </label>
           <label>
             <span>Password</span>
             <input type="password" name="password">
+            <span class="text-danger"><?php echo form_error('password'); ?></span>
           </label>
           <label>
             <span>Confirm Password</span>
             <input type="password" name="confirm_password">
+            <span class="text-danger"><?php echo form_error('confirm_password'); ?></span>
           </label>
           <button type="submit" class="submit">Sign Up</button>
         </form>
+
+
       </div>
     </div>
   </div>
 <script type="text/javascript" src="http://localhost/tagor_health_consultancy/public/js/script.js"></script>
 </body>
 </html> 
+
