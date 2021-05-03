@@ -27,12 +27,45 @@ class User extends CI_Controller {
 
 
 	public function submit_login(){
-		$data = $_REQUEST;
+
+		//set validation rules
+        $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email');
+		$this->form_validation->set_rules('login_password', 'Password', 'trim|required|sha1');
+
+		//validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->login();
+
+        }else{
+
+        	//insert the user registration details into database
+            $data = array(
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post('login_password')
+            );
+
+
+            // insert form data into database
+            if ($this->user_model->loginUser($data))
+            {
+                // successfully sent mail
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Login!</div>');
+                    redirect('user_login');
+            }
+            else
+            {
+                // error
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You are not a valid user!</div>');
+                redirect('user_login');
+            }
+
+
+        }
 	}
 
 	public function submit_registration(){
-		//$data = $_REQUEST;
-
+		
 		//set validation rules
         $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[3]|max_length[30]');
 

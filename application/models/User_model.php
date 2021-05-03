@@ -3,11 +3,7 @@
 class User_model extends CI_Model {
 
         public function user_registration($data){
-                /*echo "<pre>";
-                echo "string";
-                print_r($data);*/
-                
-
+               
                 $name  = $data['name'];
                 $email = $data['email'];
                 $pass  = $data['password'];
@@ -46,7 +42,21 @@ class User_model extends CI_Model {
 
         public function insertUser($data){
                 return $this->db->insert('users', $data);
+        }
 
+        public function loginUser($data){
+
+                $this->db->select('*');
+                $this->db->from('users');
+                $this->db->where('email', $data['email']);
+                $this->db->where('password', $data['password']);
+                return $count = $this->db->count_all_results();
+
+                // $query  = $this->db->get();
+                // $result = $query->result();
+                // echo "<pre>";
+                // print_r($result);
+                die();
         }
 
 }

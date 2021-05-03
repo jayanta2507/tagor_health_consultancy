@@ -17,18 +17,22 @@
 <body>
   <div class="cont">
     <div class="form sign-in">
+       <span style="color: red"><?php echo $this->session->flashdata('msg'); ?></span>
+
       <h2>Sign In</h2>
-        <form action="<?php echo base_url(); ?>/submit_login" method="post">
+        <form action="<?php echo base_url(); ?>submit_login" method="post">
           <label>
             <span>EMAIL ID</span>
-            <input type="text" name="emailid" autocomplete="false">
+            <input type="text" name="email" >
+            <span class="text-danger"><?php echo form_error('email'); ?></span>
           </label>
           <label>
             <span>PASSWORD</span>
-            <input type="password" name="pswd" autocomplete="false">
+            <input type="password" name="login_password" >
+            <span class="text-danger"><?php echo form_error('login_password'); ?></span>
           </label>
 
-          <button class="submit" type="button">Sign In</button>
+          <button class="submit" type="submit"> Sign In </button>
           <a href ="http://localhost/tagor_health_consultancy/index.php/user_forgotpassword">Forgot Password ?</a>
         </form>
       
