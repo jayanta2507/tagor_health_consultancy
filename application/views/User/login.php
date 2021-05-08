@@ -20,7 +20,7 @@
        <span style="color: red"><?php echo $this->session->flashdata('msg'); ?></span>
 
       <h2>Sign In</h2>
-        <form action="<?php echo base_url(); ?>submit_login" method="post">
+        <form action="<?php echo base_url(); ?>index.php/submit_login" method="post">
           <label>
             <span>EMAIL ID</span>
             <input type="text" name="email" >
@@ -68,7 +68,7 @@
         <?php echo $this->session->flashdata('msg'); ?>
         
         <h2>Sign Up</h2>
-        <form action="<?php echo base_url(); ?>submit_registration" method="post">
+        <form action="<?php echo base_url(); ?>index.php/submit_registration" method="post">
           <label>
             <span>Name</span>
             <input type="text" name="name">

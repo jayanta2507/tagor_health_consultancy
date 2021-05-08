@@ -51,13 +51,13 @@ class User extends CI_Controller {
             {
                 // successfully sent mail
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Login!</div>');
-                    redirect('user_login');
+                    redirect('index.php/user_dashboard');
             }
             else
             {
                 // error
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You are not a valid user!</div>');
-                redirect('user_login');
+                redirect('index.php/user_login');
             }
 
 
@@ -80,9 +80,6 @@ class User extends CI_Controller {
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
-
-        	//echo "string"; die();
-            // fails
             $this->login();
         }
         else
@@ -103,13 +100,13 @@ class User extends CI_Controller {
             {
                 // successfully sent mail
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Registered!</div>');
-                    redirect('user/login');
+                    redirect('index.php/user_login');
             }
             else
             {
                 // error
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Error.  Please try again later!!!</div>');
-                redirect('user/register');
+                redirect('index.php/user_registration');
             }
         }
 
@@ -147,4 +144,10 @@ class User extends CI_Controller {
 	public function submit_profile_details(){
 		$this->load->view('User/profile_details');
 	}
+
+    public function user_dashboard(){
+        $this->load->view('common/header');
+        $this->load->view('User/dasboard');
+        $this->load->view('common/footer');
+    }
 }
