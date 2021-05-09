@@ -15,11 +15,12 @@ class User_model extends CI_Model {
         }
 
         public function get_user_details($data){
+ 
                 $this->db->select('*');
                 $this->db->from('users');
                 $this->db->where('email', $data['email']);
-                $this->db->where('password', $data['password']);
-                return  $this->db->row_array();
+                $query = $this->db->get();
+                return  $query->row_array();
         }
 
 }
