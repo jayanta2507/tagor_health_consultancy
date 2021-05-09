@@ -49,6 +49,11 @@ class User extends CI_Controller {
             // insert form data into database
             if ($this->user_model->loginUser($data))
             {
+                $userData = $this->user_model->get_user_details($data);
+
+                echo "<pre>";
+                print_r($userData);
+                die();
                 // successfully sent mail
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Login!</div>');
                     redirect('index.php/user_dashboard');
