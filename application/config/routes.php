@@ -68,4 +68,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['user_dashboard'] = 'user/user_dashboard';
-
+$route['user_logout']    = 'user/user_logout';
+$route['doctor_list']    = 'user/doctor_list';

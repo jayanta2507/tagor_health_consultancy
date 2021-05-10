@@ -49,9 +49,10 @@ class User extends CI_Controller {
             // insert form data into database
             if ($this->user_model->loginUser($data))
             {
-                // successfully sent mail
-                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You are Successfully Login!</div>');
-                    redirect('index.php/user_dashboard');
+                $userData = $this->user_model->get_user_details($data);
+                $this->session->set_flashdata('user_id', $userData['id']);
+                 
+                redirect('index.php/user_dashboard');
             }
             else
             {
@@ -146,8 +147,37 @@ class User extends CI_Controller {
 	}
 
     public function user_dashboard(){
+
+        $user_id = $this->session->flashdata('user_id');
+
+
+        //echo $user_id;
+
+        //die;
+
+        if (!empty($user_id)) {
+            $this->load->view('common/header');
+            $this->load->view('User/dasboard');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_login');
+        }
+        
+    }
+
+
+    public function user_logout(){
+        //$this->session->unset_userdata('user_id'); 
+        redirect('index.php/user_login');
+    }
+
+    public function doctor_list(){
+        $user_id = $this->session->flashdata('user_id');
+        //echo $user_id;
+
+        //die;
         $this->load->view('common/header');
-        $this->load->view('User/dasboard');
+        $this->load->view('doctors/doctor');
         $this->load->view('common/footer');
     }
 }
