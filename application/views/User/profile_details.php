@@ -10,7 +10,7 @@
 <style>
  body{
        
-    background-image: url('http://localhost/tagor_health_consultancy/public/images/6.jpg');
+    background-image: url('http://localhost/tagor_health_consultancy/public/images/  6.jpg');
     margin-top:40px;
     background-position:center;
    background-size:cover;
