@@ -39,7 +39,7 @@
 
       <div class="social-media">
         <ul>
-          <li><img src=  ></li>
+          <li><img src="http://localhost/tagor_health_consultancy/public/images/facebook.png"></li>
           <li><img src="http://localhost/tagor_health_consultancy/public/images/twitter.png"></li>
           <li><img src="http://localhost/tagor_health_consultancy/public/images/linkedin.png"></li>
           <li><img src="http://localhost/tagor_health_consultancy/public/images/instagram.png"></li>
@@ -68,7 +68,7 @@
         <?php echo $this->session->flashdata('msg'); ?>
         
         <h2>Sign Up</h2>
-        <form action="<?php echo base_url(); ?>index.php/submit_registration" method="post">
+        <form action="<?php echo base_url(); ?>index.php/submit_registration" method="post"> -->
           <label>
             <span>Name</span>
             <input type="text" name="name">

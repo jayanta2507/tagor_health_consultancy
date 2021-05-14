@@ -133,8 +133,43 @@ class User extends CI_Controller {
 
 
 	public function submit_forgotpassword(){
-		$this->load->view('User/forgotpassword');
-	}
+		$this->form_validation->set_rules('emailid', 'Email ID', 'trim|required|valid_email');
+        $this->form_validation->set_rules('pswd', 'Password', 'trim|required|sha1');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->login();
+
+        }else{
+
+            //insert the user registration details into database
+            $data = array(
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post('password')
+            );
+
+
+            // insert form data into database
+            if ($this->user_model->loginUser($data))
+            {
+                $userData = $this->user_model->get_user_details($data);
+                $this->session->set_flashdata('user_id', $userData['id']);
+                 
+                redirect('index.php/user_dashboard');
+            }
+            else
+            {
+                // error
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You are not a valid user!</div>');
+                redirect('index.php/user_login');
+            }
+
+
+        }
+    }
+
+	
 
 
 	public function profile_details(){
@@ -157,10 +192,10 @@ class User extends CI_Controller {
 
         if (!empty($user_id)) {
             $this->load->view('common/header');
-            $this->load->view('User/dasboard');
+            $this->load->view('user/dashboard');
             $this->load->view('common/footer');
-        }else{
-            redirect('index.php/user_login');
+        // }else{
+            // redirect('index.php/user_login');
         }
         
     }
@@ -180,4 +215,14 @@ class User extends CI_Controller {
         $this->load->view('doctors/doctor');
         $this->load->view('common/footer');
     }
+    public function profile_deatails(){
+        $user_id = $this->session->flashdata('user_id');
+        //echo $user_id;
+
+        //die;
+        $this->load->view('common/header');
+        $this->load->view('user/profile_details');
+        $this->load->view('common/footer');
+    }
 }
+

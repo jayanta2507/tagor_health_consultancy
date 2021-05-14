@@ -9,9 +9,10 @@
 <body>
 <div class="bg-img">
 <div class="cont">
+  <form action="<?php echo base_url(); ?>index.php/user_forgotpassword" method="post">
  <label>
             <span>EMAIL ID</span>
-            <input type="text" name="emailid" autocomplete="false">
+            <input type="email" name="emailid" autocomplete="false">
           </label>
           <label>
             <span>PASSWORD</span>
