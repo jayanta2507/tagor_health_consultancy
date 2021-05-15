@@ -40,6 +40,9 @@
         <li class="nav-item">
           <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_login">Registration</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_dashboard">Dashboard</a>
+        </li>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="facility.php">Facility</a>
