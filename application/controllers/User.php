@@ -126,7 +126,14 @@ class User extends CI_Controller {
 		$this->load->view('User/home');
 	}
 
+    public function confirmpassword(){
+        $this->load->view('User/confirmpassword');
+    }
 
+
+    public function submit_confirmpassword(){
+        $this->load->view('User/confirmpassword');
+    }
 	public function forgotpassword(){
 		$this->load->view('User/forgotpassword');
 	}
