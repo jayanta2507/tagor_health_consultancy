@@ -209,11 +209,14 @@ class User extends CI_Controller {
         $this->load->view('doctors/doctor');
         $this->load->view('common/footer');
     }
-    public function profile_deatails(){
-        $user_id = $this->session->flashdata('user_id');
-        //echo $user_id;
 
+
+    public function profile_deatails(){
+        $user_id  = $this->session->flashdata('user_id');
+        //echo $user_id;
         //die;
+        //$userData = $this->user_model->get_user_details($data);
+        
         $this->load->view('common/header');
         $this->load->view('User/profile_details');
         $this->load->view('common/footer');

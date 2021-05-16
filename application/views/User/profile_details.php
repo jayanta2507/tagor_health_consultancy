@@ -1,297 +1,161 @@
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-    <div class="content-header">
+
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Profile Details</h1>
-          </div><!-- /.col -->
+            <h1>Profile</h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Profile Details</li>
+              <li class="breadcrumb-item active">User Profile</li>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <section class="content">
-      <div class="container-fluid">
-
-        <div class="main">
-    
-            <form method="POST">
-              <div id="name">
-                <h2 class="name">Name</h2>
-                  <input class="name" type="text" name="name">
-                <h2 class="name">
-              </div>
-                    <h2 class="name">
-                    Date Of Birth:</h2>
-                    <input class="email" type="date" name="dob">
-                                <h2 class="name">
-                    Email Id</h2>
-                    <input class="email" type="email" name="email">
-                                <h2 class="name">
-                    Phone Number</h2>
-                    <input class="phone" type="number" name="phone">
-                                <h2 class="name">
-                    Address</h2>
-                    <input class="address" type="text" name="address">
-                                <h2 class="name">
-                    Pincode</h2>
-                    <input class="pincode" type="number" name="pincode">
-                    <h2 class="name">
-                    City</h2>
-                    <input class="city" type="text" name="city">
-                    <h2 class="name">
-                    Country</h2>
-                    <input class="country" type="text" name="country">
-                    <h2 class="name">
-                    State</h2>
-                    <input class="state" type="text" name="state">
-                    <h2 class="name">
-                    Blood Group</h2>
-                    <input class="blood group" type="text" name="blood group">
-                    <h2 class="name">
-                    Gender</h2>
-
-                    <input type="radio" id="male" name="gender" value="male">
-                      <label for="male">Male</label>
-                      <input type="radio" id="female" name="gender" value="female">
-                      <label for="female">Female</label>
-                      <input type="radio" id="other" name="gender" value="other">
-                      <label for="other">Other</label>
-
-                    <button type="submit">Submit</button>
-                  </form>
           </div>
-
-      </div>
+        </div>
+      </div><!-- /.container-fluid -->
     </section>
 
-</div>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
 
-<style>
-  *{
-  margin:0;
-  padding:0;
-  }
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="<?php echo base_url(); ?>assests/theme/dist/img/user2-160x160.jpg"
+                       alt="User profile picture">
+                </div>
 
+                <h3 class="profile-username text-center">Ayan Kumar Saha</h3>
 
-   .regform{
-          width:800px;
-    background-color:rgb(0,0,0,0.6);
-    margin:auto;
-    color:#FFFFFF;
-    padding:0px 0px 0px 0px;
-    text-align:center;
-    border-radius:5px 5px 0px 0px ;
-    }  
-  .main{
-      background-color:rgb(0,0,0,0.5);
-   width:800px;
-   margin:auto;}
-  
-  form{
-      padding:10px;
-   
-  } 
-  
-  #name{
-       width:100%;
-    height:100px;
-    
-    }  
-  .name{
-            margin-left:25px;
-   margin-top:30px;
-   width: 125px;
-            color: black;
-            font-size: 8px;
-            font-weight: 70;}
-.name{
-                   position: relative;
-       left:180px;
-       top:-37px;
-       line-height: 40px;
-       width:480px;
-       border-radius: 6px;
-       padding: 0 22px;
-       font-size: 16px;
-       
-       }
-.
-.dob  {
-           position:relative;
-     left:200px;
-     top:-37px;
-     line-height: 40px;
-     width:480px;
-        border-radius: 6px;
-     padding: 0 22px;
-     font-size: 16px;
-     color: #555;  }
- .email{
-        position:relative;
-  left:200px;
-     top:-37px;
-     line-height: 40px;
-     width:480px;
-        border-radius: 6px;
-     padding: 0 22px;
-     font-size: 16px;
-     color: #555;  
-    }     
- 
-   .address{
-         position:relative;
-  left:200px;
-     top:-37px;
-     line-height: 40px;
-     width:480px;
-        border-radius: 6px;
-     padding: 0 22px;
-     font-size: 16px;
-     color: #555;  
-  }
-  .pincode{
-    position:relative;
-left:200px;
-top:-37px;
-line-height: 40px;
-width:480px;
-   border-radius: 6px;
-padding: 0 22px;
-font-size: 16px;
-color: #555;  
-}
-.city{
-    position:relative;
-left:200px;
-top:-37px;
-line-height: 40px;
-width:480px;
-   border-radius: 6px;
-padding: 0 22px;
-font-size: 16px;
-color: #555;  
-}
-.country{
-    position:relative;
-left:200px;
-top:-37px;
-line-height: 40px;
-width:480px;
-   border-radius: 6px;
-padding: 0 22px;
-font-size: 16px;
-color: #555;  
-}
-.state{
-    position:relative;
-left:200px;
-top:-37px;
-line-height: 40px;
-width:480px;
-   border-radius: 6px;
-padding: 0 22px;
-font-size: 16px;
-color: #555;  
-}
-.blood  {
-    position:relative;
-left:200px;
-top:-37px;
-line-height: 40px;
-width:480px;
-   border-radius: 6px;
-padding: 0 22px;
-font-size: 16px;
-color: #555;  
-}
-.gender{
-    position:relative;
-left:200px;
-top:-37px;
-line-height: 40px;
-width:480px;
-   border-radius: 6px;
-padding: 0 22px;
-font-size: 16px;
-color: #555;  
-}
+                <p class="text-muted text-center">Software Engineer</p>
 
-.phone  {
-    position:relative;
-left:200px;
-top:-37px;
-line-height: 40px;
-width:480px;
-   border-radius: 6px;
-padding: 0 22px;
-font-size: 16px;
-color: #555;  
-}
-   
-     .radio{
-         display:inline-block;
-   padding-right:70px;
-   font-size:25px;
-   margin-left:25px;
-   margin-top:15px;
-   color:white;
-   }
-  .radio input{
-              width:20px;
-     height:20px;
-     border-radius:50%;
-     cursor:pointer;
-     outline:none;
-    } 
-    button{
-        background-color:#3BAF9F;
-     display:block;
-     margin:20px 0px 0px 20px;
-     text-align:center;
-     border-radius:12px;
-     border:2px solid #366473;
-     padding:14px 110px;
-     outline:none;
-     color:white;
-     cursor:pointer;
-     transition:0.25px;
-    } 
-   button:hover{
-                background-color:#5390F5;
-      }  
- .main{
-       
-    background-image: url('http://localhost/tagor_health_consultancy/public/images/6.jpg');
-    margin-top:100px;
-    background-position:center;
-   background-size:cover;
-   font-family:sans-serif;
-    }
+                <ul class="list-group list-group-unbordered mb-3">
+                   
+                  <li class="list-group-item">
+                    <b>Email</b> <a class="float-right"></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Blood Gr</b> <a class="float-right">O+</a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
 
-  h2{
-    color: black;
-  }
-</style> 
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">About Me</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fas fa-book mr-1"></i> Education</strong>
 
+                <p class="text-muted">
+                  B.S. in Computer Science from the University of Tennessee at Knoxville
+                </p>
 
-</h2>
+                <hr>
 
+                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
 
+                <p class="text-muted">Malibu, California</p>
 
+                <hr>
 
+                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
 
+                <p class="text-muted">
+                  <span class="tag tag-danger">UI Design</span>
+                  <span class="tag tag-success">Coding</span>
+                  <span class="tag tag-info">Javascript</span>
+                  <span class="tag tag-warning">PHP</span>
+                  <span class="tag tag-primary">Node.js</span>
+                </p>
 
+                <hr>
 
+                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
 
-
-
-
-
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Edit Profile</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  
+                  <div class="tab-pane" id="settings">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                        <div class="col-sm-10">
+                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                        </div>
+                      </div>
+                       
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-danger">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
