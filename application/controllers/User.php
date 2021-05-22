@@ -183,6 +183,13 @@ class User extends CI_Controller {
         //set validation rules
         $this->form_validation->set_rules('user_name', 'Name', 'trim|required|min_length[3]|max_length[30]');
         $this->form_validation->set_rules('phone', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
+         $this->form_validation->set_rules('address', 'Address', 'trim|required|min_length[3]|max_length[30]');
+        $this->form_validation->set_rules('pincode', 'Pincode', 'trim|required|min_length[10]|max_length[30]');
+         $this->form_validation->set_rules('city', 'City', 'trim|required|min_length[3]|max_length[30]');
+        $this->form_validation->set_rules('country', 'Country', 'trim|required|min_length[10]|max_length[30]');
+         $this->form_validation->set_rules('bloodgr', 'Blood Group', 'trim|required|min_length[3]|max_length[30]');
+        $this->form_validation->set_rules('gender', 'Gender', 'trim|required|min_length[10]|max_length[30]');
+
 
 
         //validate form input

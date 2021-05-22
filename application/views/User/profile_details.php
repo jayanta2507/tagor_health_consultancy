@@ -132,25 +132,29 @@
                       <div class="form-group row">
                         <label for="Address" class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Address" placeholder="Address" value="<?php echo $prfile_data['address'] ?>">
+                          <input type="text" class="form-control" id="Address" name=address placeholder="Address" value="<?php echo $prfile_data['address'] ?>">
+                           <span class="text-danger"><?php echo form_error('address'); ?></span>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="Pincode" class="col-sm-2 col-form-label">Pincode</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Pincode" placeholder="Pincode" value="<?php echo $prfile_data['pincode'] ?>">
+                          <input type="text" class="form-control" id="Pincode" name=pincode placeholder="Pincode" value="<?php echo $prfile_data['pincode'] ?>">
+                           <span class="text-danger"><?php echo form_error('pincode'); ?></span>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="City" class="col-sm-2 col-form-label">City</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="City" placeholder="City" value="<?php echo $prfile_data['city'] ?>">
+                          <input type="text" class="form-control" id="City" name=city placeholder="City" value="<?php echo $prfile_data['city'] ?>">
+                           <span class="text-danger"><?php echo form_error('city'); ?></span>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="Country" class="col-sm-2 col-form-label">Country</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="Country" placeholder="Country" value="<?php echo $prfile_data['country'] ?>">
+                           <span class="text-danger"><?php echo form_error('country'); ?></span>
                         </div>
                       </div>
                        <!-- <div class="form-group row">
@@ -162,7 +166,8 @@
                       <div class="form-group row">
                         <label for="Blood Group" class="col-sm-2 col-form-label">Blood Group</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Blood Group" placeholder="Blood Group" value="<?php echo $prfile_data['blood_group'] ?>">
+                          <input type="text" class="form-control" id="Blood Group" name=bloodgr placeholder="Blood Group" value="<?php echo $prfile_data['blood_group'] ?>">
+                           <span class="text-danger"><?php echo form_error('bloodgr'); ?></span>
                         </div>
                       </div>   
                        <div class="form-group row">
