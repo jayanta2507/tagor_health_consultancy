@@ -113,30 +113,70 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="dob" class="col-sm-2 col-form-label">Date Of Birth</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="date" class="form-control" id="dob" placeholder="Date Of Birth">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <label for="email" class="col-sm-2 col-form-label">Email Id</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                          <input type="email" class="form-control" id="email" placeholder="Email Id">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                        <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                        <label for="Phone Number" class="col-sm-2 col-form-label">Phone Number</label>
+                         <div class="col-sm-10">
+                          <input type="number" class="form-control" id="phoneno" placeholder="Phone Number">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                        <label for="Address" class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                          <input type="text" class="form-control" id="Address" placeholder="Address">
                         </div>
                       </div>
-                       
+                      <div class="form-group row">
+                        <label for="Pincode" class="col-sm-2 col-form-label">Pincod</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="Pincode" placeholder="Pincode">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="City" class="col-sm-2 col-form-label">City</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="City" placeholder="City">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="Country" class="col-sm-2 col-form-label">Country</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="Country" placeholder="Country">
+                        </div>
+                      </div>
+                       <!-- <div class="form-group row">
+                        <label for="Country" class="col-sm-2 col-form-label">Country</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="Country" placeholder="Country">
+                        </div>
+                      </div> -->
+                      <div class="form-group row">
+                        <label for="Blood Group" class="col-sm-2 col-form-label">Blood Group</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="Blood Group" placeholder="Blood Group">
+                        </div>
+                      </div>   
+                       <div class="form-group row">
+                        <label for="Gender" class="col-sm-2 col-form-label">Gender</label>
+                        <div class="col-sm-10">
+                          <input type="radio" id="male" name="gender" value="male">
+                          <label for="male">Male</label>
+                          <input type="radio" id="female" name="gender" value="female">
+                          <label for="female">Female</label>
+                          <input type="radio" id="other" name="gender" value="other">
+                          <label for="other">Other</label>
+                        </div>
+                      </div>                    
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <button type="submit" class="btn btn-danger">Submit</button>

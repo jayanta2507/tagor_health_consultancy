@@ -152,27 +152,27 @@
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
+            <a href="<?php echo base_url(); ?>index.php/oxygen_list" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Oxigen
+                Oxygen
               </p>
             </a>
           
 
-          <li class="nav-item menu-open">
+         <!--  <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Health Camp
               </p>
-            </a>
+            </a> -->
           
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
+             <a href="<?php echo base_url(); ?>index.php/oxygen_list" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Services

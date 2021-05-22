@@ -172,9 +172,8 @@ class User extends CI_Controller {
 
 
 	public function submit_profile_details(){
-		$this->load->view('User/profile_details');
-	}
-
+        $this->load->view('User/profile_deatails');}
+		  
     public function user_dashboard(){
 
         $user_id = $this->session->flashdata('user_id');
@@ -219,6 +218,16 @@ class User extends CI_Controller {
         
         $this->load->view('common/header');
         $this->load->view('User/profile_details');
+        $this->load->view('common/footer');
+    }
+     public function oxygen_list(){
+        $user_id  = $this->session->flashdata('user_id');
+        //echo $user_id;
+        //die;
+        //$userData = $this->user_model->get_user_details($data);
+        
+        $this->load->view('common/header');
+        $this->load->view('oxygens/oxygen');
         $this->load->view('common/footer');
     }
 }
