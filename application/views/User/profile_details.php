@@ -34,14 +34,14 @@
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Ayan Kumar Saha</h3>
+                <h3 class="profile-username text-center"><?php echo $prfile_data['name'] ?></h3>
 
                 <p class="text-muted text-center">Software Engineer</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                    
                   <li class="list-group-item">
-                    <b>Email</b> <a class="float-right"></a>
+                    <b>Email</b> <a class="float-right"><?php echo $prfile_data['email'] ?></a>
                   </li>
                   <li class="list-group-item">
                     <b>Blood Gr</b> <a class="float-right">O+</a>
@@ -105,11 +105,13 @@
                 <div class="tab-content">
                   
                   <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="<?php echo base_url(); ?>index.php/update_profile" method="post">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                          <input type="text" name="user_name" class="form-control" id="inputName" placeholder="Name" value="<?php echo $prfile_data['name'] ?>">
+
+                          <span class="text-danger"><?php echo form_error('user_name'); ?></span>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -118,40 +120,37 @@
                           <input type="date" class="form-control" id="dob" placeholder="Date Of Birth">
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label for="email" class="col-sm-2 col-form-label">Email Id</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="email" placeholder="Email Id">
-                        </div>
-                      </div>
+                       
                       <div class="form-group row">
                         <label for="Phone Number" class="col-sm-2 col-form-label">Phone Number</label>
                          <div class="col-sm-10">
-                          <input type="number" class="form-control" id="phoneno" placeholder="Phone Number">
+                          <input type="number" class="form-control" id="phoneno" name="phone" placeholder="Phone Number" value="<?php echo $prfile_data['phone'] ?>">
+
+                          <span class="text-danger"><?php echo form_error('phone'); ?></span>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="Address" class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Address" placeholder="Address">
+                          <input type="text" class="form-control" id="Address" placeholder="Address" value="<?php echo $prfile_data['address'] ?>">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="Pincode" class="col-sm-2 col-form-label">Pincod</label>
+                        <label for="Pincode" class="col-sm-2 col-form-label">Pincode</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Pincode" placeholder="Pincode">
+                          <input type="text" class="form-control" id="Pincode" placeholder="Pincode" value="<?php echo $prfile_data['pincode'] ?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="City" class="col-sm-2 col-form-label">City</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="City" placeholder="City">
+                          <input type="text" class="form-control" id="City" placeholder="City" value="<?php echo $prfile_data['city'] ?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="Country" class="col-sm-2 col-form-label">Country</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Country" placeholder="Country">
+                          <input type="text" class="form-control" id="Country" placeholder="Country" value="<?php echo $prfile_data['country'] ?>">
                         </div>
                       </div>
                        <!-- <div class="form-group row">
@@ -163,7 +162,7 @@
                       <div class="form-group row">
                         <label for="Blood Group" class="col-sm-2 col-form-label">Blood Group</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Blood Group" placeholder="Blood Group">
+                          <input type="text" class="form-control" id="Blood Group" placeholder="Blood Group" value="<?php echo $prfile_data['blood_group'] ?>">
                         </div>
                       </div>   
                        <div class="form-group row">

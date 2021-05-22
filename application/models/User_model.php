@@ -23,6 +23,16 @@ class User_model extends CI_Model {
                 return  $query->row_array();
         }
 
+
+        public function get_profile_details($user_id){
+ 
+                $this->db->select('*');
+                $this->db->from('users');
+                $this->db->where('id', $user_id);
+                $query = $this->db->get();
+                return  $query->row_array();
+        }
+
 }
 
 ?>

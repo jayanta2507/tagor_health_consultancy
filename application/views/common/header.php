@@ -92,42 +92,56 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="<?php echo base_url(); ?>index.php/user_dashboard" class="nav-link active">
+            <a href="<?php echo base_url(); ?>index.php/user_dashboard" class="nav-link <?php echo ($active_text=='dashboard')?'active':'' ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Dashboard  
               </p>
             </a>
-           </li>
+          </li>
 
-             <li class="nav-item menu-open">
+          <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/user_profile_details" class="nav-link">
+            <a href="<?php echo base_url(); ?>index.php/user_profile_details" class="nav-link <?php echo ($active_text=='profile')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Profile Detials
               </p>
             </a>
+          </li>
 
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
+            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link <?php echo ($active_text=='doctor')?'active':'' ?>">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Doctor
+              </p>
+            </a>
+          </li>
+
+
+          <li class="nav-item menu-open">
+             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link ">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Blood
               </p>
             </a>
+          </li>
 
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-bed"></i>
               <p>
                 Bed
               </p>
             </a>
+          </li>
 
 
           <li class="nav-item menu-open">
@@ -138,17 +152,8 @@
                 Vaccination
               </p>
             </a>
-          
-
-          <li class="nav-item menu-open">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Doctor
-              </p>
-            </a>
-          
+          </li>
+                    
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -158,16 +163,7 @@
                 Oxygen
               </p>
             </a>
-          
-
-         <!--  <li class="nav-item menu-open">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Health Camp
-              </p>
-            </a> -->
+          </li>
           
 
           <li class="nav-item menu-open">
@@ -178,6 +174,7 @@
                 Services
               </p>
             </a>
+          </li>
           
 
           <li class="nav-item menu-open">
@@ -188,6 +185,7 @@
                 Team
               </p>
             </a>
+          </li>
           
           
 
@@ -198,11 +196,7 @@
               <p>
                 Outcome
               </p>
-            </a>
-          
-          
-         
-          
+            </a>      
           </li>
         </ul>
       </nav>

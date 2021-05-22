@@ -64,7 +64,7 @@ $route['submit_forgotpassword'] = 'user/submit_forgotpassword';
 $route['user_confirmpassword'] = 'user/confirmpassword';
 $route['submit_confirmpassword'] = 'user/submit_confirmpassword';
 $route['user_profile_details'] = 'user/profile_deatails';
-$route['submit_profile_details'] = 'user/submit_profile_details';
+$route['update_profile'] = 'user/update_profile';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

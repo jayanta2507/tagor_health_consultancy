@@ -26,6 +26,7 @@ class User extends CI_Controller {
 	}
 
 
+
 	public function submit_login(){
 
 		//set validation rules
@@ -64,6 +65,12 @@ class User extends CI_Controller {
 
         }
 	}
+
+
+    public function user_logout(){
+        $this->session->unset_userdata('user_id'); 
+        redirect('index.php/user_login');
+    }
 
 	public function submit_registration(){
 		
@@ -171,56 +178,81 @@ class User extends CI_Controller {
     }
 
 
-	public function submit_profile_details(){
-        $this->load->view('User/profile_deatails');}
+	public function update_profile(){
+
+        //set validation rules
+        $this->form_validation->set_rules('user_name', 'Name', 'trim|required|min_length[3]|max_length[30]');
+        $this->form_validation->set_rules('phone', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
+
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->profile_deatails();
+        }
+        else
+        {
+
+        }
+
+    }
+
 		  
     public function user_dashboard(){
 
-        $user_id = $this->session->flashdata('user_id');
+        $user_id     = $this->session->flashdata('user_id');
 
+        //$data  = array('active_text' => "dasboard");
 
-        //echo $user_id;
+        $data['active_text'] = "dashboard";
 
-        //die;
-
-        //if (!empty($user_id)) {
-            $this->load->view('common/header');
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
             $this->load->view('User/dashboard');
             $this->load->view('common/footer');
-        // }else{
-            // redirect('index.php/user_login');
-        //}
-        
-    }
-
-
-    public function user_logout(){
-        //$this->session->unset_userdata('user_id'); 
-        redirect('index.php/user_login');
-    }
-
-    public function doctor_list(){
-        $user_id = $this->session->flashdata('user_id');
-        //echo $user_id;
-
-        //die;
-        $this->load->view('common/header');
-        $this->load->view('doctors/doctor');
-        $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_login');
+        }  
     }
 
 
     public function profile_deatails(){
-        $user_id  = $this->session->flashdata('user_id');
-        //echo $user_id;
-        //die;
-        //$userData = $this->user_model->get_user_details($data);
-        
-        $this->load->view('common/header');
-        $this->load->view('User/profile_details');
-        $this->load->view('common/footer');
+        $user_id              = $this->session->flashdata('user_id');
+
+        if (!empty($user_id)) {
+
+            $data['prfile_data']  = $this->user_model->get_profile_details($user_id);
+            $data['active_text']  = "profile";
+
+
+            $this->load->view('common/header',$data);
+            $this->load->view('User/profile_details');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_login');
+        }
     }
-     public function oxygen_list(){
+    
+
+    public function doctor_list(){
+        $user_id             = $this->session->flashdata('user_id');
+
+        $data['active_text'] = "doctor";
+        
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
+            $this->load->view('doctors/doctor');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_login');
+        }
+    }
+
+
+    
+
+
+    public function oxygen_list(){
         $user_id  = $this->session->flashdata('user_id');
         //echo $user_id;
         //die;

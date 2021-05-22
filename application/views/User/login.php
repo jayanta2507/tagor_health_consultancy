@@ -68,7 +68,7 @@
         <?php echo $this->session->flashdata('msg'); ?>
         
         <h2>Sign Up</h2>
-        <form action="<?php echo base_url(); ?>index.php/submit_registration" method="post"> -->
+        <form action="<?php echo base_url(); ?>index.php/submit_registration" method="post">
           <label>
             <span>Name</span>
             <input type="text" name="name">
