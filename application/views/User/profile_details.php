@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-
+            <span><?php echo $this->session->flashdata('msg'); ?></span>
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
@@ -98,11 +98,11 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Edit Profile</a></li>
+                  <li class="nav-item"><a class="nav-link">Edit Profile</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <div class="tab-content">
+                <div class="tab-contenthh">
                   
                   <div class="tab-pane" id="settings">
                     <form class="form-horizontal" action="<?php echo base_url(); ?>index.php/update_profile" method="post">
@@ -117,7 +117,7 @@
                       <div class="form-group row">
                         <label for="dob" class="col-sm-2 col-form-label">Date Of Birth</label>
                         <div class="col-sm-10">
-                          <input type="date" class="form-control" id="dob" placeholder="Date Of Birth">
+                          <input type="date" class="form-control" name="dob" id="dob" placeholder="Date Of Birth" value="<?php echo $prfile_data['dob'] ?>">
                         </div>
                       </div>
                        
@@ -150,10 +150,19 @@
                            <span class="text-danger"><?php echo form_error('city'); ?></span>
                         </div>
                       </div>
+
+                      <div class="form-group row">
+                        <label for="City" class="col-sm-2 col-form-label">State</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="state" name="state" placeholder="State" value="<?php echo $prfile_data['state'] ?>">
+                           <span class="text-danger"><?php echo form_error('state'); ?></span>
+                        </div>
+                      </div>
+
                       <div class="form-group row">
                         <label for="Country" class="col-sm-2 col-form-label">Country</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Country" placeholder="Country" value="<?php echo $prfile_data['country'] ?>">
+                          <input type="text" class="form-control" name="country" id="Country" placeholder="Country" value="<?php echo $prfile_data['country'] ?>">
                            <span class="text-danger"><?php echo form_error('country'); ?></span>
                         </div>
                       </div>
@@ -173,17 +182,21 @@
                        <div class="form-group row">
                         <label for="Gender" class="col-sm-2 col-form-label">Gender</label>
                         <div class="col-sm-10">
-                          <input type="radio" id="male" name="gender" value="male">
+
+                          <input type="radio" id="male" name="gender" value="male"  <?php echo ($prfile_data['gender']=='male')?'checked':'' ?>>
                           <label for="male">Male</label>
-                          <input type="radio" id="female" name="gender" value="female">
+
+                          <input type="radio" id="female" name="gender" value="female"  <?php echo ($prfile_data['gender']=='female')?'checked':'' ?>>
                           <label for="female">Female</label>
-                          <input type="radio" id="other" name="gender" value="other">
+
+                          <input type="radio" id="other" name="gender" value="other"  <?php echo ($prfile_data['gender']=='other')?'checked':'' ?>>
                           <label for="other">Other</label>
+
                         </div>
                       </div>                    
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                          <button type="submit" class="btn btn-danger">Update</button>
                         </div>
                       </div>
                     </form>

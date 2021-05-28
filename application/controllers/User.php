@@ -183,12 +183,14 @@ class User extends CI_Controller {
         //set validation rules
         $this->form_validation->set_rules('user_name', 'Name', 'trim|required|min_length[3]|max_length[30]');
         $this->form_validation->set_rules('phone', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
-         $this->form_validation->set_rules('address', 'Address', 'trim|required|min_length[3]|max_length[30]');
-        $this->form_validation->set_rules('pincode', 'Pincode', 'trim|required|min_length[10]|max_length[30]');
-         $this->form_validation->set_rules('city', 'City', 'trim|required|min_length[3]|max_length[30]');
-        $this->form_validation->set_rules('country', 'Country', 'trim|required|min_length[10]|max_length[30]');
-         $this->form_validation->set_rules('bloodgr', 'Blood Group', 'trim|required|min_length[3]|max_length[30]');
-        $this->form_validation->set_rules('gender', 'Gender', 'trim|required|min_length[10]|max_length[30]');
+        //$this->form_validation->set_rules('dob', 'date of birth', 'required|date_valid');
+        $this->form_validation->set_rules('address', 'Address', 'trim|required');
+        $this->form_validation->set_rules('pincode', 'Pincode', 'trim|required');
+        $this->form_validation->set_rules('city', 'City', 'trim|required');
+        $this->form_validation->set_rules('state', 'State', 'trim|required');
+        $this->form_validation->set_rules('country', 'Country', 'trim|required');
+        $this->form_validation->set_rules('bloodgr', 'Blood Group', 'trim|required');
+        //$this->form_validation->set_rules('gender', 'Gender', 'trim|required|min_length[10]|max_length[30]');
 
 
 
@@ -200,8 +202,43 @@ class User extends CI_Controller {
         else
         {
 
+            $data = array(
+                'name' => $this->input->post('user_name'),
+                'phone' => $this->input->post('phone'),
+                'dob' => date('Y-m-d', strtotime($this->input->post('dob'))) ,
+                'address' => $this->input->post('address'),
+                'pincode' => $this->input->post('pincode'),
+                'city' => $this->input->post('city'),
+                'state' => $this->input->post('state'),
+                'country' => $this->input->post('country'),
+                'blood_group' => $this->input->post('bloodgr'),
+                'gender' => $this->input->post('gender')
+            );
+
+            $updateUserData = $this->user_model->update_user_profile($data);
+
+
+            if ($updateUserData)
+            {
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Successfully update user profile!</div>');
+                $this->profile_deatails();
+            }
+            else
+            {
+                // error
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                $this->profile_deatails();
+            }
         }
 
+    }
+
+
+    function callback_date_valid($date){
+        $day = (int) substr($date, 0, 2);
+        $month = (int) substr($date, 3, 2);
+        $year = (int) substr($date, 6, 4);
+        return checkdate($month, $day, $year);
     }
 
 		  

@@ -33,6 +33,20 @@ class User_model extends CI_Model {
                 return  $query->row_array();
         }
 
+
+        public function update_user_profile($data){
+
+                $user_id     = $this->session->flashdata('user_id');
+
+                $this->db->set($data);
+                $this->db->where('id', $user_id);
+                $update = $this->db->update('users');
+
+                return $update;
+
+                //"update users set name='Jayanta', phone='9878646464',  where id=1";
+        }
+
 }
 
 ?>
