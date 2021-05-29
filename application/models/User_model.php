@@ -47,6 +47,17 @@ class User_model extends CI_Model {
                 //"update users set name='Jayanta', phone='9878646464',  where id=1";
         }
 
+        public function save_upload($image){
+
+                $user_id     = $this->session->flashdata('user_id');
+
+                $this->db->set('image', $image);
+                $this->db->where('id', $user_id);
+                $update = $this->db->update('users');
+
+                return $update;
+        }
+
 }
 
 ?>

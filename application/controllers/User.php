@@ -306,5 +306,36 @@ class User extends CI_Controller {
         $this->load->view('oxygens/oxygen');
         $this->load->view('common/footer');
     }
+
+
+    public function upload_image() {  
+
+
+
+        if(isset($_FILES["image_file"]))  
+        {  
+
+            //echo "string";
+            $config['upload_path']   = './assests/user_images';  
+            $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+
+            $this->load->library('upload', $config);
+
+            if(!$this->upload->do_upload('image_file'))  
+            {  
+                echo $this->upload->display_errors();  
+            }  
+            else  
+            {  
+                $data  = array('upload_data' => $this->upload->data());
+
+                $image = $data['upload_data']['file_name']; 
+
+                $result= $this->user_model->save_upload($image);
+
+                echo '<img src="'.base_url().'assets/user_images/'.$image.'" width="300" height="225" class="img-thumbnail" />';  
+            }  
+        }  
+    } 
 }
 

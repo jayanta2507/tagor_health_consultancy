@@ -1,10 +1,10 @@
  <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
-  </footer>
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.1.0
+      </div>
+    </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -47,6 +47,47 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assests/theme/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url(); ?>assests/theme/dist/js/pages/dashboard.js"></script>
+<script src="<?php echo base_url(); ?>assests/theme/dist/js/pages/dashboard.js"></script>.
+
+
+<!-- Upload Image from profile details Page -->
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $('#button').click(function(){
+           $("input[type='file']").trigger('click');
+        })
+
+        $("input[type='file']").change(function(){
+           $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
+        })   
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+      //alert("hello");
+        $('#submit').submit(function(e){   
+
+            e.preventDefault(); 
+
+            $.ajax({
+              url:'<?php echo base_url(); ?>index.php/upload_image',
+              type:"post",
+              data:new FormData(this),
+              processData:false,
+              contentType:false,
+              cache:false,
+              async:false,
+              success: function(data){
+                $('#image_id').html(data); 
+                //alert(data);
+              }
+            });
+        });
+    });
+</script>
+
+
 </body>
 </html>
