@@ -52,6 +52,7 @@ class User extends CI_Controller {
             {
                 $userData = $this->user_model->get_user_details($data);
                 $this->session->set_flashdata('user_id', $userData['id']);
+                $this->session->set_flashdata('user_type', $userData['type']);
                  
                 redirect('index.php/user_dashboard');
             }
@@ -249,6 +250,7 @@ class User extends CI_Controller {
         //$data  = array('active_text' => "dasboard");
 
         $data['active_text'] = "dashboard";
+        $data['user_type']   = $this->session->flashdata('user_type');
 
         if (!empty($user_id)) {
             $this->load->view('common/header',$data);
@@ -310,12 +312,9 @@ class User extends CI_Controller {
 
     public function upload_image() {  
 
-
-
         if(isset($_FILES["image_file"]))  
         {  
 
-            //echo "string";
             $config['upload_path']   = './assests/user_images';  
             $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
 

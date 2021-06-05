@@ -76,3 +76,7 @@ $route['bed_list']    	 = 'user/bed_list';
 $route['oxygen_list']    = 'user/oxygen_list';
 
 $route['upload_image']   = 'user/upload_image';
+
+
+
+$route['admin_doctor_list']    = 'admin/admin_doctor_list';

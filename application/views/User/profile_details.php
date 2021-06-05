@@ -36,7 +36,6 @@
                       <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url(); ?>assests/user_images/<?php echo $prfile_data['image'] ?>"  alt="User profile picture">
                     </span>
                     
-
                     <input type='file' name="image_file" />
 
                     <span id='val'></span>
