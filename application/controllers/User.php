@@ -284,6 +284,7 @@ class User extends CI_Controller {
         $user_id             = $this->session->flashdata('user_id');
 
         $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
         
         if (!empty($user_id)) {
             $this->load->view('common/header',$data);
