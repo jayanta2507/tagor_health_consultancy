@@ -23,7 +23,7 @@
         <form action="<?php echo base_url(); ?>index.php/submit_login" method="post">
           <label>
             <span>EMAIL ID</span>
-            <input type="text" name="email" >
+            <input type="email" name="email" >
             <span class="text-danger"><?php echo form_error('email'); ?></span>
           </label>
           <label>

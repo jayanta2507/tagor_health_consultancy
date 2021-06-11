@@ -17,30 +17,38 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <b>Super Admin</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="../../index3.html" method="post">
+      <span style="color: red"><?php echo $this->session->flashdata('msg'); ?></span>
+
+      <form action="<?php echo base_url(); ?>index.php/submit_adminlogin" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email" name="admin_email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
+          
         </div>
+        <span class="text-danger"><?php echo form_error('admin_email'); ?></span>
+
+
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" name="admin_password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+
+        <span class="text-danger"><?php echo form_error('admin_password'); ?></span>
        
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
