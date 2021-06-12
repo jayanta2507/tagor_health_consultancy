@@ -17,6 +17,11 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->row_array();
     }
+
+
+    public function createDoctor($data){
+        return $this->db->insert('doctors', $data);
+    }
 }
 
 ?>

@@ -245,14 +245,14 @@ class User extends CI_Controller {
 		  
     public function user_dashboard(){
 
-        $user_id     = $this->session->flashdata('user_id');
+        $user_type     = $this->session->flashdata('user_type');
 
         //$data  = array('active_text' => "dasboard");
 
         $data['active_text'] = "dashboard";
         $data['user_type']   = $this->session->flashdata('user_type');
 
-        if (!empty($user_id)) {
+        if ($user_type==0) {
             $this->load->view('common/header',$data);
             $this->load->view('User/dashboard');
             $this->load->view('common/footer');

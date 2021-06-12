@@ -70,12 +70,12 @@ class Admin extends CI_Controller {
 
     public function admin_dashboard(){
 
-        $user_id     = $this->session->flashdata('user_id');
+        $user_type     = $this->session->flashdata('user_type');
 
         $data['active_text'] = "dashboard";
         $data['user_type']   = $this->session->flashdata('user_type');
 
-        if (!empty($user_id)) {
+        if ($user_type==1) {
             $this->load->view('common/header',$data);
             $this->load->view('Admin/admin_dashboard');
             $this->load->view('common/footer');
@@ -84,6 +84,113 @@ class Admin extends CI_Controller {
         }  
 
     }
+
+
+    public function admin_doctor_list(){
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/doctor/admin_doctor_list');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+    public function admin_doctor_add(){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/doctor/admin_doctor_add');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+
+    public function admin_doctor_submit(){
+
+
+        //set validation rules
+        $this->form_validation->set_rules('doctor_name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('specialist', 'Specialist', 'trim|required');
+        $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email');
+        $this->form_validation->set_rules('phone', 'Phone', 'trim|required|min_length[10]|max_length[30]');
+        $this->form_validation->set_rules('registration_id', 'Registration Id', 'trim|required');
+        $this->form_validation->set_rules('image', 'Image', 'trim|required');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->admin_doctor_add();
+        }else{
+
+            if(isset($_FILES["image"]))  
+            {  
+
+                $config['upload_path']   = './assests/doctor_image';  
+                $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+
+                $this->load->library('upload', $config);
+
+                if(!$this->upload->do_upload('image'))  
+                {  
+                    echo $this->upload->display_errors();  
+                }  
+                else  
+                {  
+                    $data  = array('upload_data' => $this->upload->data());
+
+                    $image = $data['upload_data']['file_name'];                     
+                }  
+            }else{
+                $image = "";
+            }  
+
+
+            $data = array(
+                'name'              => $this->input->post('doctor_name'),
+                'specialist'        => $this->input->post('specialist'),
+                'email'             => $this->input->post('email'),
+                'phone'             => $this->input->post('phone'),
+                'registration_id'   => $this->input->post('registration_id'),
+                'image'             => $image,
+                'status'            => $this->input->post('status'),
+            );
+
+
+            $createDoctor = $this->admin_model->createDoctor($data);
+
+            if ($createDoctor) {
+                 // error
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Doctor successfully added</div>');
+                redirect('index.php/admin_doctor_list');
+            }else{
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                redirect('index.php/admin_doctor_add');
+            }
+
+        }
+
+    }
+
+
+    
 
 
 
