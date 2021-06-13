@@ -84,3 +84,5 @@ $route['admin_dashboard']      = 'admin/admin_dashboard';
 $route['admin_doctor_list']    = 'admin/admin_doctor_list';
 $route['admin_doctor_add']     = 'admin/admin_doctor_add';
 $route['admin_doctor_submit']  = 'admin/admin_doctor_submit';
+$route['admin_blood_list']     = 'admin/admin_blood_list';
+$route['admin_blood_submit']  = 'admin/admin_blood_submit';

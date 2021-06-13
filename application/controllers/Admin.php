@@ -86,7 +86,24 @@ class Admin extends CI_Controller {
     }
 
 
-    public function admin_doctor_list(){
+    public function admin_blood_list(){
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "blood";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/blood/admin_blood_list');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+     public function admin_doctor_list(){
 
         $user_type     = $this->session->flashdata('user_type');
 
@@ -102,6 +119,7 @@ class Admin extends CI_Controller {
         }  
 
     }
+
 
     public function admin_doctor_add(){
 
