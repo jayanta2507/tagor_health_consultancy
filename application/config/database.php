@@ -74,10 +74,10 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn'	   => '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => 'user123',
+	'password' => '',
 	'database' => 'tagor_consultancy',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
