@@ -65,14 +65,14 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"></a>
         </div>
-      </div>
+      </div> -->
 
       <!-- SidebarSearch Form -->
      <!--  <div class="form-inline">
@@ -92,117 +92,133 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="<?php echo base_url(); ?>index.php/user_dashboard" class="nav-link active">
+            <a href="<?php echo base_url(); ?>index.php/user_dashboard" class="nav-link <?php echo ($active_text=='dashboard')?'active':'' ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Dashboard  
               </p>
             </a>
-           </li>
+          </li>
 
-             <li class="nav-item menu-open">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/user_profile_details" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Profile Detials
-              </p>
-            </a>
+
+          <?php if($user_type==0){ ?>
+            <li class="nav-item menu-open">
+               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <a href="<?php echo base_url(); ?>index.php/user_profile_details" class="nav-link <?php echo ($active_text=='profile')?'active':'' ?>">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Profile Detials
+                </p>
+              </a>
+            </li>
+          <?php } ?>
+
+          <?php if($user_type==0){ ?>
+
+            <li class="nav-item menu-open">
+               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link <?php echo ($active_text=='doctor')?'active':'' ?>">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Doctor
+                </p>
+              </a>
+            </li>            
+
+          <?php } ?>
+
+
+          <?php if($user_type==1){ ?>
+
+            <li class="nav-item menu-open">
+               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <a href="<?php echo base_url(); ?>index.php/admin_doctor_list" class="nav-link <?php echo ($active_text=='doctor')?'active':'' ?>">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Doctor List
+                </p>
+              </a>
+            </li>            
+
+          <?php } ?>
+          
 
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
+            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link <?php echo ($active_text=='Blood')?'active':'' ?>"> 
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Blood
               </p>
             </a>
+          </li>
 
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link <?php echo ($active_text=='Bed')?'active':'' ?>">
+              <i class="nav-icon fas fa-bed"></i>
               <p>
                 Bed
               </p>
             </a>
+          </li>
 
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
+            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link<?php echo ($active_text=='Vaccination')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Vaccination
               </p>
             </a>
-          
+          </li>
+                    
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
+            <a href="<?php echo base_url(); ?>index.php/oxygen_list" class="nav-link<?php echo ($active_text=='Oxygen')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Doctor
+                Oxygen
               </p>
             </a>
+          </li>
           
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Oxigen
-              </p>
-            </a>
-          
-
-          <li class="nav-item menu-open">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Health Camp
-              </p>
-            </a>
-          
-
-          <li class="nav-item menu-open">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
+             <a href="<?php echo base_url(); ?>index.php/oxygen_list" class="nav-link <?php echo ($active_text=='Services')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Services
               </p>
             </a>
+          </li>
           
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
+            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link  <?php echo ($active_text=='Team')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Team
               </p>
             </a>
+          </li>
           
           
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link">
+            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link  <?php echo ($active_text=='Outcome')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Outcome
               </p>
-            </a>
-          
-          
-         
-          
+            </a>      
           </li>
         </ul>
       </nav>

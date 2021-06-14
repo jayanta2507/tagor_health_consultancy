@@ -23,7 +23,7 @@
         <form action="<?php echo base_url(); ?>index.php/submit_login" method="post">
           <label>
             <span>EMAIL ID</span>
-            <input type="text" name="email" >
+            <input type="email" name="email" >
             <span class="text-danger"><?php echo form_error('email'); ?></span>
           </label>
           <label>
@@ -68,7 +68,7 @@
         <?php echo $this->session->flashdata('msg'); ?>
         
         <h2>Sign Up</h2>
-        <form action="<?php echo base_url(); ?>index.php/submit_registration" method="post"> -->
+        <form action="<?php echo base_url(); ?>index.php/submit_registration" method="post">
           <label>
             <span>Name</span>
             <input type="text" name="name">
