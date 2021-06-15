@@ -279,11 +279,11 @@ class Admin extends CI_Controller {
              
 
 
-            $createDoctor = $this->admin_model->createBed($data);
+            $createBlood = $this->admin_model->createBlood($data);
 
-            if ($createBed) {
+            if ($createBlood) {
                  // error
-                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Beds successfully added</div>');
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Blood successfully added</div>');
                 redirect('index.php/admin_blood_list');
             }else{
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
@@ -385,7 +385,7 @@ class Admin extends CI_Controller {
             );
 
 
-            $createDoctor = $this->admin_model->createBed($data);
+            $createBed = $this->admin_model->createBed($data);
 
             if ($createBed) {
                  // error
