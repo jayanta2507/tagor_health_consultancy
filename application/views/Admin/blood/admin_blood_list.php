@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Doctors</h1>
+            <h1>Blood</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Doctors</li>
+              <li class="breadcrumb-item active">Blood</li>
             </ol>
           </div>
         </div>
@@ -23,7 +23,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Doctors</h3>
+          <h3 class="card-title">Blood</h3>
 
           <div class="card-tools">
             <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -32,7 +32,7 @@
             <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
               <i class="fas fa-times"></i>
             </button> -->
-            <a href="<?php echo base_url(); ?>index.php/admin_doctor_add">
+            <a href="<?php echo base_url(); ?>index.php/admin_blood_add">
               <button type="button" class="btn btn-success" title="Add">
               <i class="fas fa-plus"></i>  Add
             </button>
@@ -50,23 +50,15 @@
                           #
                       </th>
                       <th style="width: 12%">
-                          Doctor Name
+                          Blood Gr
                       </th>
                       <th style="width: 12%">
-                          Specialist
+                          Rent
                       </th>
                       <th style="width: 12%">
-                          Email
+                          Views
                       </th>
-                      <th style="width: 12%">
-                          Phone
-                      </th>
-                      <th style="width: 12%">
-                          Registration ID
-                      </th>
-                      <th style="width: 12%">
-                          Image
-                      </th>
+                     
                       <th style="width: 7%" class="text-center">
                           Status
                       </th>

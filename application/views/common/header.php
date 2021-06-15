@@ -91,6 +91,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                <?php if($user_type==0){ ?>
           <li class="nav-item menu-open">
             <a href="<?php echo base_url(); ?>index.php/user_dashboard" class="nav-link <?php echo ($active_text=='dashboard')?'active':'' ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -99,6 +100,18 @@
               </p>
             </a>
           </li>
+          <?php } ?>
+
+         <?php if($user_type==1){ ?>
+          <li class="nav-item menu-open">
+            <a href="<?php echo base_url(); ?>index.php/user_dashboard" class="nav-link <?php echo ($active_text=='dashboard')?'active':'' ?>">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard  
+              </p>
+            </a>
+          </li>
+          <?php } ?>
 
 
           <?php if($user_type==0){ ?>
@@ -142,17 +155,33 @@
 
           <?php } ?>
           
-        
+         <?php if($user_type==0){ ?>
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link <?php echo ($active_text=='Blood')?'active':'' ?>"> 
+            <a href="<?php echo base_url(); ?>index.php/blood_list" class="nav-link <?php echo ($active_text=='blood')?'active':'' ?>"> 
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Blood
               </p>
             </a>
           </li>
+               <?php } ?>
+
+
+          <?php if($user_type==1){ ?>
+
+            <li class="nav-item menu-open">
+               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <a href="<?php echo base_url(); ?>index.php/admin_blood_list" class="nav-link <?php echo ($active_text=='blood')?'active':'' ?>">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Blood List
+                </p>
+              </a>
+            </li>            
+
+          <?php } ?>
 
         <?php if($user_type==0){ ?>
 
