@@ -375,7 +375,7 @@ class Admin extends CI_Controller {
 
 
             $data = array(
-                'Id'                    => $this->input->post('bed_no'),
+                'bed_no'                    => $this->input->post('bed_no'),
                 'bed_types'             => $this->input->post('bed_types'),
                 'Rent'                  => $this->input->post('Rent'),
                 'hospital_name'         => $this->input->post('hospital_name'),
@@ -394,6 +394,107 @@ class Admin extends CI_Controller {
             }else{
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
                 redirect('index.php/admin_bed_add');
+            }
+
+        }
+
+    }
+
+
+    public function admin_oxygen_list(){
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "Oxygen";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/oxygen/admin_oxygen_list');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+
+    public function admin_oxygen_add(){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "oxygen";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/oxygen/admin_oxygen_add');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+
+    public function admin_oxygen_submit(){
+
+
+        //set validation rules
+        $this->form_validation->set_rules('id', 'Id', 'trim|required');
+        $this->form_validation->set_rules('oxygen_type','Types_Oxygen', 'trim|required');
+        $this->form_validation->set_rules('oxygen_refilling', 'Refilling', 'trim|required|');
+        $this->form_validation->set_rules('rent', 'Rents', 'trim|required|');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->admin_doctor_add();
+        }else{
+
+            if(isset($_FILES["image"]))  
+            {  
+
+                $config['upload_path']   = './assests/doctor_image';  
+                $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+
+                $this->load->library('upload', $config);
+
+                if(!$this->upload->do_upload('image'))  
+                {  
+                    echo $this->upload->display_errors();  
+                }  
+                else  
+                {  
+                    $data  = array('upload_data' => $this->upload->data());
+
+                    $image = $data['upload_data']['file_name'];                     
+                }  
+            }else{
+                $image = "";
+            }  
+
+
+            $data = array(
+                'id'                    => $this->input->post('id'),
+                'oxygen_type'           => $this->input->post('oxygen_type'),
+                'oxygen_refilling'      => $this->input->post('oxygen_refilling'),
+                'rent'                  => $this->input->post('rent'),
+                'status'                => $this->input->post('status'),
+            );
+
+
+            $createOxygen = $this->admin_model->createOxygen($data);
+
+            if ($createOxygen) {
+                 // error
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Oxygen successfully added</div>');
+                redirect('index.php/admin_oxygen_list');
+            }else{
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                redirect('index.php/admin_oxygen_add');
             }
 
         }

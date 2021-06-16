@@ -28,7 +28,11 @@ class Admin_model extends CI_Model {
     }
 
     public function createBed($data){
-        return $this->db->insert('beds', $data);
+        return $this->db->insert('bed', $data);
+    }
+
+    public function createOxygen($data){
+        return $this->db->insert('oxygen', $data);
     }
 }
 
