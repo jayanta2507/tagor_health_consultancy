@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -212,7 +212,7 @@
 
           <?php } ?>
 
- <?php if($user_type==0){ ?>
+          <?php if($user_type==0){ ?>
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -240,6 +240,7 @@
           </li>
 
 <?php } ?>
+
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link<?php echo ($active_text=='Vaccination')?'active':'' ?>">
@@ -250,6 +251,8 @@
             </a>
           </li>
                     
+
+          
           
 
           <li class="nav-item menu-open">
