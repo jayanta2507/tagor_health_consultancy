@@ -22,6 +22,14 @@ class Admin_model extends CI_Model {
     public function createDoctor($data){
         return $this->db->insert('doctors', $data);
     }
+
+    public function createBlood($data){
+        return $this->db->insert('blood', $data);
+    }
+
+    public function createBed($data){
+        return $this->db->insert('beds', $data);
+    }
 }
 
 ?>
