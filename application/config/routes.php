@@ -92,3 +92,6 @@ $route['admin_bed_submit']     = 'admin/admin_bed_submit';
 $route['admin_oxygen_list']    = 'admin/admin_oxygen_list';
 $route['admin_oxygen_add']     = 'admin/admin_oxygen_add';
 $route['admin_oxygen_submit']  = 'admin/admin_oxygen_submit';
+$route['admin_vaccine_submit'] = 'admin/admin_vaccine_submit';
+$route['admin_vaccine_list']   = 'admin/admin_vaccine_list';
+$route['admin_vaccine_add']    = 'admin/admin_vaccine_add';

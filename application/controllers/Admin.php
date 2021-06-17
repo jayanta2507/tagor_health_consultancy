@@ -501,10 +501,116 @@ class Admin extends CI_Controller {
 
     }
 
+public function admin_vaccine_list(){
 
-    
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "Vaccine";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/vaccine/admin_vaccine_list');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+
+    public function admin_vaccine_add(){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "vaccine";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/vaccine/admin_vaccine_add');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+
+    public function admin_vaccine_submit(){
+
+
+        //set validation rules
+        $this->form_validation->set_rules('vaccine_name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('vaccine_types','Types', 'trim|required');
+        $this->form_validation->set_rules('dose_date', 'Date', 'trim|required|');
+        $this->form_validation->set_rules('center', 'Center', 'trim|required|');
+        $this->form_validation->set_rules('price', 'Price', 'trim|required');
+        $this->form_validation->set_rules('phone_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
+        $this->form_validation->set_rules('email_id', 'Email', 'trim|required');
+        $this->form_validation->set_rules('gender', 'Gender', 'trim|required');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->admin_vaccine_add();
+        }else{
+
+            if(isset($_FILES["image"]))  
+            {  
+
+                $config['upload_path']   = './assests/doctor_image';  
+                $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+
+                $this->load->library('upload', $config);
+
+                if(!$this->upload->do_upload('image'))  
+                {  
+                    echo $this->upload->display_errors();  
+                }  
+                else  
+                {  
+                    $data  = array('upload_data' => $this->upload->data());
+
+                    $image = $data['upload_data']['file_name'];                     
+                }  
+            }else{
+                $image = "";
+            }  
+
+
+            $data = array(
+                'vaccine_name'            => $this->input->post('vaccine_name'),
+                'vaccine_types'           => $this->input->post('vaccine_types'),
+                'dose_date'               => $this->input->post('dose_date'),
+                'center'                  => $this->input->post('center'),
+                'price'                   => $this->input->post('price'),
+                'phone_no'                => $this->input->post('phone_no'),
+                'email_id'                => $this->input->post('email_id'),
+                'gender'                  => $this->input->post('gender'),
+                'status'                  => $this->input->post('status'),
+            );
+
+
+            $createVaccine = $this->admin_model->createVaccine($data);
+
+            if ($createVaccine) {
+                 // error
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Vaccine successfully added</div>');
+                redirect('index.php/admin_vaccine_list');
+            }else{
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                redirect('index.php/admin_vaccine_add');
+            }
+
+        }
+
+    }
+
 
 
 
 }
-
