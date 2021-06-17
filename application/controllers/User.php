@@ -26,6 +26,7 @@ class User extends CI_Controller {
 	}
 
 
+
 	public function submit_login(){
 
 		//set validation rules
@@ -51,6 +52,7 @@ class User extends CI_Controller {
             {
                 $userData = $this->user_model->get_user_details($data);
                 $this->session->set_flashdata('user_id', $userData['id']);
+                $this->session->set_flashdata('user_type', $userData['type']);
                  
                 redirect('index.php/user_dashboard');
             }
@@ -64,6 +66,12 @@ class User extends CI_Controller {
 
         }
 	}
+
+
+    public function user_logout(){
+        $this->session->unset_userdata('user_id'); 
+        redirect('index.php/user_login');
+    }
 
 	public function submit_registration(){
 		
@@ -126,58 +134,208 @@ class User extends CI_Controller {
 		$this->load->view('User/home');
 	}
 
+    public function confirmpassword(){
+        $this->load->view('User/confirmpassword');
+    }
 
+
+    public function submit_confirmpassword(){
+        $this->load->view('User/confirmpassword');
+    }
 	public function forgotpassword(){
 		$this->load->view('User/forgotpassword');
 	}
 
 
 	public function submit_forgotpassword(){
-		$this->load->view('User/forgotpassword');
-	}
+		$this->form_validation->set_rules('emailid', 'Email ID', 'trim|required|valid_email');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->forgotpassword();
+
+        }else{
+
+            /*$data = array(
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post('password')
+            );
 
 
-	public function profile_details(){
-		$this->load->view('User/profile_details');
-	}
+            if ($this->user_model->loginUser($data))
+            {
+                $userData = $this->user_model->get_user_details($data);
+                $this->session->set_flashdata('user_id', $userData['id']);
+                 
+                redirect('index.php/user_dashboard');
+            }
+            else
+            {
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You are not a valid user!</div>');
+                redirect('index.php/user_login');
+            }*/
+        }
+    }
 
 
-	public function submit_profile_details(){
-		$this->load->view('User/profile_details');
-	}
+	public function update_profile(){
 
+        //set validation rules
+        $this->form_validation->set_rules('user_name', 'Name', 'trim|required|min_length[3]|max_length[30]');
+        $this->form_validation->set_rules('phone', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
+        //$this->form_validation->set_rules('dob', 'date of birth', 'required|date_valid');
+        $this->form_validation->set_rules('address', 'Address', 'trim|required');
+        $this->form_validation->set_rules('pincode', 'Pincode', 'trim|required');
+        $this->form_validation->set_rules('city', 'City', 'trim|required');
+        $this->form_validation->set_rules('state', 'State', 'trim|required');
+        $this->form_validation->set_rules('country', 'Country', 'trim|required');
+        $this->form_validation->set_rules('bloodgr', 'Blood Group', 'trim|required');
+        //$this->form_validation->set_rules('gender', 'Gender', 'trim|required|min_length[10]|max_length[30]');
+
+
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->profile_deatails();
+        }
+        else
+        {
+
+            $data = array(
+                'name' => $this->input->post('user_name'),
+                'phone' => $this->input->post('phone'),
+                'dob' => date('Y-m-d', strtotime($this->input->post('dob'))) ,
+                'address' => $this->input->post('address'),
+                'pincode' => $this->input->post('pincode'),
+                'city' => $this->input->post('city'),
+                'state' => $this->input->post('state'),
+                'country' => $this->input->post('country'),
+                'blood_group' => $this->input->post('bloodgr'),
+                'gender' => $this->input->post('gender')
+            );
+
+            $updateUserData = $this->user_model->update_user_profile($data);
+
+
+            if ($updateUserData)
+            {
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Successfully update user profile!</div>');
+                $this->profile_deatails();
+            }
+            else
+            {
+                // error
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                $this->profile_deatails();
+            }
+        }
+
+    }
+
+
+    function callback_date_valid($date){
+        $day = (int) substr($date, 0, 2);
+        $month = (int) substr($date, 3, 2);
+        $year = (int) substr($date, 6, 4);
+        return checkdate($month, $day, $year);
+    }
+
+		  
     public function user_dashboard(){
 
-        $user_id = $this->session->flashdata('user_id');
+        $user_type     = $this->session->flashdata('user_type');
+
+        //$data  = array('active_text' => "dasboard");
+
+        $data['active_text'] = "dashboard";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        if ($user_type==0) {
+            $this->load->view('common/header',$data);
+            $this->load->view('User/dashboard');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_login');
+        }  
+    }
 
 
-        //echo $user_id;
-
-        //die;
+    public function profile_deatails(){
+        $user_id              = $this->session->flashdata('user_id');
 
         if (!empty($user_id)) {
-            $this->load->view('common/header');
-            $this->load->view('User/dasboard');
+
+            $data['prfile_data']  = $this->user_model->get_profile_details($user_id);
+            $data['active_text']  = "profile";
+
+
+            $this->load->view('common/header',$data);
+            $this->load->view('User/profile_details');
             $this->load->view('common/footer');
         }else{
             redirect('index.php/user_login');
         }
-        
     }
-
-
-    public function user_logout(){
-        //$this->session->unset_userdata('user_id'); 
-        redirect('index.php/user_login');
-    }
+    
 
     public function doctor_list(){
-        $user_id = $this->session->flashdata('user_id');
-        //echo $user_id;
+        $user_id             = $this->session->flashdata('user_id');
 
+        $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
+        
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
+            $this->load->view('doctors/doctor');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_login');
+        }
+    }
+
+
+    
+
+
+    public function oxygen_list(){
+        $user_id  = $this->session->flashdata('user_id');
+        //echo $user_id;
         //die;
+        //$userData = $this->user_model->get_user_details($data);
+        
         $this->load->view('common/header');
-        $this->load->view('doctors/doctor');
+        $this->load->view('oxygens/oxygen');
         $this->load->view('common/footer');
     }
+
+
+    public function upload_image() {  
+
+        if(isset($_FILES["image_file"]))  
+        {  
+
+            $config['upload_path']   = './assests/user_images';  
+            $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+
+            $this->load->library('upload', $config);
+
+            if(!$this->upload->do_upload('image_file'))  
+            {  
+                echo $this->upload->display_errors();  
+            }  
+            else  
+            {  
+                $data  = array('upload_data' => $this->upload->data());
+
+                $image = $data['upload_data']['file_name']; 
+
+                $result= $this->user_model->save_upload($image);
+
+                echo '<img src="'.base_url().'assets/user_images/'.$image.'" width="300" height="225" class="img-thumbnail" />';  
+            }  
+        }  
+    } 
 }
+

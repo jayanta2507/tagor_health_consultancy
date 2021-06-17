@@ -36,16 +36,32 @@
         <li class="nav-item">
           <a class="nav-link" href="services.php">Services</a>
         </li>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_login">Registration</a>
-        </li>
-        </li>
-        <li class="nav-item">
+ 
+        <?php 
+          $user_id = $this->session->flashdata('user_id');
+
+          if (!empty($user_id)) { ?>
+
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_dashboard">Dashboard</a>
+            </li>
+
+        <?php } else { ?>
+
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_login">Login</a>
+            </li>
+
+        <?php } ?>
+
+
+
+        
+       
+         <li class="nav-item">
           <a class="nav-link" href="facility.php">Facility</a>
         </li>
-        </li>
-        <li class="nav-item">
+         <li class="nav-item">
           <a class="nav-link" href="contact.php">Contact</a>
         </li>
 

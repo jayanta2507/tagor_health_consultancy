@@ -52,21 +52,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 
 
-$route['user_registration'] = 'user/registration';
-$route['user_login'] = 'user/login';
-$route['submit_login'] = 'user/submit_login';
-$route['submit_home'] = 'user/submit_home';
-$route['submit_registration'] = 'user/submit_registration';
-$route['user_home'] = 'user/home';
-$route['submit_home'] = 'user/submit_home';
-$route['user_forgotpassword'] = 'user/forgotpassword';
-$route['submit_forgotpassword'] = 'user/submit_forgotpassword';
-$route['user_profile_details'] = 'user/profile_details';
-$route['submit_profile_details'] = 'user/submit_profile_details';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['user_registration'] 		= 'user/registration';
+$route['user_login'] 				= 'user/login';
+$route['submit_login'] 				= 'user/submit_login';
+$route['submit_home'] 				= 'user/submit_home';
+$route['submit_registration'] 		= 'user/submit_registration';
+$route['user_home'] 				= 'user/home';
+$route['submit_home'] 				= 'user/submit_home';
+$route['user_forgotpassword'] 		= 'user/forgotpassword';
+$route['submit_forgotpassword'] 	= 'user/submit_forgotpassword';
+$route['user_confirmpassword'] 		= 'user/confirmpassword';
+$route['submit_confirmpassword'] 	= 'user/submit_confirmpassword';
+$route['user_profile_details'] 		= 'user/profile_deatails';
+$route['update_profile'] 			= 'user/update_profile';
+$route['404_override'] 				= '';
+$route['translate_uri_dashes'] 		= FALSE;
+$route['user_dashboard'] 			= 'user/user_dashboard';
+$route['user_logout']    			= 'user/user_logout';
+$route['doctor_list']    			= 'user/doctor_list';
+$route['bed_list']    	 			= 'user/bed_list';
+$route['oxygen_list']    			= 'user/oxygen_list';
+$route['upload_image']   			= 'user/upload_image';
 
 
-$route['user_dashboard'] = 'user/user_dashboard';
-$route['user_logout']    = 'user/user_logout';
-$route['doctor_list']    = 'user/doctor_list';
+
+
+$route['admin_login']          = 'admin/adminlogin';
+$route['submit_adminlogin']    = 'admin/submit_adminlogin';
+$route['admin_dashboard']      = 'admin/admin_dashboard';
+$route['admin_doctor_list']    = 'admin/admin_doctor_list';
+$route['admin_doctor_add']     = 'admin/admin_doctor_add';
+$route['admin_doctor_submit']  = 'admin/admin_doctor_submit';
+$route['admin_blood_list']     = 'admin/admin_blood_list';
+$route['admin_blood_add']      = 'admin/admin_blood_add';
+$route['admin_blood_submit']   = 'admin/admin_blood_submit';
+$route['admin_bed_list']       = 'admin/admin_bed_list';
+$route['admin_bed_add']        = 'admin/admin_bed_add';
+$route['admin_bed_submit']     = 'admin/admin_bed_submit';
+$route['admin_oxygen_list']    = 'admin/admin_oxygen_list';
+$route['admin_oxygen_add']     = 'admin/admin_oxygen_add';
+$route['admin_oxygen_submit']  = 'admin/admin_oxygen_submit';

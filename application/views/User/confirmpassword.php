@@ -11,13 +11,20 @@
       <div class="cont">
         <form action="<?php echo base_url(); ?>index.php/submit_forgotpassword" method="post">
             <label>
-              <span>EMAIL ID</span>
-              <input type="email" name="emailid" autocomplete="false">
+              <span>Password</span>
+              <input type="password" name="password" autocomplete="false">
 
-              <span class="text-danger"><?php echo form_error('emailid'); ?></span>
+              <span class="text-danger"><?php echo form_error('password'); ?></span>
+            </label>
+             <label>
+              <span>Confirm Password</span>
+              <input type="password" name="confirmpassword" autocomplete="false">
+
+              <span class="text-danger"><?php echo form_error('confirmpassword'); ?></span>
             </label>
             <label>
               <button class="submit" type="submit">Confirm</button>
+              <a href ="http://localhost/tagor_health_consultancy/index.php/user_confrimpassword">Confrim ?</a>
             </label>
         </form>
       </div>

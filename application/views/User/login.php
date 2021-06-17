@@ -23,7 +23,7 @@
         <form action="<?php echo base_url(); ?>index.php/submit_login" method="post">
           <label>
             <span>EMAIL ID</span>
-            <input type="text" name="email" >
+            <input type="email" name="email" >
             <span class="text-danger"><?php echo form_error('email'); ?></span>
           </label>
           <label>
@@ -39,7 +39,7 @@
 
       <div class="social-media">
         <ul>
-          <li><img src=  ></li>
+          <li><img src="http://localhost/tagor_health_consultancy/public/images/facebook.png"></li>
           <li><img src="http://localhost/tagor_health_consultancy/public/images/twitter.png"></li>
           <li><img src="http://localhost/tagor_health_consultancy/public/images/linkedin.png"></li>
           <li><img src="http://localhost/tagor_health_consultancy/public/images/instagram.png"></li>
