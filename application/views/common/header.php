@@ -166,7 +166,7 @@
               </p>
             </a>
           </li>
-               <?php } ?>
+          <?php } ?>
 
 
           
@@ -199,7 +199,7 @@
           <?php } ?>
 
 
- <?php if($user_type==1){ ?>
+          <?php if($user_type==1){ ?>
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -217,7 +217,7 @@
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/admin_oxygen_list" class="nav-link<?php echo ($active_text=='Oxygen')?'active':'' ?>">
+            <a href="<?php echo base_url(); ?>index.php/admin_oxygen_list" class="nav-link <?php echo ($active_text=='Oxygen')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Oxygen
@@ -225,14 +225,14 @@
             </a>
           </li>
 
-<?php } ?>
+          <?php } ?>
 
 
-<?php if($user_type==1){ ?>
+          <?php if($user_type==1){ ?>
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/admin_oxygen_list" class="nav-link<?php echo ($active_text=='Oxygen')?'active':'' ?>">
+              <a href="<?php echo base_url(); ?>index.php/admin_oxygen_list" class="nav-link <?php echo ($active_text=='Oxygen')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Oxygen List
@@ -240,13 +240,13 @@
             </a>
           </li>
 
-<?php } ?>
+          <?php } ?>
 
- <?php if($user_type==0){ ?>
+        <?php if($user_type==0){ ?>
 
           <li class="nav-item menu-open">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <a href="<?php echo base_url(); ?>index.php/admin_vaccine_list" class="nav-link<?php echo ($active_text=='Vaccine')?'active':'' ?>">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <a href="<?php echo base_url(); ?>index.php/admin_vaccine_list" class="nav-link <?php echo ($active_text=='Vaccine')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Vaccine
@@ -254,14 +254,14 @@
             </a>
           </li>
 
-<?php } ?>
+        <?php } ?>
 
 
-<?php if($user_type==1){ ?>
+        <?php if($user_type==1){ ?>
 
           <li class="nav-item menu-open">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <a href="<?php echo base_url(); ?>index.php/admin_vaccine_list" class="nav-link<?php echo ($active_text=='Vaccine')?'active':'' ?>">
+          <a href="<?php echo base_url(); ?>index.php/admin_vaccine_list" class="nav-link <?php echo ($active_text=='Vaccine')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Vaccine List
@@ -269,7 +269,7 @@
             </a>
           </li>
 
-<?php } ?>
+        <?php } ?>
 
                     
 

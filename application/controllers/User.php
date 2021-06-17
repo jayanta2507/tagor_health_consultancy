@@ -70,7 +70,15 @@ class User extends CI_Controller {
 
     public function user_logout(){
         $this->session->unset_userdata('user_id'); 
-        redirect('index.php/user_login');
+
+        if ($this->session->flashdata('user_type')==0) {
+            redirect('index.php/user_login');
+        }
+
+        if ($this->session->flashdata('user_type')==1) {
+            redirect('index.php/admin_login');
+        }
+        
     }
 
 	public function submit_registration(){

@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/admin_doctor_submit" method="post">
+      <form action="<?php echo base_url(); ?>index.php/admin_vaccine_submit" method="post">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -78,15 +78,15 @@
 
                 <div class="form-group">
                   <label for="inputName">Center Email id</label>
-                  <input type="file" id="inputEmail" class="form-control" name="email_id">
+                  <input type="text" id="inputEmail" class="form-control" name="email_id">
                    <span class="text-danger"><?php echo form_error('email_id'); ?></span>
                 </div>
 
 
                  <div class="form-group">
-                  <label for="inputName">Gender</label>
-                  <input type="file" id="inputGender" class="form-control" name="gender">
-                   <span class="text-danger"><?php echo form_error('gender'); ?></span>
+                  <label for="inputName">Age</label>
+                  <input type="text" id="inputGender" class="form-control" name="age">
+                   <span class="text-danger"><?php echo form_error('age'); ?></span>
                 </div>
 
 

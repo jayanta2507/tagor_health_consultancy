@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
 	    $this->load->model('admin_model');
 	    $this->load->helper(array('form','url'));
         $this->load->library(array('session', 'form_validation', 'email'));
+        $this->session->unset_userdata('msg'); 
 	}
 
 
@@ -227,13 +228,11 @@ class Admin extends CI_Controller {
 
     public function admin_blood_submit(){
 
-
         //set validation rules
-        $this->form_validation->set_rules('blood_no', 'Id', 'trim|required');
-        $this->form_validation->set_rules('blood_gr','Types_Blood', 'trim|required');
-        $this->form_validation->set_rules('Rent', 'Rents', 'trim|required|');
-        $this->form_validation->set_rules('hospital_name', 'Hos_Name', 'trim|required|');
-        $this->form_validation->set_rules('hospital_registration_id', 'RegistrationID', 'trim|required');
+        $this->form_validation->set_rules('blood_gr','blood group', 'trim|required');
+        $this->form_validation->set_rules('price', 'price', 'trim|required');
+        $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
+        $this->form_validation->set_rules('hospital_registration_id', 'registration id', 'trim|required');
         $this->form_validation->set_rules('hospital_phn_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
         
@@ -244,41 +243,15 @@ class Admin extends CI_Controller {
             $this->admin_blood_add();
         }else{
 
-            if(isset($_FILES["image"]))  
-            {  
-
-                $config['upload_path']   = './assests/doctor_image';  
-                $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-
-                $this->load->library('upload', $config);
-
-                if(!$this->upload->do_upload('image'))  
-                {  
-                    echo $this->upload->display_errors();  
-                }  
-                else  
-                {  
-                    $data  = array('upload_data' => $this->upload->data());
-
-                    $image = $data['upload_data']['file_name'];                     
-                }  
-            }else{
-                $image = "";
-            }  
-
-
             $data = array(
-                'Id'                    => $this->input->post('blood_no'),
-                'blood_gr'             => $this->input->post('blood_gr'),
-                'Rent'                  => $this->input->post('Rent'),
-                'hospital_name'         => $this->input->post('hospital_name'),
-            'hospital_registration_id'  => $this->input->post('hospital_registration_id'),
-                'hospital_phn_no'       => $this->input->post('hospital_phn_no'),
-                'status'                => $this->input->post('status'),
+                'blood_group'               => $this->input->post('blood_gr'),
+                'price'                     => $this->input->post('price'),
+                'hospital_name'             => $this->input->post('hospital_name'),
+                'hospital_registration_number'  => $this->input->post('hospital_registration_id'),
+                'hospital_phn_no'           => $this->input->post('hospital_phn_no'),
+                'status'                    => $this->input->post('status'),
             );
              
-
-
             $createBlood = $this->admin_model->createBlood($data);
 
             if ($createBlood) {
@@ -289,13 +262,8 @@ class Admin extends CI_Controller {
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
                 redirect('index.php/admin_blood_add');
             }
-
         }
-
     }
-
-
-    
 
 
     public function admin_bed_list(){
@@ -337,10 +305,9 @@ class Admin extends CI_Controller {
 
 
         //set validation rules
-        $this->form_validation->set_rules('bed_no', 'Id', 'trim|required');
         $this->form_validation->set_rules('bed_types','Types_Bed', 'trim|required');
-        $this->form_validation->set_rules('Rent', 'Rents', 'trim|required|');
-        $this->form_validation->set_rules('hospital_name', 'Hos_Name', 'trim|required|');
+        $this->form_validation->set_rules('rent', 'Rents', 'trim|required');
+        $this->form_validation->set_rules('hospital_name', 'Hos_Name', 'trim|required');
         $this->form_validation->set_rules('hospital_registration_id', 'RegistrationID', 'trim|required');
         $this->form_validation->set_rules('hospital_phn_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
@@ -348,38 +315,15 @@ class Admin extends CI_Controller {
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
-            $this->admin_doctor_add();
+            $this->admin_bed_add();
         }else{
 
-            if(isset($_FILES["image"]))  
-            {  
-
-                $config['upload_path']   = './assests/doctor_image';  
-                $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-
-                $this->load->library('upload', $config);
-
-                if(!$this->upload->do_upload('image'))  
-                {  
-                    echo $this->upload->display_errors();  
-                }  
-                else  
-                {  
-                    $data  = array('upload_data' => $this->upload->data());
-
-                    $image = $data['upload_data']['file_name'];                     
-                }  
-            }else{
-                $image = "";
-            }  
-
-
+        
             $data = array(
-                'bed_no'                    => $this->input->post('bed_no'),
                 'bed_types'             => $this->input->post('bed_types'),
-                'Rent'                  => $this->input->post('Rent'),
+                'rent'                  => $this->input->post('rent'),
                 'hospital_name'         => $this->input->post('hospital_name'),
-            'hospital_registration_id'  => $this->input->post('hospital_registration_id'),
+                'hospital_registration_id'  => $this->input->post('hospital_registration_id'),
                 'hospital_phn_no'       => $this->input->post('hospital_phn_no'),
                 'status'                => $this->input->post('status'),
             );
@@ -442,43 +386,18 @@ class Admin extends CI_Controller {
 
 
         //set validation rules
-        $this->form_validation->set_rules('id', 'Id', 'trim|required');
         $this->form_validation->set_rules('oxygen_type','Types_Oxygen', 'trim|required');
-        $this->form_validation->set_rules('oxygen_refilling', 'Refilling', 'trim|required|');
-        $this->form_validation->set_rules('rent', 'Rents', 'trim|required|');
+        $this->form_validation->set_rules('oxygen_refilling', 'Refilling', 'trim|required');
+        $this->form_validation->set_rules('rent', 'Rents', 'trim|required');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
 
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
-            $this->admin_doctor_add();
+            $this->admin_oxygen_add();
         }else{
 
-            if(isset($_FILES["image"]))  
-            {  
-
-                $config['upload_path']   = './assests/doctor_image';  
-                $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-
-                $this->load->library('upload', $config);
-
-                if(!$this->upload->do_upload('image'))  
-                {  
-                    echo $this->upload->display_errors();  
-                }  
-                else  
-                {  
-                    $data  = array('upload_data' => $this->upload->data());
-
-                    $image = $data['upload_data']['file_name'];                     
-                }  
-            }else{
-                $image = "";
-            }  
-
-
             $data = array(
-                'id'                    => $this->input->post('id'),
                 'oxygen_type'           => $this->input->post('oxygen_type'),
                 'oxygen_refilling'      => $this->input->post('oxygen_refilling'),
                 'rent'                  => $this->input->post('rent'),
@@ -544,8 +463,8 @@ public function admin_vaccine_list(){
         //set validation rules
         $this->form_validation->set_rules('vaccine_name', 'Name', 'trim|required');
         $this->form_validation->set_rules('vaccine_types','Types', 'trim|required');
-        $this->form_validation->set_rules('dose_date', 'Date', 'trim|required|');
-        $this->form_validation->set_rules('center', 'Center', 'trim|required|');
+        $this->form_validation->set_rules('dose_date', 'Date', 'trim|required');
+        $this->form_validation->set_rules('center', 'Center', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('phone_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('email_id', 'Email', 'trim|required');
@@ -559,41 +478,18 @@ public function admin_vaccine_list(){
             $this->admin_vaccine_add();
         }else{
 
-            if(isset($_FILES["image"]))  
-            {  
-
-                $config['upload_path']   = './assests/doctor_image';  
-                $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
-
-                $this->load->library('upload', $config);
-
-                if(!$this->upload->do_upload('image'))  
-                {  
-                    echo $this->upload->display_errors();  
-                }  
-                else  
-                {  
-                    $data  = array('upload_data' => $this->upload->data());
-
-                    $image = $data['upload_data']['file_name'];                     
-                }  
-            }else{
-                $image = "";
-            }  
-
-
+           
             $data = array(
                 'vaccine_name'            => $this->input->post('vaccine_name'),
                 'vaccine_types'           => $this->input->post('vaccine_types'),
-                'dose_date'               => $this->input->post('dose_date'),
+                'dose_date'               => date('Y-m-d', strtotime($this->input->post('dose_date'))) ,
                 'center'                  => $this->input->post('center'),
                 'price'                   => $this->input->post('price'),
                 'phone_no'                => $this->input->post('phone_no'),
                 'email_id'                => $this->input->post('email_id'),
-                'gender'                  => $this->input->post('gender'),
+                'age'                     => $this->input->post('age'),
                 'status'                  => $this->input->post('status'),
             );
-
 
             $createVaccine = $this->admin_model->createVaccine($data);
 
