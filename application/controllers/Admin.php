@@ -95,9 +95,16 @@ class Admin extends CI_Controller {
         $data['active_text'] = "doctor";
         $data['user_type']   = $this->session->flashdata('user_type');
 
+        $doctorData['doctors'] = $this->admin_model->doctorList();
+
+        /*echo "<pre>";
+        print_r($doctorData);
+        die();*/
+
+
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/doctor/admin_doctor_list');
+            $this->load->view('Admin/doctor/admin_doctor_list', $doctorData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');
@@ -468,7 +475,7 @@ public function admin_vaccine_list(){
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('phone_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('email_id', 'Email', 'trim|required');
-        $this->form_validation->set_rules('gender', 'Gender', 'trim|required');
+        $this->form_validation->set_rules('age', 'Age', 'trim|required');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
 
 
@@ -490,6 +497,11 @@ public function admin_vaccine_list(){
                 'age'                     => $this->input->post('age'),
                 'status'                  => $this->input->post('status'),
             );
+            //  echo "<pre>";
+            // print_r($data);
+            // echo "</pre>";
+            // die();
+
 
             $createVaccine = $this->admin_model->createVaccine($data);
 
