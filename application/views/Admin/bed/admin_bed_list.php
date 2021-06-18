@@ -46,9 +46,6 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
-                          #
-                      </th>
                       <th style="width: 12%">
                           Bed Id
                       </th>
@@ -58,16 +55,16 @@
                       <th style="width: 12%">
                           Bed Rents
                       </th>
-                      <th style="width: 18%">
+                      <th style="width: 12%">
                           Hospital Name
                       </th>
-                      <th style="width: 18%">
+                      <th style="width: 15%">
                           Hospital Registration ID
                       </th>
-                      <th style="width: 18%">
+                      <th style="width: 15%">
                           Hospital Phone Number
                       </th>
-                      <th style="width: 10%" class="text-center">
+                      <th style="width: 7%" class="text-center">
                           Status
                       </th>
                       <th style="width: 20%">
