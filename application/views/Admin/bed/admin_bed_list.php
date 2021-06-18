@@ -58,16 +58,16 @@
                       <th style="width: 12%">
                           Bed Rents
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 18%">
                           Hospital Name
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 18%">
                           Hospital Registration ID
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 18%">
                           Hospital Phone Number
                       </th>
-                      <th style="width: 7%" class="text-center">
+                      <th style="width: 10%" class="text-center">
                           Status
                       </th>
                       <th style="width: 20%">
@@ -75,69 +75,70 @@
                   </tr>
               </thead>
               <tbody>
+              
+
+                <?php foreach ($bed as $key => $value) { ?>
+
                   <tr>
                       <td>
-                          #
+                          <?php echo ($key+1); ?>
                       </td>
                       <td>
-                          <a>
-                              AdminLTE v3
-                          </a>
-                          <br/>
-                          <small>
-                              Created 01.01.2019
-                          </small>
+                          <?php echo $value['bed_types']; ?>
+                            
                       </td>
                       <td>
-                          Heart
+                          <?php echo $value['Rent']; ?>
                       </td>
                       <td>
-                          Email
+                          <?php echo $value['hospital_name']; ?>
                       </td>
                       <td>
-                          9874563120
+                          <?php echo $value['hospital_registration_id']; ?>
                       </td>
 
                       <td>
-                          Reg_h123454
+                          <?php echo $value['hospital_phn_no']; ?>
                       </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                              </li>
-                          </ul>
-                      </td>
-                    <!--   <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                              </div>
-                          </div>
-                          <small>
-                              57% Complete
-                          </small>
-                      </td> -->
+                    
                       <td class="project-state">
-                          <span class="badge badge-success">Success</span>
-                      </td>
+
+                         <?php if ($value['status']==1) { ?>
+
+                              <span class="badge badge-success">
+                                Active
+                              </span>
+                            <?php  }else{ ?>
+                                <span class="badge badge-danger">
+                                  Inactive
+                                </span>
+                             <?php }  ?>
+
+                             </td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
+                          <!-- <a class="btn btn-primary btn-sm" href="#">
                               <i class="fas fa-folder">
                               </i>
                               View
-                          </a>
+                          </a> -->
+
                           <a class="btn btn-info btn-sm" href="#">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
+                           <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deleteBed(<?php echo $value['id']; ?>)">
                               <i class="fas fa-trash">
                               </i>
                               Delete
                           </a>
                       </td>
                   </tr>
+
+
+                <?php } ?>
+
+
               </tbody>
           </table>
         </div>
@@ -145,7 +146,15 @@
       </div>
       <!-- /.card -->
 
+      <script type="text/javascript">
+        function deleteDoctor(bedId){
+          confirm('Do you want to delete?');
+          alert(bedId);
+        }
+      </script>
+
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper
+

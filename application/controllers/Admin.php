@@ -277,12 +277,14 @@ class Admin extends CI_Controller {
 
         $user_type     = $this->session->flashdata('user_type');
 
-        $data['active_text'] = "Bed";
+        $data['active_text'] = "bed";
         $data['user_type']   = $this->session->flashdata('user_type');
+
+        $bedData['bed'] = $this->admin_model->bedList();
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/bed/admin_bed_list');
+            $this->load->view('Admin/bed/admin_bed_list',$bedData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');
@@ -312,9 +314,9 @@ class Admin extends CI_Controller {
 
 
         //set validation rules
-        $this->form_validation->set_rules('bed_types','Types_Bed', 'trim|required');
+        $this->form_validation->set_rules('bed_types','Types of Bed', 'trim|required');
         $this->form_validation->set_rules('rent', 'Rents', 'trim|required');
-        $this->form_validation->set_rules('hospital_name', 'Hos_Name', 'trim|required');
+        $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
         $this->form_validation->set_rules('hospital_registration_id', 'RegistrationID', 'trim|required');
         $this->form_validation->set_rules('hospital_phn_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
