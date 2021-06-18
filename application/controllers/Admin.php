@@ -438,9 +438,11 @@ public function admin_vaccine_list(){
         $data['active_text'] = "Vaccine";
         $data['user_type']   = $this->session->flashdata('user_type');
 
+        $vaccineData['vaccine'] = $this->admin_model->vaccineList();
+
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/vaccine/admin_vaccine_list');
+            $this->load->view('Admin/vaccine/admin_vaccine_list',$vaccineData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');

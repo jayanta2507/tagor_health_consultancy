@@ -46,107 +46,120 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
-                          #
+                    <th style="width: 10%">
+                           Vaccine Id
                       </th>
-                      <th style="width: 12%">
+                     
+                      <th style="width: 10%">
                            Vaccine Name
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Vaccine Types
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Date of Dose
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Vaccination Center
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Vaccination Price
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Center Phone no
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Center Email id
                       </th>
-                      <th style="width: 15%" class="text-center">
+                      <th style="width: 10%">
+                          Age
+                      </th>
+                      <th style="width: 5%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 20%">
+                      <th style="width: 10%">
                       </th>
                   </tr>
               </thead>
               <tbody>
+
+                <?php foreach ($vaccine as $key => $value) { ?>
+
                   <tr>
                       <td>
-                          #
+                          <?php echo ($key+1); ?>
                       </td>
                       <td>
-                          <a>
-                              AdminLTE v3
-                          </a>
-                          <br/>
-                          <small>
-                              Created 01.01.2019
-                          </small>
+                          <?php echo $value['vaccine_name']; ?>     
                       </td>
                       <td>
-                          Heart
+                          <?php echo $value['vaccine_types']; ?>
                       </td>
                       <td>
-                          Email
+                          <?php echo $value['dose_date']; ?>
                       </td>
                       <td>
-                          9874563120
-                      </td>
-
-                      <td>
-                          Reg_h123454
+                          <?php echo $value['center']; ?>
                       </td>
                       <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                              </li>
-                          </ul>
+                          <?php echo $value['price']; ?>
                       </td>
-                    <!--   <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                              </div>
-                          </div>
-                          <small>
-                              57% Complete
-                          </small>
-                      </td> -->
+                      <td>
+                          <?php echo $value['phone_no']; ?>
+                      </td>
+                      <td>
+                          <?php echo $value['email_id']; ?>
+                      </td>
+                      <td>
+                          <?php echo $value['age']; ?>
+                      </td>
+                      <td>
+                  
                       <td class="project-state">
-                          <span class="badge badge-success">Success</span>
+
+
+                          <?php if ($value['status']==1) { ?>
+
+                              <span class="badge badge-success">
+                                Active
+                              </span>
+                            <?php  }else{ ?>
+                                <span class="badge badge-danger">
+                                  Inactive
+                                </span>
+                             <?php }  ?>
+
+                          
                       </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
                           <a class="btn btn-info btn-sm" href="#">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
+                            <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deleteVaccine(<?php echo $value['id']; ?>)">
                               <i class="fas fa-trash">
                               </i>
-                              Delete
+                            Delete
                           </a>
                       </td>
                   </tr>
+
+
+                  <?php } ?>
+
               </tbody>
           </table>
         </div>
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
+
+      <script type="text/javascript">
+        function deleteVaccine(vaccineId){
+          confirm('Do you want to delete?');
+          alert(vaccineId);
+        }
+      </script>
 
     </section>
     <!-- /.content -->
