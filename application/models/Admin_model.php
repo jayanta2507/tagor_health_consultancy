@@ -35,6 +35,14 @@ class Admin_model extends CI_Model {
         return  $query->result_array();
     }
 
+    public function oxygenList(){
+        $this->db->select('*');
+        $this->db->from('oxygen');
+        $this->db->where('status !=', '2');
+        $query = $this->db->get();
+        return  $query->result_array();
+    }
+
 
     public function createDoctor($data){
         return $this->db->insert('doctors', $data);

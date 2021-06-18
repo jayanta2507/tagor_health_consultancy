@@ -361,9 +361,11 @@ class Admin extends CI_Controller {
         $data['active_text'] = "Oxygen";
         $data['user_type']   = $this->session->flashdata('user_type');
 
+        $oxygenData['oxygen'] = $this->admin_model->oxygenList();
+
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/oxygen/admin_oxygen_list');
+            $this->load->view('Admin/oxygen/admin_oxygen_list',$oxygenData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');
@@ -395,7 +397,7 @@ class Admin extends CI_Controller {
 
 
         //set validation rules
-        $this->form_validation->set_rules('oxygen_type','Types_Oxygen', 'trim|required');
+        $this->form_validation->set_rules('oxygen_type','Types of Oxygen', 'trim|required');
         $this->form_validation->set_rules('oxygen_refilling', 'Refilling', 'trim|required');
         $this->form_validation->set_rules('rent', 'Rents', 'trim|required');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
