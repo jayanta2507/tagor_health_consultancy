@@ -95,9 +95,16 @@ class Admin extends CI_Controller {
         $data['active_text'] = "doctor";
         $data['user_type']   = $this->session->flashdata('user_type');
 
+        $doctorData['doctors'] = $this->admin_model->doctorList();
+
+        /*echo "<pre>";
+        print_r($doctorData);
+        die();*/
+
+
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/doctor/admin_doctor_list');
+            $this->load->view('Admin/doctor/admin_doctor_list', $doctorData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');

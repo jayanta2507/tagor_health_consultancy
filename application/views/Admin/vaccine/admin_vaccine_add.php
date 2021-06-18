@@ -51,7 +51,7 @@
 
                 <div class="form-group">
                   <label for="inputName">Date of Dose</label>
-                  <input type="text" id="inputDate" class="form-control" name="dose_date">
+                  <input type="date" id="inputDate" class="form-control" name="dose_date">
                   <span class="text-danger"><?php echo form_error('dose_date'); ?></span>
                 </div>
 
