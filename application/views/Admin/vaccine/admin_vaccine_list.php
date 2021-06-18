@@ -46,8 +46,8 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                    <th style="width: 10%">
-                           Vaccine Id
+                    <th style="width: 1%">
+                           #
                       </th>
                      
                       <th style="width: 10%">
@@ -59,25 +59,25 @@
                       <th style="width: 10%">
                           Date of Dose
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 12%">
                           Vaccination Center
                       </th>
                       <th style="width: 10%">
                           Vaccination Price
                       </th>
                       <th style="width: 10%">
-                          Center Phone no
+                          Phone no
                       </th>
                       <th style="width: 10%">
-                          Center Email id
+                          Email id
                       </th>
                       <th style="width: 10%">
                           Age
                       </th>
-                      <th style="width: 5%" class="text-center">
+                      <th style="width: 9%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 15%">
                       </th>
                   </tr>
               </thead>
@@ -131,15 +131,21 @@
 
                           
                       </td>
+                      <td class="project-actions text-right">
+                          <!-- <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              View
+                          </a> -->
                           <a class="btn btn-info btn-sm" href="#">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                            <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deleteVaccine(<?php echo $value['id']; ?>)">
+                          <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deletevaccine(<?php echo $value['id']; ?>)">
                               <i class="fas fa-trash">
                               </i>
-                            Delete
+                              Delete
                           </a>
                       </td>
                   </tr>
