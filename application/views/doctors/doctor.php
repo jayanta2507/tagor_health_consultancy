@@ -23,9 +23,9 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>User</th>
+              <th>Doctor Name</th>
               <th>Date</th>
-              <th>Status</th>
+              <th>Appoint</th>
               <th>Reason</th>
             </tr>
           </thead>

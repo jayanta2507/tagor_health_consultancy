@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Doctors</h1>
+            <h1>Vaccine Details</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Doctors</li>
+              <li class="breadcrumb-item active">Vaccine Details</li>
             </ol>
           </div>
         </div>
@@ -23,8 +23,8 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Doctors</h3>
-          <span><?php echo $this->session->flashdata('msg'); ?></span>
+          <h3 class="card-title">Vaccine Details</h3>
+
           <div class="card-tools">
             <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>
@@ -32,7 +32,7 @@
             <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
               <i class="fas fa-times"></i>
             </button> -->
-            <a href="<?php echo base_url(); ?>index.php/admin_doctor_add">
+            <a href="<?php echo base_url(); ?>index.php/admin_vaccine_add">
               <button type="button" class="btn btn-success" title="Add">
               <i class="fas fa-plus"></i>  Add
             </button>
@@ -40,7 +40,7 @@
             
           </div>
 
-          
+          <span><?php echo $this->session->flashdata('msg'); ?></span>
         </div>
         <div class="card-body p-0">
           <table class="table table-striped projects">
@@ -50,24 +50,27 @@
                           #
                       </th>
                       <th style="width: 12%">
-                          Doctor Name
+                           Vaccine Name
                       </th>
                       <th style="width: 12%">
-                          Specialist
+                          Vaccine Types
                       </th>
                       <th style="width: 12%">
-                          Email
+                          Date of Dose
                       </th>
                       <th style="width: 12%">
-                          Phone
+                          Vaccination Center
                       </th>
                       <th style="width: 12%">
-                          Registration ID
+                          Vaccination Price
                       </th>
                       <th style="width: 12%">
-                          Image
+                          Center Phone no
                       </th>
-                      <th style="width: 7%" class="text-center">
+                      <th style="width: 12%">
+                          Center Email id
+                      </th>
+                      <th style="width: 15%" class="text-center">
                           Status
                       </th>
                       <th style="width: 20%">

@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/admin_doctor_submit" method="post">
+      <form action="<?php echo base_url(); ?>index.php/admin_oxygen_submit" method="post">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -36,13 +36,6 @@
               </div>
               <div class="card-body">
                 
-                <div class="form-group">
-                  <label for="inputName">Oxygen Id</label>
-                  <input type="text" id="inputId" class="form-control" name="id">
-                  <span class="text-danger"><?php echo form_error('id'); ?></span>
-                </div>
-
-
                 <div class="form-group">
                   <label for="inputName">Types of Oxygen</label>
                   <input type="text" id="inputTypes_Oxygen" class="form-control" name="oxygen_type">

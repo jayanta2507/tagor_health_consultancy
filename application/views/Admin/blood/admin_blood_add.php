@@ -36,23 +36,17 @@
               </div>
               <div class="card-body">
                 
+               
                 <div class="form-group">
-                  <label for="inputName">Blood Id</label>
-                  <input type="text" id="inputId" class="form-control" name="blood_no">
-                  <span class="text-danger"><?php echo form_error('blood_no'); ?></span>
-                </div>
-
-
-                <div class="form-group">
-                  <label for="inputName">Types of Blood</label>
+                  <label for="inputName">Blood Group</label>
                   <input type="text" id="inputTypes_Blood" class="form-control" name="blood_gr">
                   <span class="text-danger"><?php echo form_error('blood_gr'); ?></span>
                 </div>
 
                 <div class="form-group">
-                  <label for="inputName">Blood Rents</label>
-                  <input type="text" id="inputRents" class="form-control" name="Rent">
-                  <span class="text-danger"><?php echo form_error('Rent'); ?></span>
+                  <label for="inputName">Blood Price</label>
+                  <input type="text" id="inputRents" class="form-control" name="price">
+                  <span class="text-danger"><?php echo form_error('price'); ?></span>
                 </div>
 
 

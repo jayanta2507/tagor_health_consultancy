@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/admin_doctor_submit" method="post">
+      <form action="<?php echo base_url(); ?>index.php/admin_bed_submit" method="post">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -35,14 +35,7 @@
                 </div>
               </div>
               <div class="card-body">
-                
-                <div class="form-group">
-                  <label for="inputName">Bed Id</label>
-                  <input type="text" id="inputId" class="form-control" name="bed_no">
-                  <span class="text-danger"><?php echo form_error('bed_no'); ?></span>
-                </div>
-
-
+              
                 <div class="form-group">
                   <label for="inputName">Types of Bed</label>
                   <input type="text" id="inputTypes_Bed" class="form-control" name="bed_types">
@@ -51,8 +44,8 @@
 
                 <div class="form-group">
                   <label for="inputName">Bed Rents</label>
-                  <input type="text" id="inputRents" class="form-control" name="Rent">
-                  <span class="text-danger"><?php echo form_error('Rent'); ?></span>
+                  <input type="text" id="inputRents" class="form-control" name="rent">
+                  <span class="text-danger"><?php echo form_error('rent'); ?></span>
                 </div>
 
 

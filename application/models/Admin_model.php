@@ -34,6 +34,11 @@ class Admin_model extends CI_Model {
     public function createOxygen($data){
         return $this->db->insert('oxygen', $data);
     }
+
+    public function createVaccine($data){
+        return $this->db->insert('vaccine', $data);
+    }
+
 }
 
 ?>
