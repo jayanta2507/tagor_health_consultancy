@@ -26,12 +26,7 @@
           <h3 class="card-title">Blood</h3>
 
           <div class="card-tools">
-            <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button> -->
+           
             <a href="<?php echo base_url(); ?>index.php/admin_blood_add">
               <button type="button" class="btn btn-success" title="Add">
               <i class="fas fa-plus"></i>  Add
@@ -49,87 +44,89 @@
                       <th style="width: 1%">
                           #
                       </th>
-                      <th style="width: 12%">
-                          Blood Gr
+                      <th style="width: 7%">
+                          Blood Group
                       </th>
-                      <th style="width: 12%">
-                          Rent
+                      <th style="width: 7%">
+                          Blood Price
                       </th>
-                      <th style="width: 12%">
-                          Views
+                      <th style="width: 7%">
+                          Hospital Name
+                      </th>
+                       <th style="width: 7%">
+                          Hospital Registration ID
+                      </th>
+                       <th style="width: 7%">
+                         Hospital Phone Number
                       </th>
                      
                       <th style="width: 7%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 20%">
+                      <th style="width: 7%">
                       </th>
                   </tr>
               </thead>
               <tbody>
+
+                  <?php foreach ($bloods as $key => $value) { ?>
+
                   <tr>
                       <td>
-                          #
+                          <?php echo ($key+1); ?>
                       </td>
                       <td>
-                          <a>
-                              AdminLTE v3
-                          </a>
-                          <br/>
-                          <small>
-                              Created 01.01.2019
-                          </small>
+                          <?php echo $value['blood_group']; ?>
+                            
+                      </td>
+                       <td>
+                          <?php echo $value['price']; ?>
                       </td>
                       <td>
-                          Heart
+                          <?php echo $value['hospital_name']; ?>
                       </td>
                       <td>
-                          Email
+                          <?php echo $value['hospital_registration_number']; ?>
                       </td>
                       <td>
-                          9874563120
+                          <?php echo $value['hospital_phn_no']; ?>
                       </td>
 
-                      <td>
-                          Reg_h123454
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                              </li>
-                          </ul>
-                      </td>
-                    <!--   <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                              </div>
-                          </div>
-                          <small>
-                              57% Complete
-                          </small>
-                      </td> -->
-                      <td class="project-state">
-                          <span class="badge badge-success">Success</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
-                          <a class="btn btn-info btn-sm" href="#">
+                     
+                     
+                       <td class="project-state">
+                          
+
+                            <?php if ($value['status']==1) { ?>
+
+                              <span class="badge badge-success">
+                                Active
+                              </span>
+                            <?php  }else{ ?>
+                                <span class="badge badge-danger">
+                                  Inactive
+                                </span>
+                             <?php }  ?>
+                           </td>
+                  
+                                <td class="project-actions text-right">
+                          
+                          <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_blood_edit">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
+                          <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deleteDoctor(<?php echo $value['id']; ?>)">
                               <i class="fas fa-trash">
                               </i>
                               Delete
                           </a>
                       </td>
                   </tr>
+
+                  
+                <?php } ?>
+
               </tbody>
           </table>
         </div>
@@ -137,7 +134,13 @@
       </div>
       <!-- /.card -->
 
+      <script type="text/javascript">
+        function deleteDoctor(doctorId){
+          confirm('Are you sure want to delete?');
+          alert(doctorId);
+        }
+      </script>
+
     </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper
+      </div>
+ 

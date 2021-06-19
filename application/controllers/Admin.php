@@ -204,10 +204,11 @@ class Admin extends CI_Controller {
 
         $data['active_text'] = "Blood";
         $data['user_type']   = $this->session->flashdata('user_type');
+         $bloodData['bloods'] = $this->admin_model->bloodList();
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/blood/admin_blood_list');
+            $this->load->view('Admin/blood/admin_blood_list', $bloodData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');
@@ -232,10 +233,13 @@ class Admin extends CI_Controller {
         }  
 
     }
+    public function admin_blood_edit(){
+        $this->load->view('Admin/blood/admin_blood_edit');
+    }
 
     public function admin_blood_submit(){
 
-        //set validation rules
+        //set validation rulesv
         $this->form_validation->set_rules('blood_gr','blood group', 'trim|required');
         $this->form_validation->set_rules('price', 'price', 'trim|required');
         $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
@@ -433,10 +437,16 @@ public function admin_vaccine_list(){
 
         $data['active_text'] = "Vaccine";
         $data['user_type']   = $this->session->flashdata('user_type');
+       $vaccineData['vaccines'] = $this->admin_model->vaccineList();
+
+        // echo "<pre>";
+        // print_r($doctorData);
+        // die();
+
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/vaccine/admin_vaccine_list');
+            $this->load->view('Admin/vaccine/admin_vaccine_list', $vaccineData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');
@@ -461,6 +471,9 @@ public function admin_vaccine_list(){
             redirect('index.php/admin_login');
         }  
 
+    }
+     public function admin_vaccine_edit(){
+        $this->load->view('Admin/vaccine/admin_vaccine_edit');
     }
 
 
