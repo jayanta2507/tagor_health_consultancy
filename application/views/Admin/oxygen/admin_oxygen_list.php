@@ -47,22 +47,23 @@
               <thead>
                   <tr>
                     
-                      <th style="width: 22%">
-                          Oxygen Id
+                      <th style="width: 7%">
+                          Sl No.
                       </th>
-                      <th style="width: 22%">
+                      <th style="width: 20%">
                           Types of Oxygen
                       </th>
-                      <th style="width: 22%">
+                      <th style="width: 20%">
                           Oxygen Refilling
                       </th>
-                      <th style="width: 16%">
+                      <th style="width: 20%">
                           Oxygen Rents
                       </th>
-                      <th style="width: 19%" class="text-center">
+                      <th style="width: 20%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 5%">
+                      <th style="width: 13%">
+                        Action
                       </th>
                   </tr>
               </thead>
@@ -98,6 +99,10 @@
                                   Inactive
                                 </span>
                              <?php }  ?>
+
+                      </td>
+
+                      <td>
 
                           <a class="btn btn-info btn-sm" href="#">
                               <i class="fas fa-pencil-alt">

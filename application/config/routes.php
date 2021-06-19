@@ -80,19 +80,34 @@ $route['upload_image']   			= 'user/upload_image';
 $route['admin_login']          = 'admin/adminlogin';
 $route['submit_adminlogin']    = 'admin/submit_adminlogin';
 $route['admin_dashboard']      = 'admin/admin_dashboard';
-$route['admin_doctor_list']    = 'admin/admin_doctor_list';
-$route['admin_doctor_add']     = 'admin/admin_doctor_add';
-$route['admin_doctor_submit']  = 'admin/admin_doctor_submit';
+
+
+// ***************** Start Admin Doctor Section **************//
+$route['admin_doctor_list']    		= 'admin/admin_doctor_list';
+$route['admin_doctor_add']     		= 'admin/admin_doctor_add';
+$route['admin_doctor_submit']  		= 'admin/admin_doctor_submit';
+$route['admin_doctor_edit/(:any)']  = 'admin/admin_doctor_edit/$1';
+$route['admin_doctor_edit_submit/(:any)']  = 'admin/admin_doctor_edit_submit/$1';
+$route['admin_doctor_delete/(:any)']  = 'admin/admin_doctor_delete/$1';
+
+
+// ***************** End Admin Doctor Section **************//
+
+
+
 $route['admin_blood_list']     = 'admin/admin_blood_list';
 $route['admin_blood_add']      = 'admin/admin_blood_add';
 $route['admin_blood_edit']     = 'admin/admin_blood_edit';
+
 $route['admin_blood_submit']   = 'admin/admin_blood_submit';
 $route['admin_bed_list']       = 'admin/admin_bed_list';
 $route['admin_bed_add']        = 'admin/admin_bed_add';
 $route['admin_bed_submit']     = 'admin/admin_bed_submit';
+
 $route['admin_oxygen_list']    = 'admin/admin_oxygen_list';
 $route['admin_oxygen_add']     = 'admin/admin_oxygen_add';
 $route['admin_oxygen_submit']  = 'admin/admin_oxygen_submit';
+
 $route['admin_vaccine_list']   = 'admin/admin_vaccine_list';
 $route['admin_vaccine_add']    = 'admin/admin_vaccine_add';
 $route['admin_vaccine_edit'] = 'admin/admin_vaccine_edit';

@@ -88,7 +88,7 @@
         <div class="row">
           <div class="col-12">
             <a href="<?php echo base_url(); ?>index.php/admin_blood_list" class="btn btn-secondary">Back</a>
-            <input type="submit" value="Create Bed" class="btn btn-success float-right">
+            <input type="submit" value="Edit Blood" class="btn btn-success float-right">
           </div>
         </div>
       </form>

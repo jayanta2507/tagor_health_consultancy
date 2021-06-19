@@ -18,6 +18,10 @@ class Admin_model extends CI_Model {
         return  $query->row_array();
     }
 
+    //===================  Doctor Section ==============//
+    public function createDoctor($data){
+        return $this->db->insert('doctors', $data);
+    }
 
     public function doctorList(){
         $this->db->select('*');
@@ -26,6 +30,31 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result_array();
     }
+
+
+    public function editDoctor($doctorId){
+        $this->db->select('*');
+        $this->db->from('doctors');
+        $this->db->where('id', $doctorId);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
+
+    public function updateDoctor($doctorId,$data){
+        return $this->db->where('id', $doctorId)->update('doctors', $data);
+    }
+
+
+    public function deleteDoctor($doctorId){
+        return $this->db->where('id', $doctorId)->update('doctors', array('status'=>'2'));
+    }
+
+    
+
+
+    //===================  Doctor Section ==============//
+
 
     public function bloodList(){
         $this->db->select('*');
@@ -59,9 +88,7 @@ class Admin_model extends CI_Model {
         return  $query->result_array();
     }
 
-    public function createDoctor($data){
-        return $this->db->insert('doctors', $data);
-    }
+    
 
     public function createBlood($data){
         return $this->db->insert('blood', $data);

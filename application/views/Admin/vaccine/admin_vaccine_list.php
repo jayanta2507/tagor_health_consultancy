@@ -46,34 +46,38 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
-                          #
+                      <th style="width: 6%">
+                          Sl No.
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 9%">
                            Vaccine Name
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 9%">
                           Vaccine Types
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 9%">
                           Date of Dose
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 9%">
                           Vaccination Center
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 9%">
                           Vaccination Price
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 9%">
                           Center Phone no
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 9%">
                           Center Email id
                       </th>
-                      <th style="width:  10%" class="text-center">
+                      <th style="width: 9%">
+                          Age
+                      </th>
+                      <th style="width:  9%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 13%">
+                        Action
                       </th>
                   </tr>
               </thead>

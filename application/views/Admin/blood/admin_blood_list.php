@@ -41,29 +41,29 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
-                          #
-                      </th>
                       <th style="width: 7%">
+                          Sl No.
+                      </th>
+                      <th style="width: 13%">
                           Blood Group
                       </th>
-                      <th style="width: 7%">
+                      <th style="width: 13%">
                           Blood Price
                       </th>
-                      <th style="width: 7%">
+                      <th style="width: 13%">
                           Hospital Name
                       </th>
-                       <th style="width: 7%">
+                       <th style="width: 13%">
                           Hospital Registration ID
                       </th>
-                       <th style="width: 7%">
+                       <th style="width: 13%">
                          Hospital Phone Number
                       </th>
                      
-                      <th style="width: 7%" class="text-center">
+                      <th style="width: 13%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 7%">
+                      <th style="width: 15%">
                       </th>
                   </tr>
               </thead>

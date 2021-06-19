@@ -46,28 +46,28 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 12%">
-                          Bed Id
+                      <th style="width: 7%">
+                          Sl No.
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 13%">
                           Types of Bed
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 13%">
                           Bed Rents
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 13%">
                           Hospital Name
                       </th>
-                      <th style="width: 15%">
+                      <th style="width: 13%">
                           Hospital Registration ID
                       </th>
-                      <th style="width: 15%">
+                      <th style="width: 13%">
                           Hospital Phone Number
                       </th>
-                      <th style="width: 7%" class="text-center">
+                      <th style="width: 13%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 20%">
+                      <th style="width: 15%">
                       </th>
                   </tr>
               </thead>
@@ -85,7 +85,7 @@
                             
                       </td>
                       <td>
-                          <?php echo $value['Rent']; ?>
+                          <?php echo $value['rent']; ?>
                       </td>
                       <td>
                           <?php echo $value['hospital_name']; ?>
