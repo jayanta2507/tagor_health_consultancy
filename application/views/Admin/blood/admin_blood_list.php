@@ -69,7 +69,7 @@
               </thead>
               <tbody>
 
-                  <?php foreach ($bloods as $key => $value) { ?>
+                  <?php foreach ($blood as $key => $value) { ?>
 
                   <tr>
                       <td>

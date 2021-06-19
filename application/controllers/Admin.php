@@ -204,7 +204,8 @@ class Admin extends CI_Controller {
 
         $data['active_text'] = "Blood";
         $data['user_type']   = $this->session->flashdata('user_type');
-         $bloodData['bloods'] = $this->admin_model->bloodList();
+
+        $bloodData['blood'] = $this->admin_model->bloodList();
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
@@ -284,9 +285,11 @@ class Admin extends CI_Controller {
         $data['active_text'] = "Bed";
         $data['user_type']   = $this->session->flashdata('user_type');
 
+        $bedData['bed'] = $this->admin_model->bedList();
+
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/bed/admin_bed_list');
+            $this->load->view('Admin/bed/admin_bed_list',$bedData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');
@@ -316,9 +319,9 @@ class Admin extends CI_Controller {
 
 
         //set validation rules
-        $this->form_validation->set_rules('bed_types','Types_Bed', 'trim|required');
+        $this->form_validation->set_rules('bed_types','Types of Bed', 'trim|required');
         $this->form_validation->set_rules('rent', 'Rents', 'trim|required');
-        $this->form_validation->set_rules('hospital_name', 'Hos_Name', 'trim|required');
+        $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
         $this->form_validation->set_rules('hospital_registration_id', 'RegistrationID', 'trim|required');
         $this->form_validation->set_rules('hospital_phn_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
@@ -363,9 +366,11 @@ class Admin extends CI_Controller {
         $data['active_text'] = "Oxygen";
         $data['user_type']   = $this->session->flashdata('user_type');
 
+        $oxygenData['oxygen'] = $this->admin_model->oxygenList();
+
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/oxygen/admin_oxygen_list');
+            $this->load->view('Admin/oxygen/admin_oxygen_list',$oxygenData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');
@@ -397,7 +402,7 @@ class Admin extends CI_Controller {
 
 
         //set validation rules
-        $this->form_validation->set_rules('oxygen_type','Types_Oxygen', 'trim|required');
+        $this->form_validation->set_rules('oxygen_type','Types of Oxygen', 'trim|required');
         $this->form_validation->set_rules('oxygen_refilling', 'Refilling', 'trim|required');
         $this->form_validation->set_rules('rent', 'Rents', 'trim|required');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');

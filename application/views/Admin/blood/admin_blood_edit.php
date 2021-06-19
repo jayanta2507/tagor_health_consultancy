@@ -77,6 +77,7 @@
                   </select>
                   <span class="text-danger"><?php echo form_error('status'); ?></span>
                 </div>
+
                
               </div>
               <!-- /.card-body -->

@@ -68,7 +68,7 @@
               </thead>
               <tbody>
 
-                  <?php foreach ($oxygen as $key => $value) { ?>
+                <?php foreach ($oxygen as $key => $value) { ?>
 
                   <tr>
                       <td>
