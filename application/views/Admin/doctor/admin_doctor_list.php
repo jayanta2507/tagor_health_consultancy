@@ -160,7 +160,7 @@ die();*/
 
       <script type="text/javascript">
         function deleteDoctor(doctorId){
-          confirm('Are you sure want to delete?');
+          confirm('Do you want to delete?');
           alert(doctorId);
         }
       </script>

@@ -109,7 +109,7 @@
         <div class="row">
           <div class="col-12">
             <a href="<?php echo base_url(); ?>index.php/admin_doctor_list" class="btn btn-secondary">Back</a>
-            <input type="submit" value="Create Doctor" class="btn btn-success float-right">
+            <input type="submit" value="Create Vaccine" class="btn btn-success float-right">
           </div>
         </div>
       </form>

@@ -244,6 +244,7 @@
 
         <?php if($user_type==0){ ?>
 
+
           <li class="nav-item menu-open">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/admin_vaccine_list" class="nav-link <?php echo ($active_text=='Vaccine')?'active':'' ?>">
@@ -253,6 +254,8 @@
               </p>
             </a>
           </li>
+<<<<<<< HEAD
+=======
 
         <?php } ?>
 
@@ -274,6 +277,7 @@
                     
 
           
+>>>>>>> 8d518f4b33fd278cdc2f2f34c465bb2bd586aaac
           
 
           <li class="nav-item menu-open">
