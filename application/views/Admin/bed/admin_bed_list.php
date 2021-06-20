@@ -46,28 +46,29 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 12%">
-                          Bed Id
+                      <th style="width: 7%">
+                          Sl No.
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 13%">
                           Types of Bed
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 13%">
                           Bed Rents
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 13%">
                           Hospital Name
                       </th>
-                      <th style="width: 15%">
+                      <th style="width: 13%">
                           Hospital Registration ID
                       </th>
-                      <th style="width: 15%">
+                      <th style="width: 13%">
                           Hospital Phone Number
                       </th>
-                      <th style="width: 7%" class="text-center">
+                      <th style="width: 13%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 20%">
+                      <th style="width: 15%">
+                        Action
                       </th>
                   </tr>
               </thead>
@@ -85,7 +86,7 @@
                             
                       </td>
                       <td>
-                          <?php echo $value['Rent']; ?>
+                          <?php echo $value['rent']; ?>
                       </td>
                       <td>
                           <?php echo $value['hospital_name']; ?>
@@ -119,7 +120,7 @@
                               View
                           </a> -->
 
-                          <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_bed_edit/<?php echo $value['id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
@@ -144,12 +145,15 @@
       <!-- /.card -->
 
       <script type="text/javascript">
-        function deleteDoctor(bedId){
-          confirm('Do you want to delete?');
-          alert(bedId);
+        function deleteBed(bedId){
+
+        if (confirm('Do you want to delete?')) {
+            window.location.href('<?php echo base_url(); ?>index.php/admin_bed_delete/'+bedId);
+          }else{
+             window.location.href('<?php echo base_url(); ?>index.php/admin_bed_edit/'+bedId);
+          }
         }
       </script>
-
     </section>
     <!-- /.content -->
   </div>

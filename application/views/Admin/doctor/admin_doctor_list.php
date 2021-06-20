@@ -52,7 +52,10 @@ die();*/
               <thead>
                   <tr>
                       <th style="width: 1%">
-                          #
+                          Sl No.
+                      </th>
+                       <th style="width: 12%">
+                          Image
                       </th>
                       <th style="width: 12%">
                           Doctor Name
@@ -69,13 +72,12 @@ die();*/
                       <th style="width: 12%">
                           Registration ID
                       </th>
-                      <th style="width: 12%">
-                          Image
-                      </th>
+                     
                       <th style="width: 7%" class="text-center">
                           Status
                       </th>
                       <th style="width: 20%">
+                        Action
                       </th>
                   </tr>
               </thead>
@@ -87,6 +89,13 @@ die();*/
                   <tr>
                       <td>
                           <?php echo ($key+1); ?>
+                      </td>
+                       <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img  src="<?php echo base_url(); ?>assests/doctor_image/<?php echo $value['image']; ?>" style="width: 60px; height: 60px; border-radius: 100%;">
+                              </li>
+                          </ul>
                       </td>
                       <td>
                           <?php echo $value['name']; ?>
@@ -104,13 +113,6 @@ die();*/
 
                       <td>
                           <?php echo $value['registration_id']; ?>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                              </li>
-                          </ul>
                       </td>
                       
                       <td class="project-state">
@@ -135,12 +137,12 @@ die();*/
                               </i>
                               View
                           </a> -->
-                          <a class="btn btn-info btn-sm" href="#">
+                          <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_edit/<?php echo $value['id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deleteDoctor(<?php echo $value['id']; ?>)">
+                          <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_delete/<?php echo $value['id']; ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete
@@ -160,8 +162,12 @@ die();*/
 
       <script type="text/javascript">
         function deleteDoctor(doctorId){
-          confirm('Do you want to delete?');
-          alert(doctorId);
+ 
+          if (confirm('Do you want to delete?')) {
+            window.location.href('<?php echo base_url(); ?>index.php/admin_doctor_delete/'+doctorId);
+          }else{
+             window.location.href('<?php echo base_url(); ?>index.php/admin_doctor_edit/'+doctorId);
+          }
         }
       </script>
 

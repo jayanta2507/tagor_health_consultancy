@@ -18,6 +18,10 @@ class Admin_model extends CI_Model {
         return  $query->row_array();
     }
 
+    //===================  Doctor Section ==============//
+    public function createDoctor($data){
+        return $this->db->insert('doctors', $data);
+    }
 
     public function doctorList(){
         $this->db->select('*');
@@ -27,6 +31,31 @@ class Admin_model extends CI_Model {
         return  $query->result_array();
     }
 
+
+    public function editDoctor($doctorId){
+        $this->db->select('*');
+        $this->db->from('doctors');
+        $this->db->where('id', $doctorId);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
+
+    public function updateDoctor($doctorId,$data){
+        return $this->db->where('id', $doctorId)->update('doctors', $data);
+    }
+
+
+    public function deleteDoctor($doctorId){
+        return $this->db->where('id', $doctorId)->update('doctors', array('status'=>'2'));
+    }
+
+    
+
+
+    //===================  Doctor Section ==============//
+
+
     public function bloodList(){
         $this->db->select('*');
         $this->db->from('blood');
@@ -34,6 +63,49 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result_array();
     }
+
+    //===================  Bed Section ==============//
+
+    public function createBed($data){
+        return $this->db->insert('bed', $data);
+    }
+
+    public function bedList(){
+        $this->db->select('*');
+        $this->db->from('bed');
+        $this->db->where('status !=', '2');
+        $query = $this->db->get();
+        return  $query->result_array();
+    }
+
+    public function editBed($bedId){
+        $this->db->select('*');
+        $this->db->from('bed');
+        $this->db->where('id', $bedId);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
+    public function updateBed($bedId,$data){
+        return $this->db->where('id', $bedId)->update('bedId', $data);
+    }
+
+    public function deleteBed($bedId){
+        return $this->db->where('id', $bedId)->update('bed', array('status'=>'2'));
+    }
+
+
+    //===================  Bed Section ==============//
+
+
+    public function oxygenList(){
+        $this->db->select('*');
+        $this->db->from('oxygen');
+        $this->db->where('status !=', '2');
+        $query = $this->db->get();
+        return  $query->result_array();
+    }
+
      public function vaccineList(){
         $this->db->select('*');
         $this->db->from('vaccine');
@@ -42,18 +114,13 @@ class Admin_model extends CI_Model {
         return  $query->result_array();
     }
 
-    public function createDoctor($data){
-        return $this->db->insert('doctors', $data);
-    }
+    
 
     public function createBlood($data){
         return $this->db->insert('blood', $data);
     }
 
-    public function createBed($data){
-        return $this->db->insert('bed', $data);
-    }
-
+    
     public function createOxygen($data){
         return $this->db->insert('oxygen', $data);
     }
