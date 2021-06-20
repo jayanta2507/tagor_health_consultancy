@@ -478,6 +478,79 @@ class Admin extends CI_Controller {
 
     }
 
+    public function admin_bed_edit($bedId){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "bed";
+        $data['user_type']   = $this->session->flashdata('user_type');
+        
+        $bedData['bed'] = $this->admin_model->editBed($bedId);
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/bed/admin_bed_edit', $bedData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+    }
+
+    public function admin_bed_edit_submit($bedId){
+
+
+        //set validation rules
+        $this->form_validation->set_rules('bed_types','Types of Bed', 'trim|required');
+        $this->form_validation->set_rules('rent', 'Rents', 'trim|required');
+        $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
+        $this->form_validation->set_rules('hospital_registration_id', 'RegistrationID', 'trim|required');
+        $this->form_validation->set_rules('hospital_phn_no','Phone','trim|required|min_length[10]|max_length[30]');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->admin_bed_edit($bedId);
+        }else{
+
+        
+            $data = array(
+                'bed_types'             => $this->input->post('bed_types'),
+                'rent'                  => $this->input->post('rent'),
+                'hospital_name'         => $this->input->post('hospital_name'),
+                'hospital_registration_id'  => $this->input->post('hospital_registration_id'),
+                'hospital_phn_no'       => $this->input->post('hospital_phn_no'),
+                'status'                => $this->input->post('status'),
+            );
+
+
+            $updateBed = $this->admin_model->updateBed($bedId,$data);
+
+            if ($updateBed) {
+                 // error
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Beds successfully updated</div>');
+                redirect('index.php/admin_bed_list');
+            }else{
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                redirect('index.php/admin_bed_edit');
+            }
+
+        }
+    }
+
+    public function admin_bed_delete($bedId){
+        
+        $deleteBed = $this->admin_model->deleteBed($bedId);
+
+        if ($deleteBed) {
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Bed successfully deleted</div>');
+            redirect('index.php/admin_bed_list');
+        }else{
+             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+           redirect('index.php/admin_bed_list');
+        }  
+    }
+
+
 
     public function admin_oxygen_list(){
 
@@ -516,6 +589,11 @@ class Admin extends CI_Controller {
         }  
 
     }
+
+
+
+
+
 
 
     public function admin_oxygen_submit(){

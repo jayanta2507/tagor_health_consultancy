@@ -63,7 +63,13 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result_array();
     }
-    
+
+    //===================  Bed Section ==============//
+
+    public function createBed($data){
+        return $this->db->insert('bed', $data);
+    }
+
     public function bedList(){
         $this->db->select('*');
         $this->db->from('bed');
@@ -71,6 +77,26 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result_array();
     }
+
+    public function editBed($bedId){
+        $this->db->select('*');
+        $this->db->from('bed');
+        $this->db->where('id', $bedId);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
+    public function updateBed($bedId,$data){
+        return $this->db->where('id', $bedId)->update('bedId', $data);
+    }
+
+    public function deleteBed($bedId){
+        return $this->db->where('id', $bedId)->update('bed', array('status'=>'2'));
+    }
+
+
+    //===================  Bed Section ==============//
+
 
     public function oxygenList(){
         $this->db->select('*');
@@ -94,10 +120,7 @@ class Admin_model extends CI_Model {
         return $this->db->insert('blood', $data);
     }
 
-    public function createBed($data){
-        return $this->db->insert('bed', $data);
-    }
-
+    
     public function createOxygen($data){
         return $this->db->insert('oxygen', $data);
     }

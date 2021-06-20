@@ -77,6 +77,7 @@ die();*/
                           Status
                       </th>
                       <th style="width: 20%">
+                        Action
                       </th>
                   </tr>
               </thead>

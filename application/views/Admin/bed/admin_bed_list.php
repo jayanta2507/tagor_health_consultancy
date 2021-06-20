@@ -68,6 +68,7 @@
                           Status
                       </th>
                       <th style="width: 15%">
+                        Action
                       </th>
                   </tr>
               </thead>
@@ -119,7 +120,7 @@
                               View
                           </a> -->
 
-                          <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_bed_edit/<?php echo $value['id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
@@ -144,12 +145,15 @@
       <!-- /.card -->
 
       <script type="text/javascript">
-        function deleteDoctor(bedId){
-          confirm('Do you want to delete?');
-          alert(bedId);
+        function deleteBed(bedId){
+
+        if (confirm('Do you want to delete?')) {
+            window.location.href('<?php echo base_url(); ?>index.php/admin_bed_delete/'+bedId);
+          }else{
+             window.location.href('<?php echo base_url(); ?>index.php/admin_bed_edit/'+bedId);
+          }
         }
       </script>
-
     </section>
     <!-- /.content -->
   </div>
