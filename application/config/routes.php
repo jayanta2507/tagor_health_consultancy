@@ -99,8 +99,12 @@ $route['admin_blood_list']     = 'admin/admin_blood_list';
 $route['admin_blood_add']      = 'admin/admin_blood_add';
 $route['admin_blood_edit']     = 'admin/admin_blood_edit';
 $route['admin_blood_submit']   = 'admin/admin_blood_submit';
+$route['admin_blood_edit/(:any)']         = 'admin/admin_blood_edit/$1';
+$route['admin_blood_edit_submit/(:any)']  = 'admin/admin_blood_edit_submit/$1';
+$route['admin_blood_delete/(:any)']       = 'admin/admin_blood_delete/$1';
 
-<<<<<<< HEAD
+
+
 
 
 
@@ -117,7 +121,7 @@ $route['admin_bed_delete/(:any)']       = 'admin/admin_bed_delete/$1';
 
 
 
-=======
+
 // ***************** End Admin Blood Section **************//
 
 
@@ -126,7 +130,7 @@ $route['admin_bed_delete/(:any)']       = 'admin/admin_bed_delete/$1';
 $route['admin_bed_list']       = 'admin/admin_bed_list';
 $route['admin_bed_add']        = 'admin/admin_bed_add';
 $route['admin_bed_submit']     = 'admin/admin_bed_submit';
->>>>>>> 4ce52b3b27d0f01a163c6aca652cc55443f679c2
+
 
 // ***************** End Admin bed Section **************//
 

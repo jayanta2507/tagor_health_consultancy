@@ -64,6 +64,25 @@ class Admin_model extends CI_Model {
         return  $query->result_array();
     }
 
+
+    public function editblood($bloodId){
+        $this->db->select('*');
+        $this->db->from('bloods');
+        $this->db->where('id', $bloodId);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
+
+    public function updateblood($bloodId,$data){
+        return $this->db->where('id', $bloodId)->update('bloods', $data);
+    }
+
+
+    public function deleteblood($bloodId){
+        return $this->db->where('id', $bloodId)->update('bloods', array('status'=>'2'));
+    }
+
     //===================  Bed Section ==============//
 
     public function createBed($data){

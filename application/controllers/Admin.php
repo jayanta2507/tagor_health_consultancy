@@ -341,23 +341,6 @@ class Admin extends CI_Controller {
     }
 
 
-    public function admin_blood_edit(){
-
-        $user_type           = $this->session->flashdata('user_type');
-        $data['active_text'] = "blood";
-        $data['user_type']   = $this->session->flashdata('user_type');
-
-
-        if ($user_type==1) {
-            $this->load->view('common/header',$data);
-            $this->load->view('Admin/blood/admin_blood_edit');
-            $this->load->view('common/footer');
-        }else{
-            redirect('index.php/admin_login');
-        }  
-
-    }
-
     public function admin_blood_submit(){
 
         //set validation rulesv
@@ -396,6 +379,85 @@ class Admin extends CI_Controller {
             }
         }
     }
+
+  
+    public function admin_blood_edit($bloodId){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "blood";
+        $data['user_type']   = $this->session->flashdata('user_type');
+        
+        $bloodData['blood'] = $this->admin_model->editBlood($bloodId);
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/blood/admin_blood_edit', $bloodData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+    }
+   public function admin_blood_edit_submit($bloodId){
+
+
+         //set validation rulesv
+        $this->form_validation->set_rules('blood_gr','blood group', 'trim|required');
+        $this->form_validation->set_rules('price', 'price', 'trim|required');
+        $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
+        $this->form_validation->set_rules('hospital_registration_id', 'registration id', 'trim|required');
+        $this->form_validation->set_rules('hospital_phn_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+        
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->admin_blood_add();
+        }else{
+
+            $data = array(
+                'blood_group'               => $this->input->post('blood_gr'),
+                'price'                     => $this->input->post('price'),
+                'hospital_name'             => $this->input->post('hospital_name'),
+                'hospital_registration_number'  => $this->input->post('hospital_registration_id'),
+                'hospital_phn_no'           => $this->input->post('hospital_phn_no'),
+                'status'                    => $this->input->post('status'),
+            );
+             
+            $createBlood = $this->admin_model->createBlood($data);
+
+               // echo "<pre>";
+               //  print_r($createBlood);
+               //  echo "</pre>";
+               //  die();
+
+            if ($createBlood) {
+                 // error
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Blood successfully added</div>');
+                redirect('index.php/admin_blood_list');
+            }else{
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                redirect('index.php/admin_blood_add');
+            }
+        }
+    }
+
+
+    public function admin_blood_delete($bloodId){
+        
+        $deleteblood = $this->admin_model->deleteBlood($bloodId);
+
+        if ($deleteblood) {
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Bed successfully deleted</div>');
+            redirect('index.php/admin_blood_list');
+        }else{
+             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+           redirect('index.php/admin_blood_list');
+        }  
+    }
+
+
+
 
 
     public function admin_bed_list(){
