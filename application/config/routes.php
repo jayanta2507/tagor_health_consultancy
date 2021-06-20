@@ -90,16 +90,17 @@ $route['admin_doctor_edit/(:any)']         = 'admin/admin_doctor_edit/$1';
 $route['admin_doctor_edit_submit/(:any)']  = 'admin/admin_doctor_edit_submit/$1';
 $route['admin_doctor_delete/(:any)']       = 'admin/admin_doctor_delete/$1';
 
-
 // ***************** End Admin Doctor Section **************//
 
 
 
+// ***************** Start Admin Blood Section **************//
 $route['admin_blood_list']     = 'admin/admin_blood_list';
 $route['admin_blood_add']      = 'admin/admin_blood_add';
 $route['admin_blood_edit']     = 'admin/admin_blood_edit';
 $route['admin_blood_submit']   = 'admin/admin_blood_submit';
 
+<<<<<<< HEAD
 
 
 
@@ -116,12 +117,37 @@ $route['admin_bed_delete/(:any)']       = 'admin/admin_bed_delete/$1';
 
 
 
+=======
+// ***************** End Admin Blood Section **************//
 
-$route['admin_oxygen_list']    = 'admin/admin_oxygen_list';
-$route['admin_oxygen_add']     = 'admin/admin_oxygen_add';
-$route['admin_oxygen_submit']  = 'admin/admin_oxygen_submit';
 
+
+// ***************** Start Admin bed Section **************//
+$route['admin_bed_list']       = 'admin/admin_bed_list';
+$route['admin_bed_add']        = 'admin/admin_bed_add';
+$route['admin_bed_submit']     = 'admin/admin_bed_submit';
+>>>>>>> 4ce52b3b27d0f01a163c6aca652cc55443f679c2
+
+// ***************** End Admin bed Section **************//
+
+
+
+// ***************** Start Admin oxygen Section **************//
+$route['admin_oxygen_list']                = 'admin/admin_oxygen_list';
+$route['admin_oxygen_add']                 = 'admin/admin_oxygen_add';
+$route['admin_oxygen_submit']              = 'admin/admin_oxygen_submit';
+$route['admin_oxygen_edit/(:any)']         = 'admin/admin_oxygen_edit/$1';
+$route['admin_oxygen_edit_submit/(:any)']  = 'admin/admin_oxygen_edit_submit/$1';
+$route['admin_oxygen_delete/(:any)']       = 'admin/admin_oxygen_delete/$1';
+
+// ***************** End Admin oxygen Section **************//
+
+
+
+// ***************** Start Admin vaccine Section **************//
 $route['admin_vaccine_list']   = 'admin/admin_vaccine_list';
 $route['admin_vaccine_add']    = 'admin/admin_vaccine_add';
 $route['admin_vaccine_edit'] = 'admin/admin_vaccine_edit';
 $route['admin_vaccine_submit'] = 'admin/admin_vaccine_submit';
+
+// ***************** End Admin vaccine Section **************//
