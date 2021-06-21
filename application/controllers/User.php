@@ -137,10 +137,10 @@ class User extends CI_Controller {
 		$this->load->view('User/home');
 	}
 
-
-	public function submit_home(){
-		$this->load->view('User/home');
-	}
+    public function user_about(){
+        $this->load->view('User/about_us');
+    }
+	 
 
     public function confirmpassword(){
         $this->load->view('User/confirmpassword');
@@ -293,10 +293,13 @@ class User extends CI_Controller {
 
         $data['active_text'] = "doctor";
         $data['user_type']   = $this->session->flashdata('user_type');
+
+
+        $doctorData['doctors'] = $this->user_model->doctorList();
         
         if (!empty($user_id)) {
             $this->load->view('common/header',$data);
-            $this->load->view('doctors/doctor');
+            $this->load->view('doctors/doctor',$doctorData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/user_login');

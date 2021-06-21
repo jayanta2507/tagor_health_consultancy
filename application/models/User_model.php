@@ -58,6 +58,15 @@ class User_model extends CI_Model {
                 return $update;
         }
 
+
+        public function doctorList(){
+                $this->db->select('*');
+                $this->db->from('doctors');
+                $this->db->where('status !=', '2');
+                $query = $this->db->get();
+                return  $query->result_array();
+        }
+
 }
 
 ?>

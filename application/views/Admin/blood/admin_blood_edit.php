@@ -59,7 +59,7 @@
                  <div class="form-group">
                   <label for="inputName">Hospital Registration ID</label>
                   <input type="text" id="inputRegistration_ID" class="form-control" name="hospital_registration_number"  value="<?php echo $blood['hospital_registration_number'] ?>" >
-                  <span class="text-danger"><?php echo form_error('registration_id'); ?></span>
+                  <span class="text-danger"><?php echo form_error('hospital_registration_number'); ?></span>
                 </div>
                 <div class="form-group">
                   <label for="inputName">Hospital Phone Number</label>

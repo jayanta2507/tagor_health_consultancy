@@ -405,7 +405,7 @@ class Admin extends CI_Controller {
         $this->form_validation->set_rules('blood_group','Blood group', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
-        $this->form_validation->set_rules('hospital_registration_id', 'Registration id', 'trim|required');
+        $this->form_validation->set_rules('hospital_registration_number', 'Registration id', 'trim|required');
         $this->form_validation->set_rules('hospital_phn_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
         
@@ -413,6 +413,8 @@ class Admin extends CI_Controller {
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
+
+
             $this->admin_blood_edit($bloodId);
         }else{
 
@@ -426,11 +428,6 @@ class Admin extends CI_Controller {
             );
              
             $updateBlood = $this->admin_model->updateBlood($bloodId,$data);
-
-               // echo "<pre>";
-               // print_r($createBlood);
-               // echo "</pre>";
-               //   die();
 
             if ($updateBlood) {
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Blood successfully updated</div>');
@@ -731,7 +728,7 @@ class Admin extends CI_Controller {
             );
 
 
-            $UpdateOxygen = $this->admin_model->updateOxygen($data);
+            $updateOxygen = $this->admin_model->updateOxygen($oxygenId,$data);
 
             if ($updateOxygen) {
                  // error
@@ -739,7 +736,7 @@ class Admin extends CI_Controller {
                 redirect('index.php/admin_oxygen_list');
             }else{
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
-                redirect('index.php/admin_oxygen_edit');
+                redirect('index.php/admin_oxygen_edit/'.$oxygenId);
             }
 
         }

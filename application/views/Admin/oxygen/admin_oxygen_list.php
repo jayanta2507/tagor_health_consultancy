@@ -68,8 +68,7 @@
                   </tr>
               </thead>
               <tbody>
-
-             <?php foreach ($oxygen as $key => $value) { ?>
+         
 
 
                 <?php foreach ($oxygen as $key => $value) { ?>
@@ -106,8 +105,8 @@
 
                       </td>
 
-                      <td>
-                        <td class="project-actions text-right">
+                    
+                      <td class="project-actions text-right">
                           <!-- <a class="btn btn-primary btn-sm" href="#">
                               <i class="fas fa-folder">
                               </i>
@@ -118,11 +117,20 @@
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>index.php/admin_oxygen_delete/<?php echo $value['id']; ?>">
+                         <!--  <a class="btn btn-danger btn-sm" href="<?php //echo base_url(); ?>index.php/admin_oxygen_delete/<?php //echo $value['id']; ?>">
+                              <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </a> -->
+
+                          <a class="btn btn-danger btn-sm" href="javascript:void(0)" onclick="deleteOxygen(<?php echo $value['id']; ?>)">
                               <i class="fas fa-trash">
                               </i>
                               Delete
                           </a>
+
+
+                          
                       </td>
                   </tr>
 
@@ -135,16 +143,16 @@
       </div>
       <!-- /.card -->
       
-      <!-- <script type="text/javascript">
+      <script type="text/javascript">
         function deleteOxygen(oxygenId){
 
           if (confirm('Do you want to delete?')) {
-            window.location.href('<?php echo base_url(); ?>index.php/admin_oxygen_delete/'+oxygenId);
+            window.location.replace("<?php echo base_url(); ?>index.php/admin_oxygen_delete/"+oxygenId);
           }else{
-             window.location.href('<?php echo base_url(); ?>index.php/admin_oxygen_edit/'+oxygenId);
+             window.location.replace('<?php echo base_url(); ?>index.php/admin_oxygen_list');
           }
         }
-      </script> -->
+      </script>
 
     </section>
     <!-- /.content -->

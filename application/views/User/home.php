@@ -30,7 +30,7 @@
           <a class="nav-link active" aria-current="page" href="home.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.php">About Us</a>
+          <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_about">About Us</a>
         </li>
         </li>
         <li class="nav-item">
@@ -39,13 +39,20 @@
  
         <?php 
           $user_id = $this->session->flashdata('user_id');
+          $user_type = $this->session->flashdata('user_type');
 
           if (!empty($user_id)) { ?>
 
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_dashboard">Dashboard</a>
-            </li>
 
+            <?php if ($user_type==0) { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_dashboard">Dashboard</a>
+              </li>
+            <?php } else { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/admin_dashboard">Dashboard</a>
+              </li>
+            <?php } ?>
         <?php } else { ?>
 
             <li class="nav-item">

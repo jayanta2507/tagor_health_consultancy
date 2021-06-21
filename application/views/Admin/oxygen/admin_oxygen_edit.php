@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/admin_oxygen_edit_submit"/<?php echo $oxygen['id'] ?> method="post">
+      <form action="<?php echo base_url(); ?>index.php/admin_oxygen_edit_submit/<?php echo $oxygen['id'] ?>" method="post">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -38,19 +38,19 @@
                 
                 <div class="form-group">
                   <label for="inputName">Types of Oxygen</label>
-                  <input type="text" id="inputTypes_Oxygen" class="form-control" name="oxygen_type" value="<?php echo $oxygen['oxygen_type'] ?>" >
+                  <input type="text" id="inputTypes_Oxygen" class="form-control" name="oxygen_type" value="<?php echo $oxygen['oxygen_type']; ?>" >
                   <span class="text-danger"><?php echo form_error('oxygen_type'); ?></span>
                 </div>
 
                 <div class="form-group">
                   <label for="inputName">Oxygen Refilling</label>
-                  <input type="text" id="inputRefilling" class="form-control" name="oxygen_refilling" value="<?php echo $oxygen['oxygen_refilling'] ?>" >
+                  <input type="text" id="inputRefilling" class="form-control" name="oxygen_refilling" value="<?php echo $oxygen['oxygen_refilling']; ?>" >
                   <span class="text-danger"><?php echo form_error('oxygen_refilling'); ?></span>
                 </div>
 
                 <div class="form-group">
                   <label for="inputName">Oxygen Rents</label>
-                  <input type="text" id="inputRents" class="form-control" name="rent" value="<?php echo $oxygen['rent'] ?>" >
+                  <input type="text" id="inputRents" class="form-control" name="rent" value="<?php echo $oxygen['rent']; ?>" >
                   <span class="text-danger"><?php echo form_error('rent'); ?></span>
                 </div>
 
