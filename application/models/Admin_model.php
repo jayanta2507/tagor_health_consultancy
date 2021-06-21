@@ -120,6 +120,14 @@ class Admin_model extends CI_Model {
     //===================  Bed Section ==============//
 
 
+
+
+    //===================  oxygen Section ==============//
+
+    public function createOxygen($data){
+        return $this->db->insert('oxygen', $data);
+    }
+
     public function oxygenList(){
         $this->db->select('*');
         $this->db->from('oxygen');
@@ -127,6 +135,32 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result_array();
     }
+
+
+    public function editOxygen($oxygenId){
+        $this->db->select('*');
+        $this->db->from('oxygen');
+        $this->db->where('id', $oxygenId);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
+    public function updateOxygen($oxygenId,$data){
+        return $this->db->where('id', $oxygenId)->update('oxygen', $data);
+    }
+
+    public function deleteOxygen($oxygenId){
+        return $this->db->where('id', $oxygenId)->update('oxygen', array('status'=>'2'));
+    }
+
+    
+
+    //===================  oxygen Section ==============//
+
+
+
+
+    //===================  vaccine Section ==============//
 
      public function vaccineList(){
         $this->db->select('*');
@@ -136,19 +170,14 @@ class Admin_model extends CI_Model {
         return  $query->result_array();
     }
 
-    
 
-    
-
-    
-    public function createOxygen($data){
-        return $this->db->insert('oxygen', $data);
-    }
 
     public function createVaccine($data){
         return $this->db->insert('vaccine', $data);
     }
+    
 
+    //===================  vaccine Section ==============//
 
 
 }

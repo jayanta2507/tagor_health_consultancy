@@ -82,6 +82,8 @@ $route['submit_adminlogin']    = 'admin/submit_adminlogin';
 $route['admin_dashboard']      = 'admin/admin_dashboard';
 
 
+
+
 // ***************** Start Admin Doctor Section **************//
 $route['admin_doctor_list']    		       = 'admin/admin_doctor_list';
 $route['admin_doctor_add']     		       = 'admin/admin_doctor_add';
@@ -91,6 +93,8 @@ $route['admin_doctor_edit_submit/(:any)']  = 'admin/admin_doctor_edit_submit/$1'
 $route['admin_doctor_delete/(:any)']       = 'admin/admin_doctor_delete/$1';
 
 // ***************** End Admin Doctor Section **************//
+
+
 
 
 
@@ -122,20 +126,6 @@ $route['admin_bed_delete/(:any)']       = 'admin/admin_bed_delete/$1';
 
 
 
-// ***************** End Admin Blood Section **************//
-
-
-
-// ***************** Start Admin bed Section **************//
-$route['admin_bed_list']       = 'admin/admin_bed_list';
-$route['admin_bed_add']        = 'admin/admin_bed_add';
-$route['admin_bed_submit']     = 'admin/admin_bed_submit';
-
-
-// ***************** End Admin bed Section **************//
-
-
-
 // ***************** Start Admin oxygen Section **************//
 $route['admin_oxygen_list']                = 'admin/admin_oxygen_list';
 $route['admin_oxygen_add']                 = 'admin/admin_oxygen_add';
@@ -145,6 +135,8 @@ $route['admin_oxygen_edit_submit/(:any)']  = 'admin/admin_oxygen_edit_submit/$1'
 $route['admin_oxygen_delete/(:any)']       = 'admin/admin_oxygen_delete/$1';
 
 // ***************** End Admin oxygen Section **************//
+
+
 
 
 

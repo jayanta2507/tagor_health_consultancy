@@ -653,12 +653,6 @@ class Admin extends CI_Controller {
 
     }
 
-
-
-
-
-
-
     public function admin_oxygen_submit(){
 
 
@@ -694,10 +688,84 @@ class Admin extends CI_Controller {
             }
 
         }
+    }
+
+
+    public function admin_oxygen_edit($oxygenId){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "oxygen";
+        $data['user_type']   = $this->session->flashdata('user_type');
+        
+        $oxygenData['oxygen'] = $this->admin_model->editOxygen($oxygenId);
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/oxygen/admin_oxygen_edit', $oxygenData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+    }
+
+    public function admin_oxygen_edit_submit($oxygenId){
+
+
+        //set validation rules
+        $this->form_validation->set_rules('oxygen_type','Types of Oxygen', 'trim|required');
+        $this->form_validation->set_rules('oxygen_refilling', 'Refilling', 'trim|required');
+        $this->form_validation->set_rules('rent', 'Rents', 'trim|required');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->admin_oxygen_edit($oxygenId);
+        }else{
+
+            $data = array(
+                'oxygen_type'           => $this->input->post('oxygen_type'),
+                'oxygen_refilling'      => $this->input->post('oxygen_refilling'),
+                'rent'                  => $this->input->post('rent'),
+                'status'                => $this->input->post('status'),
+            );
+
+
+            $UpdateOxygen = $this->admin_model->updateOxygen($data);
+
+            if ($updateOxygen) {
+                 // error
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Oxygen successfully updated</div>');
+                redirect('index.php/admin_oxygen_list');
+            }else{
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                redirect('index.php/admin_oxygen_edit');
+            }
+
+        }
 
     }
 
-public function admin_vaccine_list(){
+
+    public function admin_oxygen_delete($oxygenId){
+        
+        $deleteOxygen = $this->admin_model->deleteOxygen($oxygenId);
+
+        if ($deleteOxygen) {
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Oxygen successfully deleted</div>');
+            redirect('index.php/admin_oxygen_list');
+        }else{
+             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+           redirect('index.php/admin_oxygen_list');
+        }  
+    }
+
+
+
+
+
+
+    public function admin_vaccine_list(){
 
         $user_type     = $this->session->flashdata('user_type');
 

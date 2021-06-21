@@ -107,13 +107,18 @@
                       </td>
 
                       <td>
-
-                          <a class="btn btn-info btn-sm" href="#">
+                        <td class="project-actions text-right">
+                          <!-- <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              View
+                          </a> -->
+                          <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_oxygen_edit/<?php echo $value['id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deleteDoctor(<?php echo $value['id']; ?>)">
+                          <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>index.php/admin_oxygen_delete/<?php echo $value['id']; ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete
@@ -130,14 +135,19 @@
       </div>
       <!-- /.card -->
       
-      <script type="text/javascript">
-        function deleteDoctor(doctorId){
-          confirm('Do you want to delete?');
-          alert(doctorId);
+      <!-- <script type="text/javascript">
+        function deleteOxygen(oxygenId){
+
+          if (confirm('Do you want to delete?')) {
+            window.location.href('<?php echo base_url(); ?>index.php/admin_oxygen_delete/'+oxygenId);
+          }else{
+             window.location.href('<?php echo base_url(); ?>index.php/admin_oxygen_edit/'+oxygenId);
+          }
         }
-      </script>
-      
+      </script> -->
+
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper
+
