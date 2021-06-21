@@ -110,13 +110,12 @@
                            </td>
                   
                                 <td class="project-actions text-right">
-                          
-                          <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_blood_edit">
+                         <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_blood_edit/<?php echo $value['id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deleteDoctor(<?php echo $value['id']; ?>)">
+                          <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deleteBlood(<?php echo $value['id']; ?>)">
                               <i class="fas fa-trash">
                               </i>
                               Delete
@@ -135,9 +134,9 @@
       <!-- /.card -->
 
       <script type="text/javascript">
-        function deleteDoctor(doctorId){
+        function bloodDoctor(bloodId){
           confirm('Are you sure want to delete?');
-          alert(doctorId);
+          alert(bloodId);
         }
       </script>
 

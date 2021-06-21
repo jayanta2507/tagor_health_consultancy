@@ -344,10 +344,10 @@ class Admin extends CI_Controller {
     public function admin_blood_submit(){
 
         //set validation rulesv
-        $this->form_validation->set_rules('blood_gr','blood group', 'trim|required');
-        $this->form_validation->set_rules('price', 'price', 'trim|required');
+        $this->form_validation->set_rules('blood_group','Blood group', 'trim|required');
+        $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
-        $this->form_validation->set_rules('hospital_registration_id', 'registration id', 'trim|required');
+        $this->form_validation->set_rules('hospital_registration_id', 'Registration id', 'trim|required');
         $this->form_validation->set_rules('hospital_phn_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
         
@@ -359,7 +359,7 @@ class Admin extends CI_Controller {
         }else{
 
             $data = array(
-                'blood_group'               => $this->input->post('blood_gr'),
+                'blood_group'               => $this->input->post('blood_group'),
                 'price'                     => $this->input->post('price'),
                 'hospital_name'             => $this->input->post('hospital_name'),
                 'hospital_registration_number'  => $this->input->post('hospital_registration_id'),
@@ -401,10 +401,10 @@ class Admin extends CI_Controller {
 
 
          //set validation rulesv
-        $this->form_validation->set_rules('blood_gr','blood group', 'trim|required');
-        $this->form_validation->set_rules('price', 'price', 'trim|required');
+        $this->form_validation->set_rules('blood_gr','Blood group', 'trim|required');
+        $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
-        $this->form_validation->set_rules('hospital_registration_id', 'registration id', 'trim|required');
+        $this->form_validation->set_rules('hospital_registration_id', 'Registration id', 'trim|required');
         $this->form_validation->set_rules('hospital_phn_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
         
@@ -427,9 +427,9 @@ class Admin extends CI_Controller {
             $createBlood = $this->admin_model->createBlood($data);
 
                // echo "<pre>";
-               //  print_r($createBlood);
-               //  echo "</pre>";
-               //  die();
+               // print_r($createBlood);
+               // echo "</pre>";
+               //   die();
 
             if ($createBlood) {
                  // error
@@ -586,6 +586,11 @@ class Admin extends CI_Controller {
 
 
             $updateBed = $this->admin_model->updateBed($bedId,$data);
+             echo "<pre>";
+               print_r($createBed);
+               echo "</pre>";
+                 die();
+
 
             if ($updateBed) {
                  // error

@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/admin_blood_edit" method="post">
+      <form action="<?php echo base_url(); ?>index.php/admin_blood_edit_submit/<?php echo $blood['id'] ?>" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -39,45 +39,44 @@
                
                 <div class="form-group">
                   <label for="inputName">Blood Group</label>
-                  <input type="text" id="inputTypes_Blood" class="form-control" name="blood_gr">
-                  <span class="text-danger"><?php echo form_error('blood_gr'); ?></span>
+                  <input type="text" id="inputBlood" class="form-control" name="blood_gr" value="<?php echo $blood['blood_group'] ?>">
+                  <span class="text-danger"><?php echo form_error('blood_group'); ?></span>
                 </div>
 
                 <div class="form-group">
                   <label for="inputName">Blood Price</label>
-                  <input type="text" id="inputRents" class="form-control" name="price">
+                  <input type="text" id="inputPrice" class="form-control" name="price" value="<?php echo $blood['price'] ?>">
                   <span class="text-danger"><?php echo form_error('price'); ?></span>
                 </div>
 
 
                 <div class="form-group">
                   <label for="inputName">Hospital Name</label>
-                  <input type="text" id="inputHos_Name" class="form-control" name="hospital_name">
+                  <input type="text" id="inputHos_Name" class="form-control" name="hospital_name" value="<?php echo $blood['hospital_name'] ?>">
                   <span class="text-danger"><?php echo form_error('hospital_name'); ?></span>
                 </div>
 
-                <div class="form-group">
+                 <div class="form-group">
                   <label for="inputName">Hospital Registration ID</label>
-                  <input type="text" id="inputRegistrationID" class="form-control" name="hospital_registration_id">
-                  <span class="text-danger"><?php echo form_error('hospital_registration_id'); ?></span>
+                  <input type="text" id="inputRegistration_ID" class="form-control" name="hospital_registration_id"  value="<?php echo $blood['registration_id'] ?>" >
+                  <span class="text-danger"><?php echo form_error('registration_id'); ?></span>
                 </div>
-
                 <div class="form-group">
                   <label for="inputName">Hospital Phone Number</label>
-                  <input type="text" id="inputPhone" class="form-control" name="hospital_phn_no">
+                  <input type="text" id="inputPhone" class="form-control" name="hospital_phn_no" value="<?php echo $blood['hospital_phn_no'] ?>">
                   <span class="text-danger"><?php echo form_error('hospital_phn_no'); ?></span>
                 </div>
 
-                <div class="form-group">
+                 <div class="form-group">
                   <label for="inputStatus">Status</label>
                   <select id="inputStatus" class="form-control custom-select" name="status">
-                    <option selected disabled>Select one</option>
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
+                    <option selected disabled>Select One</option>
+                    <option value="1" <?php echo ($blood['status']==1)?'selected':''; ?> >Active</option>
+                    <option value="0" <?php echo ($blood['status']==0)?'selected':''; ?> >Inactive</option>
                   </select>
                   <span class="text-danger"><?php echo form_error('status'); ?></span>
                 </div>
-
+               
                
               </div>
               <!-- /.card-body -->

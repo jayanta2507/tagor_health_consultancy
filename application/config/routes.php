@@ -97,7 +97,6 @@ $route['admin_doctor_delete/(:any)']       = 'admin/admin_doctor_delete/$1';
 // ***************** Start Admin Blood Section **************//
 $route['admin_blood_list']     = 'admin/admin_blood_list';
 $route['admin_blood_add']      = 'admin/admin_blood_add';
-$route['admin_blood_edit']     = 'admin/admin_blood_edit';
 $route['admin_blood_submit']   = 'admin/admin_blood_submit';
 $route['admin_blood_edit/(:any)']         = 'admin/admin_blood_edit/$1';
 $route['admin_blood_edit_submit/(:any)']  = 'admin/admin_blood_edit_submit/$1';

@@ -55,6 +55,9 @@ class Admin_model extends CI_Model {
 
     //===================  Doctor Section ==============//
 
+ public function createBlood($data){
+        return $this->db->insert('blood', $data);
+    }
 
     public function bloodList(){
         $this->db->select('*');
@@ -65,9 +68,9 @@ class Admin_model extends CI_Model {
     }
 
 
-    public function editblood($bloodId){
+    public function editBlood($bloodId){
         $this->db->select('*');
-        $this->db->from('bloods');
+        $this->db->from('blood');
         $this->db->where('id', $bloodId);
         $query = $this->db->get();
         return  $query->row_array();
@@ -75,7 +78,7 @@ class Admin_model extends CI_Model {
 
 
     public function updateblood($bloodId,$data){
-        return $this->db->where('id', $bloodId)->update('bloods', $data);
+        return $this->db->where('id', $bloodId)->update('blood', $data);
     }
 
 
@@ -135,9 +138,7 @@ class Admin_model extends CI_Model {
 
     
 
-    public function createBlood($data){
-        return $this->db->insert('blood', $data);
-    }
+    
 
     
     public function createOxygen($data){
