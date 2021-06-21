@@ -83,7 +83,7 @@ class Admin_model extends CI_Model {
 
 
     public function deleteblood($bloodId){
-        return $this->db->where('id', $bloodId)->update('bloods', array('status'=>'2'));
+        return $this->db->where('id', $bloodId)->update('blood', array('status'=>'2'));
     }
 
     //===================  Bed Section ==============//
@@ -103,17 +103,17 @@ class Admin_model extends CI_Model {
     public function editBed($bedId){
         $this->db->select('*');
         $this->db->from('bed');
-        $this->db->where('id', $bedId);
+        $this->db->where('bedid', $bedId);
         $query = $this->db->get();
         return  $query->row_array();
     }
 
     public function updateBed($bedId,$data){
-        return $this->db->where('id', $bedId)->update('bedId', $data);
+        return $this->db->where('bedid', $bedId)->update('bed', $data);
     }
 
     public function deleteBed($bedId){
-        return $this->db->where('id', $bedId)->update('bed', array('status'=>'2'));
+        return $this->db->where('bedid', $bedId)->update('bed', array('status'=>'2'));
     }
 
 

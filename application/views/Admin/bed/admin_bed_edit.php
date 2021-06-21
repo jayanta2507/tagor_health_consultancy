@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/admin_bed_edit_submit/<?php echo $bed['id'] ?>" method="post">
+      <form action="<?php echo base_url(); ?>index.php/admin_bed_edit_submit/<?php echo $bed['bedid'] ?>" method="post">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">

@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/admin_blood_edit_submit/<?php echo $blood['id'] ?>" method="post" enctype="multipart/form-data">
+      <form action="<?php echo base_url(); ?>index.php/admin_blood_edit_submit/<?php echo $blood['id'] ?>" method="post">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -39,7 +39,7 @@
                
                 <div class="form-group">
                   <label for="inputName">Blood Group</label>
-                  <input type="text" id="inputBlood" class="form-control" name="blood_gr" value="<?php echo $blood['blood_group'] ?>">
+                  <input type="text" id="inputBlood" class="form-control" name="blood_group" value="<?php echo $blood['blood_group'] ?>">
                   <span class="text-danger"><?php echo form_error('blood_group'); ?></span>
                 </div>
 
@@ -58,7 +58,7 @@
 
                  <div class="form-group">
                   <label for="inputName">Hospital Registration ID</label>
-                  <input type="text" id="inputRegistration_ID" class="form-control" name="hospital_registration_id"  value="<?php echo $blood['registration_id'] ?>" >
+                  <input type="text" id="inputRegistration_ID" class="form-control" name="hospital_registration_number"  value="<?php echo $blood['hospital_registration_number'] ?>" >
                   <span class="text-danger"><?php echo form_error('registration_id'); ?></span>
                 </div>
                 <div class="form-group">
@@ -76,8 +76,7 @@
                   </select>
                   <span class="text-danger"><?php echo form_error('status'); ?></span>
                 </div>
-               
-               
+
               </div>
               <!-- /.card-body -->
             </div>
@@ -87,7 +86,7 @@
         <div class="row">
           <div class="col-12">
             <a href="<?php echo base_url(); ?>index.php/admin_blood_list" class="btn btn-secondary">Back</a>
-            <input type="submit" value="Edit Blood" class="btn btn-success float-right">
+            <input type="submit" value="Update" class="btn btn-success float-right">
           </div>
         </div>
       </form>

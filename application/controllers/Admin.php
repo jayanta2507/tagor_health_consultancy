@@ -347,7 +347,7 @@ class Admin extends CI_Controller {
         $this->form_validation->set_rules('blood_group','Blood group', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
-        $this->form_validation->set_rules('hospital_registration_id', 'Registration id', 'trim|required');
+        $this->form_validation->set_rules('hospital_registration_number', 'Registration id', 'trim|required');
         $this->form_validation->set_rules('hospital_phn_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
         
@@ -362,7 +362,7 @@ class Admin extends CI_Controller {
                 'blood_group'               => $this->input->post('blood_group'),
                 'price'                     => $this->input->post('price'),
                 'hospital_name'             => $this->input->post('hospital_name'),
-                'hospital_registration_number'  => $this->input->post('hospital_registration_id'),
+                'hospital_registration_number'  => $this->input->post('hospital_registration_number'),
                 'hospital_phn_no'           => $this->input->post('hospital_phn_no'),
                 'status'                    => $this->input->post('status'),
             );
@@ -397,11 +397,12 @@ class Admin extends CI_Controller {
             redirect('index.php/admin_login');
         }  
     }
+
    public function admin_blood_edit_submit($bloodId){
 
 
          //set validation rulesv
-        $this->form_validation->set_rules('blood_gr','Blood group', 'trim|required');
+        $this->form_validation->set_rules('blood_group','Blood group', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('hospital_name', 'Hospital Name', 'trim|required');
         $this->form_validation->set_rules('hospital_registration_id', 'Registration id', 'trim|required');
@@ -412,32 +413,31 @@ class Admin extends CI_Controller {
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
-            $this->admin_blood_add();
+            $this->admin_blood_edit($bloodId);
         }else{
 
             $data = array(
-                'blood_group'               => $this->input->post('blood_gr'),
+                'blood_group'               => $this->input->post('blood_group'),
                 'price'                     => $this->input->post('price'),
                 'hospital_name'             => $this->input->post('hospital_name'),
-                'hospital_registration_number'  => $this->input->post('hospital_registration_id'),
+                'hospital_registration_number'  => $this->input->post('hospital_registration_number'),
                 'hospital_phn_no'           => $this->input->post('hospital_phn_no'),
                 'status'                    => $this->input->post('status'),
             );
              
-            $createBlood = $this->admin_model->createBlood($data);
+            $updateBlood = $this->admin_model->updateBlood($bloodId,$data);
 
                // echo "<pre>";
                // print_r($createBlood);
                // echo "</pre>";
                //   die();
 
-            if ($createBlood) {
-                 // error
-                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Blood successfully added</div>');
+            if ($updateBlood) {
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Blood successfully updated</div>');
                 redirect('index.php/admin_blood_list');
             }else{
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
-                redirect('index.php/admin_blood_add');
+                redirect('index.php/admin_blood_edit');
             }
         }
     }
@@ -586,11 +586,7 @@ class Admin extends CI_Controller {
 
 
             $updateBed = $this->admin_model->updateBed($bedId,$data);
-             echo "<pre>";
-               print_r($createBed);
-               echo "</pre>";
-                 die();
-
+             
 
             if ($updateBed) {
                  // error

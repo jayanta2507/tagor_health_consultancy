@@ -109,7 +109,7 @@
                              <?php }  ?>
                            </td>
                   
-                                <td class="project-actions text-right">
+                       <td class="project-actions text-right">
                          <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_blood_edit/<?php echo $value['id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>

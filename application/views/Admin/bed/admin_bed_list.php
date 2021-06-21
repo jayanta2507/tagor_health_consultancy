@@ -120,12 +120,12 @@
                               View
                           </a> -->
 
-                            <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_bed_edit/<?php echo $value['id']; ?>">
+                            <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_bed_edit/<?php echo $value['bedid']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                           <a class="btn btn-danger btn-sm" href="javacript:void(0)" onclick="deleteBed(<?php echo $value['id']; ?>)">
+                            <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>index.php/admin_bed_delete/<?php echo $value['bedid']; ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete
