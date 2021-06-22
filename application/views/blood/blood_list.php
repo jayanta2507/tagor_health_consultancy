@@ -57,7 +57,7 @@
                       <th style="width: 13%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 15%">
+                      <th style="width: 25%">
                       </th>
                   </tr>
               </thead>

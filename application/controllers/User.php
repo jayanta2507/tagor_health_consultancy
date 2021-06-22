@@ -328,7 +328,7 @@ class User extends CI_Controller {
 
         if (!empty($user_id)) {
             $this->load->view('common/header',$data);
-            $this->load->view('blood/blood',$bloodData);
+            $this->load->view('blood/blood_list',$bloodData);
             $this->load->view('common/footer');
            
         }else{
