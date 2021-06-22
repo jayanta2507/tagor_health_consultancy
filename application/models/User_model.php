@@ -66,6 +66,13 @@ class User_model extends CI_Model {
                 $query = $this->db->get();
                 return  $query->result_array();
         }
+        public function bloodList(){
+                $this->db->select('*');
+                $this->db->from('blood');
+                $this->db->where('status !=', '2');
+                $query = $this->db->get();
+                return  $query->result_array();
+        }
 
 }
 

@@ -11,9 +11,10 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: -webkit-linear-gradient(left, #1237f1, #ffffff);
+  background: -webkit-linear-gradient(left, #d6d6d6 , #ffffff);
   font-family: 'Nunito', sans-serif;
 }
+
 
 input, button{
   border:none;
@@ -109,26 +110,6 @@ button{
   color: red;
 }
 
-.social-media{
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.social-media ul{
-  list-style: none;
-}
-
-.social-media ul li{
-  display: inline-block;
-  cursor: pointer;
-  margin: 25px 15px;
-}
-
-.social-media img{
-  width: 40px;
-  height: 40px;
-}
 
 .sub-cont{
   overflow: hidden;

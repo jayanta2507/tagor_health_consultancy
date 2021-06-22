@@ -24,6 +24,9 @@ class User extends CI_Controller {
 	public function login(){
 		$this->load->view('User/login');
 	}
+        public function facility(){
+        $this->load->view('User/facility');
+    }
 
 
 
@@ -305,6 +308,35 @@ class User extends CI_Controller {
             redirect('index.php/user_login');
         }
     }
+
+
+    public function blood_list(){
+         $user_id             = $this->session->flashdata('user_id');
+        //  echo $user_id;
+        // die();
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "blood";
+        $data['user_type']   = $this->session->flashdata('user_type');
+        $bloodData['blood'] = $this->user_model->bloodList();
+        
+      // echo "<pre>";
+      //           print_r($bloodData);
+      //           echo "</pre>";
+      //           die();
+
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
+            $this->load->view('blood/blood',$bloodData);
+            $this->load->view('common/footer');
+           
+        }else{
+            redirect('index.php/user_login');
+        }  
+
+    }
+
 
 
     
