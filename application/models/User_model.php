@@ -74,6 +74,14 @@ class User_model extends CI_Model {
                 return  $query->result_array();
         }
 
+        public function bedList(){
+                $this->db->select('*');
+                $this->db->from('bed');
+                $this->db->where('status !=', '2');
+                $query = $this->db->get();
+                return  $query->result_array();
+        }      
+
         public function vaccineList(){
                 $this->db->select('*');
                 $this->db->from('vaccine');

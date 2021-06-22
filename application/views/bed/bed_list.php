@@ -46,30 +46,27 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 7%">
+                      <th style="width: 10%">
                           Sl No.
                       </th>
-                      <th style="width: 13%">
+                      <th style="width: 15%">
                           Types of Bed
                       </th>
-                      <th style="width: 13%">
+                      <th style="width: 15%">
                           Bed Rents
                       </th>
-                      <th style="width: 13%">
+                      <th style="width: 15%">
                           Hospital Name
                       </th>
-                      <th style="width: 13%">
+                      <th style="width: 15%">
                           Hospital Registration ID
                       </th>
-                      <th style="width: 13%">
+                      <th style="width: 15%">
                           Hospital Phone Number
                       </th>
-                      <th style="width: 13%" class="text-center">
+                      <th style="width: 15%" class="text-center">
                           Status
-                      </th>
-                      <th style="width: 15%">
-                        Action
-                      </th>
+                      </th>  
                   </tr>
               </thead>
               <tbody>
@@ -111,26 +108,9 @@
                                   Inactive
                                 </span>
                              <?php }  ?>
+                           </td>
 
-                             </td>
-                      <td class="project-actions text-right">
-                          <!-- <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a> -->
 
-                            <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_bed_edit/<?php echo $value['id']; ?>">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                            <a class="btn btn-danger btn-sm" href="javascript:void(0)" onclick="deleteBed(<?php echo $value['id']; ?>)">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
-                      </td>
                   </tr>
 
 
@@ -144,16 +124,7 @@
       </div>
       <!-- /.card -->
 
-      <script type="text/javascript">
-        function deleteBed(bedId){
-
-          if (confirm('Do you want to delete?')) {
-            window.location.replace("<?php echo base_url(); ?>index.php/admin_bed_delete/"+bedId);
-          }else{
-             window.location.replace('<?php echo base_url(); ?>index.php/admin_bed_list');
-          }
-        }
-      </script>
+      
     </section>
     <!-- /.content -->
   </div>
