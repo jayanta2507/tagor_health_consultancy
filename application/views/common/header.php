@@ -247,7 +247,7 @@
 
           <li class="nav-item menu-open">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/admin_vaccine_list" class="nav-link <?php echo ($active_text=='Vaccine')?'active':'' ?>">
+            <a href="<?php echo base_url(); ?>index.php/vaccine_list" class="nav-link <?php echo ($active_text=='Vaccine')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Vaccine

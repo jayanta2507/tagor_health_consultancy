@@ -353,6 +353,61 @@ class User extends CI_Controller {
         $this->load->view('common/footer');
     }
 
+        //public function vaccine_list(){
+         //$user_id             = $this->session->flashdata('user_id');
+        //  echo $user_id;
+        // die();
+
+        //$user_type     = $this->session->flashdata('user_type');
+
+        //$data['active_text'] = "vaccine";
+        //$data['user_type']   = $this->session->flashdata('user_type');
+
+        //$vaccineData['vaccine'] = $this->user_model->vaccineList();
+        
+      // echo "<pre>";
+      //           print_r($bloodData);
+      //           echo "</pre>";
+      //           die();
+
+        //if (!empty($user_id)) {
+            //$this->load->view('common/header',$data);
+            //$this->load->view('vaccine/vaccine_list',$vaccineData);
+            //$this->load->view('common/footer');
+           
+        //}else{
+            //redirect('index.php/user_login');
+        //}  
+    public function vaccine_list(){
+         $user_id             = $this->session->flashdata('user_id');
+        //  echo $user_id;
+        // die();
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "vaccine";
+        $data['user_type']   = $this->session->flashdata('user_type');
+        $vaccineData['vaccine'] = $this->user_model->vaccineList();
+        
+      // echo "<pre>";
+      //           print_r($bloodData);
+      //           echo "</pre>";
+      //           die();
+
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
+            $this->load->view('vaccine/vaccine_list',$vaccineData);
+            $this->load->view('common/footer');
+           
+        }else{
+            redirect('index.php/user_login');
+        }  
+
+    }
+
+
+
+
 
     public function upload_image() {  
 

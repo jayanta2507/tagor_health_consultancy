@@ -163,6 +163,12 @@ class Admin_model extends CI_Model {
 
     //===================  vaccine Section ==============//
 
+
+    public function createVaccine($data){
+        return $this->db->insert('vaccine', $data);
+    }
+
+
      public function vaccineList(){
         $this->db->select('*');
         $this->db->from('vaccine');
@@ -171,12 +177,29 @@ class Admin_model extends CI_Model {
         return  $query->result_array();
     }
 
-
-
-    public function createVaccine($data){
-        return $this->db->insert('vaccine', $data);
-    }
     
+    public function editVaccine($vaccineId){
+        $this->db->select('*');
+        $this->db->from('vaccine');
+        $this->db->where('id', $vaccineId);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
+
+    public function updateVaccine($vaccineId,$data){
+        return $this->db->where('id', $vaccineId)->update('vaccine', $data);
+    }
+
+
+    public function deleteVaccine($vaccineId){
+        return $this->db->where('id', $vaccineId)->update('vaccine', array('status'=>'2'));
+    }
+
+
+
+
+
 
     //===================  vaccine Section ==============//
 
