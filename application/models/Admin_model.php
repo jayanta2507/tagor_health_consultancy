@@ -19,6 +19,14 @@ class Admin_model extends CI_Model {
     }
 
     //===================  Doctor Section ==============//
+
+    public function count_doctor()
+    {
+        return $this->db->where('status', '1')->count_all("doctors");
+    }
+
+
+
     public function createDoctor($data){
         return $this->db->insert('doctors', $data);
     }
@@ -50,12 +58,22 @@ class Admin_model extends CI_Model {
         return $this->db->where('id', $doctorId)->update('doctors', array('status'=>'2'));
     }
 
-    
+    public function createDoctorAvailability($data)
+    {
+        return $this->db->insert('doctor_availability', $data);
+    }
 
 
     //===================  Doctor Section ==============//
 
- public function createBlood($data){
+
+
+    public function count_blood()
+    {
+        return $this->db->where('status', '1')->count_all("blood");
+    }
+
+    public function createBlood($data){
         return $this->db->insert('blood', $data);
     }
 

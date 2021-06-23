@@ -35,22 +35,13 @@ class Admin extends CI_Controller {
                 'password' => $this->input->post('admin_password')
             );
 
-            /*echo "<pre>";
-            print_r($data);
-            echo "</pre>";
-            die();*/
-
+        
 
             // check data from database
             if ($this->admin_model->loginAdmin($data))
             {
                 $adminData = $this->admin_model->getAdminData($data);
 
-
-               /* echo "<pre>";
-                print_r($adminData);
-                echo "</pre>";
-                die();*/
 
                 $this->session->set_flashdata('user_id', $adminData['id']);
                 $this->session->set_flashdata('user_type', $adminData['type']);
@@ -75,10 +66,12 @@ class Admin extends CI_Controller {
 
         $data['active_text'] = "dashboard";
         $data['user_type']   = $this->session->flashdata('user_type');
+        $dashboardData['doctor_count'] = $this->admin_model->count_doctor();
+        $dashboardData['blood_count'] = $this->admin_model->count_blood();
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
-            $this->load->view('Admin/admin_dashboard');
+            $this->load->view('Admin/admin_dashboard', $dashboardData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');
@@ -96,11 +89,6 @@ class Admin extends CI_Controller {
         $data['user_type']   = $this->session->flashdata('user_type');
 
         $doctorData['doctors'] = $this->admin_model->doctorList();
-
-        /*echo "<pre>";
-        print_r($doctorData);
-        die();*/
-
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
@@ -198,6 +186,78 @@ class Admin extends CI_Controller {
         }
 
     }
+
+
+
+    public function admin_doctor_availability($doctorId){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        $doctorData['doctorId'] = $doctorId;
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/doctor/admin_doctor_availability', $doctorData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+
+    public function admin_doctor_availability_submit(){
+
+
+        //set validation rules
+        $this->form_validation->set_rules('date', 'Date', 'trim|required');
+        $this->form_validation->set_rules('from_time', 'From Time', 'trim|required');
+        $this->form_validation->set_rules('to_time', 'To Time', 'trim|required');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $doctorId = $this->input->post('doctor_id');
+            $this->admin_doctor_availability($doctorId);
+        }else{
+
+            
+
+            $data = array(
+                'doctor_id'  => $this->input->post('doctor_id'),
+                'date'       => $this->input->post('date'),
+                'from_time'  => $this->input->post('from_time'),
+                'to_time'    => $this->input->post('to_time'),
+                'status'     => $this->input->post('status'),
+            );
+
+
+            /*echo "<pre>";
+            print_r($data);
+            die();*/
+
+
+            $createDoctor = $this->admin_model->createDoctorAvailability($data);
+
+            if ($createDoctor) {
+                 // error
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Doctor successfully added</div>');
+                redirect('index.php/admin_doctor_list');
+            }else{
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                redirect('index.php/admin_doctor_add');
+            }
+
+        }
+
+    }
+
+
+
+    
 
 
     public function admin_doctor_edit($doctorId){

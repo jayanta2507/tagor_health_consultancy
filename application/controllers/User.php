@@ -279,6 +279,7 @@ class User extends CI_Controller {
         if (!empty($user_id)) {
 
             $data['prfile_data']  = $this->user_model->get_profile_details($user_id);
+            $data['user_type']    = $this->session->flashdata('user_type');
             $data['active_text']  = "profile";
 
 

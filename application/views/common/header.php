@@ -104,7 +104,7 @@
 
          <?php if($user_type==1){ ?>
           <li class="nav-item menu-open">
-            <a href="<?php echo base_url(); ?>index.php/user_dashboard" class="nav-link <?php echo ($active_text=='dashboard')?'active':'' ?>">
+            <a href="<?php echo base_url(); ?>index.php/admin_dashboard" class="nav-link <?php echo ($active_text=='dashboard')?'active':'' ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard  
@@ -175,7 +175,7 @@
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/admin_blood_list" class="nav-link <?php echo ($active_text=='Blood')?'active':'' ?>">
-              <i class="nav-icon fas fa-bed"></i>
+              <i class="nav-icon ion ion-waterdrop"></i>             
               <p>
                 Blood List
               </p>
@@ -188,7 +188,7 @@
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/bed_list" class="nav-link <?php echo ($active_text=='Bed')?'active':'' ?>">
+            <a href="<?php echo base_url(); ?>index.php/bed_list" class="nav-link <?php echo ($active_text=='bed')?'active':'' ?>">
               <i class="nav-icon fas fa-bed"></i>
               <p>
                 Bed
@@ -217,7 +217,7 @@
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/oxygen_list" class="nav-link <?php echo ($active_text=='Oxygen')?'active':'' ?>">
+            <a href="<?php echo base_url(); ?>index.php/oxygen_list" class="nav-link <?php echo ($active_text=='oxygen')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Oxygen
@@ -247,7 +247,7 @@
 
           <li class="nav-item menu-open">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/vaccine_list" class="nav-link <?php echo ($active_text=='Vaccine')?'active':'' ?>">
+            <a href="<?php echo base_url(); ?>index.php/vaccine_list" class="nav-link <?php echo ($active_text=='vaccine')?'active':'' ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Vaccine

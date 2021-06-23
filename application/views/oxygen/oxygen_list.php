@@ -32,11 +32,11 @@
             <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
               <i class="fas fa-times"></i>
             </button> -->
-            <a href="<?php echo base_url(); ?>index.php/admin_oxygen_add">
+            <!-- <a href="<?php //echo base_url(); ?>index.php/admin_oxygen_add">
               <button type="button" class="btn btn-success" title="Add">
-              <i class="fas fa-plus"></i>  Add
-            </button>
-            </a>
+                <i class="fas fa-plus"></i>  Add
+              </button>
+            </a> -->
             
           </div>
 

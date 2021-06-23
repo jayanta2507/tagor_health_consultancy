@@ -62,6 +62,10 @@
                       <th style="width: 7%" class="text-center">
                           Status
                       </th>
+
+                      <th style="width: 7%" class="text-center">
+                          Action
+                      </th>
                   </tr>
               </thead>
               <tbody>
@@ -114,7 +118,10 @@
 
                           
                       </td>
-                  </tr>
+                      <td>
+                        Availability
+                      </td>
+                   </tr>
 
                   
                 <?php } ?>

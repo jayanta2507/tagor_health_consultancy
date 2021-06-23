@@ -50,29 +50,29 @@
                       <th style="width: 1%">
                           Sl No.
                       </th>
-                       <th style="width: 12%">
+                       <th style="width: 10%">
                           Image
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Doctor Name
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Specialist
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Email
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Phone
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Registration ID
                       </th>
                      
-                      <th style="width: 7%" class="text-center">
+                      <th style="width: 10%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 20%">
+                      <th style="width: 29%;">
                         Action
                       </th>
                   </tr>
@@ -128,11 +128,11 @@
                           
                       </td>
                       <td class="project-actions text-right">
-                          <!-- <a class="btn btn-primary btn-sm" href="#">
+                          <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_availability/<?php echo $value['id']; ?>">
                               <i class="fas fa-folder">
                               </i>
-                              View
-                          </a> -->
+                              Availability 
+                          </a>
                           <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_edit/<?php echo $value['id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
