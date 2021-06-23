@@ -80,7 +80,15 @@ class User_model extends CI_Model {
                 $this->db->where('status !=', '2');
                 $query = $this->db->get();
                 return  $query->result_array();
-        }      
+        } 
+
+        public function oxygenList(){
+                $this->db->select('*');
+                $this->db->from('oxygen');
+                $this->db->where('status !=', '2');
+                $query = $this->db->get();
+                return  $query->result_array();
+        }     
 
         public function vaccineList(){
                 $this->db->select('*');

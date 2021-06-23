@@ -27,7 +27,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="http://localhost/tagor_health_consultancy/index.php/user_home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_about">About Us</a>
@@ -133,9 +133,9 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-12">
                 <div class="card" >
-  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+  <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/vcc2.jpg" alt="Vaccine image">
   <div class="card-body">
-    <h4 class="card-title">John Doe</h4>
+    <h4 class="card-title">Vaccine</h4>
     <p class="card-text">Some example text.</p>
     <a href="#" class="btn btn-primary">See Profile</a>
   </div>

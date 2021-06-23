@@ -351,15 +351,25 @@ class User extends CI_Controller {
 
     }
 
+    
     public function oxygen_list(){
-        $user_id  = $this->session->flashdata('user_id');
-        //echo $user_id;
-        //die;
-        //$userData = $this->user_model->get_user_details($data);
-        
-        $this->load->view('common/header');
-        $this->load->view('oxygens/oxygen');
-        $this->load->view('common/footer');
+        $user_id             = $this->session->flashdata('user_id');
+        $user_type           = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "oxygen";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        $oxygenData['oxygen'] = $this->user_model->oxygenList();
+
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
+            $this->load->view('oxygen/oxygen_list',$oxygenData);
+            $this->load->view('common/footer');
+           
+        }else{
+            redirect('index.php/user_login');
+        }  
+
     }
 
 
