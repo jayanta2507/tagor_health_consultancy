@@ -95,6 +95,8 @@ $route['admin_doctor_edit_submit/(:any)']  = 'admin/admin_doctor_edit_submit/$1'
 $route['admin_doctor_delete/(:any)']       = 'admin/admin_doctor_delete/$1';
 $route['admin_doctor_availability/(:any)'] = 'admin/admin_doctor_availability/$1';
 $route['admin_doctor_availability_submit'] = 'admin/admin_doctor_availability_submit';
+$route['admin_doctor_availability_edit'] = 'admin/admin_doctor_availability_edit';
+$route['admin_doctor_availability_edit_submit'] = 'admin/admin_doctor_availability_edit_submit';
 
 // ***************** End Admin Doctor Section **************//
 

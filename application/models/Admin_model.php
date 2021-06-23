@@ -47,6 +47,14 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->row_array();
     }
+        public function EditDoctorAvailability($data){
+        $this->db->select('*');
+        $this->db->from('doctor_availability');
+        $this->db->where('id', $data);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
 
 
     public function updateDoctor($doctorId,$data){

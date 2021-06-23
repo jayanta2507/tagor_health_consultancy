@@ -131,7 +131,7 @@
             <li class="nav-item menu-open">
                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <a href="<?php echo base_url(); ?>index.php/doctor_list" class="nav-link <?php echo ($active_text=='doctor')?'active':'' ?>">
-                <i class="nav-icon fas fa-users"></i>
+                <i class="nav-icon ion-ios-pulse-strong"></i>
                 <p>
                   Doctor
                 </p>
@@ -146,7 +146,7 @@
             <li class="nav-item menu-open">
                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <a href="<?php echo base_url(); ?>index.php/admin_doctor_list" class="nav-link <?php echo ($active_text=='doctor')?'active':'' ?>">
-                <i class="nav-icon fas fa-users"></i>
+                <i class="nav-icon ion-ios-pulse-strong"></i>
                 <p>
                   Doctor List
                 </p>

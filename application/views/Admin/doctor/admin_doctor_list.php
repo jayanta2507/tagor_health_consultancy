@@ -35,7 +35,7 @@
             </button> -->
             <a href="<?php echo base_url(); ?>index.php/admin_doctor_add">
               <button type="button" class="btn btn-success" title="Add">
-              <i class="fas fa-plus"></i>  Add
+              <i class="ion-person-add"></i>  Add
             </button>
             </a>
             

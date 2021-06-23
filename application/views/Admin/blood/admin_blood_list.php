@@ -29,7 +29,7 @@
            
             <a href="<?php echo base_url(); ?>index.php/admin_blood_add">
               <button type="button" class="btn btn-success" title="Add">
-              <i class="fas fa-plus"></i>  Add
+              <i class="ion ion-waterdrop"></i>  Add
             </button>
             </a>
             
@@ -131,14 +131,7 @@
         </div>
         <!-- /.card-body -->
       </div>
-      <!-- /.card -->
-
-      <script type="text/javascript">
-        function bloodDoctor(bloodId){
-          confirm('Are you sure want to delete?');
-          alert(bloodId);
-        }
-      </script>
+      <!-- /.card -
 
     </section>
       </div>
