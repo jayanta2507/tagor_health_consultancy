@@ -55,6 +55,7 @@ $route['default_controller'] = 'welcome';
 $route['user_registration'] 		= 'user/registration';
 $route['user_login'] 				= 'user/login';
 $route['submit_login'] 				= 'user/submit_login';
+$route['user_facility'] 			= 'user/facility';
 $route['submit_registration'] 		= 'user/submit_registration';
 $route['user_home'] 				= 'user/home';
 $route['user_about'] 				= 'user/user_about';
@@ -69,8 +70,10 @@ $route['translate_uri_dashes'] 		= FALSE;
 $route['user_dashboard'] 			= 'user/user_dashboard';
 $route['user_logout']    			= 'user/user_logout';
 $route['doctor_list']    			= 'user/doctor_list';
+$route['blood_list']    			= 'user/blood_list';
 $route['bed_list']    	 			= 'user/bed_list';
 $route['oxygen_list']    			= 'user/oxygen_list';
+$route['vaccine_list']    			= 'user/vaccine_list';
 $route['upload_image']   			= 'user/upload_image';
 
 
@@ -140,9 +143,14 @@ $route['admin_oxygen_delete/(:any)']       = 'admin/admin_oxygen_delete/$1';
 
 
 // ***************** Start Admin vaccine Section **************//
-$route['admin_vaccine_list']   = 'admin/admin_vaccine_list';
-$route['admin_vaccine_add']    = 'admin/admin_vaccine_add';
-$route['admin_vaccine_edit'] = 'admin/admin_vaccine_edit';
-$route['admin_vaccine_submit'] = 'admin/admin_vaccine_submit';
+$route['admin_vaccine_list']  			    = 'admin/admin_vaccine_list';
+$route['admin_vaccine_add']   			    = 'admin/admin_vaccine_add';
+$route['admin_vaccine_edit']			    = 'admin/admin_vaccine_edit';
+$route['admin_vaccine_submit'] 				= 'admin/admin_vaccine_submit';
+$route['admin_vaccine_edit/(:any)']         = 'admin/admin_vaccine_edit/$1';
+$route['admin_vaccine_edit_submit/(:any)']  = 'admin/admin_vaccine_edit_submit/$1';
+$route['admin_vaccine_delete/(:any)']       = 'admin/admin_vaccine_delete/$1';
+
+
 
 // ***************** End Admin vaccine Section **************//

@@ -12,7 +12,12 @@
     <p class="py-2">The core team at Tagore Health Consultants have more than 10 years of experience in Healthcare Consultancy and Hospital Marketing. We offer complete range of services for hospitals. We as a team start working with the hospital from the time of conceptualization and have competence to take it to break even. We work as the part of team while doing equipment planning, service planning and even negotiating the best deals with the medical equipment vendors like GE, Philips, Siemens etc.
 
     Apart from the project and operations management for hospitals, our another core area of expertise includes branding, marketing communication and online marketing. This forms the part of complete hospital management from creating the brand, leveraging it, generating the revenue and managing the cost to make the venture profitable.</p> 
-    <a href="http://localhost/tagor_health_consultancy/index.php/user_about" class="btn btn-success">check more </a>  
-    </div>
+    
+    <p class="py-2"> Our objective is to partner with physicians that want to build a surgery center and or an existing surgery center seeking to increase revenues and profitability.  We can assist in building you a profitable surgery center and or growing your existing center  organically (increasing cases/new service lines/revenue/profits and through acquisition of additional complementary assets.
+
+
+    The founder is a 30 year veteran of the healthcare industry known for improving operations,      profitability, surgery center development, physician practices, hospital systems, P&L accountability, revenue cycle, physician relationships, surgical services, and supply chain management.</p>
+
+     </div>
 </div>
 </section>

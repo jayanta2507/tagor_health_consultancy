@@ -759,7 +759,7 @@ class Admin extends CI_Controller {
 
 
 
-
+// **************************VACCINE PART*******************************//
 
 
     public function admin_vaccine_list(){
@@ -801,23 +801,7 @@ class Admin extends CI_Controller {
     }
     
 
-    public function admin_vaccine_edit(){
-        
-        $user_type           = $this->session->flashdata('user_type');
-        $data['active_text'] = "vaccine";
-        $data['user_type']   = $this->session->flashdata('user_type');
-
-        
-
-        if ($user_type==1) {
-            $this->load->view('common/header',$data);
-            $this->load->view('Admin/vaccine/admin_vaccine_edit');
-            $this->load->view('common/footer');
-        }else{
-            redirect('index.php/admin_login');
-        }  
-
-    }
+    
 
 
     public function admin_vaccine_submit(){
@@ -874,7 +858,89 @@ class Admin extends CI_Controller {
 
     }
 
+    public function admin_vaccine_edit($vaccineId){
 
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "vaccine";
+        $data['user_type']   = $this->session->flashdata('user_type');
+        
+        $vaccineData['vaccine'] = $this->admin_model->editVaccine($vaccineId);
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/vaccine/admin_vaccine_edit', $vaccineData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+    }
+
+    public function admin_vaccine_edit_submit($vaccineId){
+
+
+        //set validation rules
+        $this->form_validation->set_rules('vaccine_name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('vaccine_types','Types', 'trim|required');
+        $this->form_validation->set_rules('dose_date', 'Date', 'trim|required');
+        $this->form_validation->set_rules('center', 'Center', 'trim|required');
+        $this->form_validation->set_rules('price', 'Price', 'trim|required');
+        $this->form_validation->set_rules('phone_no', 'Phone', 'trim|required|min_length[10]|max_length[30]');
+        $this->form_validation->set_rules('email_id', 'Email', 'trim|required');
+        $this->form_validation->set_rules('age', 'Age', 'trim|required');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->admin_vaccine_edit($vaccineId);
+        }else{
+
+           
+            $data = array(
+                'vaccine_name'            => $this->input->post('vaccine_name'),
+                'vaccine_types'           => $this->input->post('vaccine_types'),
+                'dose_date'               => date('Y-m-d', strtotime($this->input->post('dose_date'))) ,
+                'center'                  => $this->input->post('center'),
+                'price'                   => $this->input->post('price'),
+                'phone_no'                => $this->input->post('phone_no'),
+                'email_id'                => $this->input->post('email_id'),
+                'age'                     => $this->input->post('age'),
+                'status'                  => $this->input->post('status'),
+            );
+            //  echo "<pre>";
+            // print_r($data);
+            // echo "</pre>";
+            // die();
+
+
+            $updateVaccine = $this->admin_model->updateVaccine($vaccineId,$data);
+
+            if ($updateVaccine) {
+                 // error
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Vaccine successfully updated</div>');
+                redirect('index.php/admin_vaccine_list');
+            }else{
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                redirect('index.php/admin_vaccine_edit',$vaccineId);
+            }
+
+        }
+
+    }
+
+    public function admin_vaccine_delete($vaccineId){
+        
+        $deleteVaccine = $this->admin_model->deleteVaccine($vaccineId);
+
+        if ($deleteVaccine) {
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Vaccine successfully deleted</div>');
+            redirect('index.php/admin_vaccine_list');
+        }else{
+             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+           redirect('index.php/admin_vaccine_list');
+        }  
+    }
 
 
 }

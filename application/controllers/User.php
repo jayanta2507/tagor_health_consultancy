@@ -24,6 +24,9 @@ class User extends CI_Controller {
 	public function login(){
 		$this->load->view('User/login');
 	}
+        public function facility(){
+        $this->load->view('User/facility');
+    }
 
 
 
@@ -307,19 +310,99 @@ class User extends CI_Controller {
     }
 
 
-    
+    public function blood_list(){
+        $user_id             = $this->session->flashdata('user_id');
+        $user_type           = $this->session->flashdata('user_type');
 
+        $data['active_text'] = "blood";
+        $data['user_type']   = $this->session->flashdata('user_type');
 
-    public function oxygen_list(){
-        $user_id  = $this->session->flashdata('user_id');
-        //echo $user_id;
-        //die;
-        //$userData = $this->user_model->get_user_details($data);
-        
-        $this->load->view('common/header');
-        $this->load->view('oxygens/oxygen');
-        $this->load->view('common/footer');
+        $bloodData['blood'] = $this->user_model->bloodList();
+
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
+            $this->load->view('blood/blood_list',$bloodData);
+            $this->load->view('common/footer');
+           
+        }else{
+            redirect('index.php/user_login');
+        }  
+
     }
+
+
+    public function bed_list(){
+        $user_id             = $this->session->flashdata('user_id');
+        $user_type           = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "bed";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        $bedData['bed'] = $this->user_model->bedList();
+
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
+            $this->load->view('bed/bed_list',$bedData);
+            $this->load->view('common/footer');
+           
+        }else{
+            redirect('index.php/user_login');
+        }  
+
+    }
+
+    
+    public function oxygen_list(){
+        $user_id             = $this->session->flashdata('user_id');
+        $user_type           = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "oxygen";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        $oxygenData['oxygen'] = $this->user_model->oxygenList();
+
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
+            $this->load->view('oxygen/oxygen_list',$oxygenData);
+            $this->load->view('common/footer');
+           
+        }else{
+            redirect('index.php/user_login');
+        }  
+
+    }
+
+
+
+    public function vaccine_list(){
+         $user_id             = $this->session->flashdata('user_id');
+        //  echo $user_id;
+        // die();
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "vaccine";
+        $data['user_type']   = $this->session->flashdata('user_type');
+        $vaccineData['vaccine'] = $this->user_model->vaccineList();
+        
+      // echo "<pre>";
+      //           print_r($bloodData);
+      //           echo "</pre>";
+      //           die();
+
+        if (!empty($user_id)) {
+            $this->load->view('common/header',$data);
+            $this->load->view('vaccine/vaccine_list',$vaccineData);
+            $this->load->view('common/footer');
+           
+        }else{
+            redirect('index.php/user_login');
+        }  
+
+    }
+
+
+
 
 
     public function upload_image() {  
