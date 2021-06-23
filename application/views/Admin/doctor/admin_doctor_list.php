@@ -1,8 +1,4 @@
-<?php 
-/*echo "<pre>";
-print_r($doctors);
-die();*/
-?>
+
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
