@@ -68,6 +68,9 @@ class Admin extends CI_Controller {
         $data['user_type']   = $this->session->flashdata('user_type');
         $dashboardData['doctor_count'] = $this->admin_model->count_doctor();
         $dashboardData['blood_count'] = $this->admin_model->count_blood();
+        $dashboardData['bed_count'] = $this->admin_model->count_bed();
+        $dashboardData['oxygen_count'] = $this->admin_model->count_oxygen();
+        $dashboardData['vaccine_count'] = $this->admin_model->count_vaccine();
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
@@ -205,6 +208,24 @@ class Admin extends CI_Controller {
             redirect('index.php/admin_login');
         }  
 
+    }
+
+    public function admin_doctor_availability_list(){
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        $doctoravailabilityData['doctors'] = $this->admin_model->doctoravailabilityList();
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/doctor/admin_doctor_availability_list', $doctoravailabilityData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }
     }
 
 
@@ -419,6 +440,19 @@ class Admin extends CI_Controller {
         }else{
              $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
            redirect('index.php/admin_doctor_list');
+        }  
+    }
+
+    public function admin_doctor_availability_delete($doctorId){
+        
+        $deleteDoctorAvailability = $this->admin_model->deleteDoctoravailability($doctorId);
+
+        if ($deleteDoctorAvailability) {
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Doctor successfully deleted</div>');
+            redirect('index.php/admin_doctor_availabilty_list');
+        }else{
+             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+           redirect('index.php/admin_doctor_availability_list');
         }  
     }
 

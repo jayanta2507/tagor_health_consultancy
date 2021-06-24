@@ -58,6 +58,10 @@ class User_model extends CI_Model {
                 return $update;
         }
 
+        public function count_doctor()
+        {
+        return $this->db->where('status', '1')->count_all("doctors");
+        }
 
         public function doctorList(){
                 $this->db->select('*');
@@ -66,6 +70,12 @@ class User_model extends CI_Model {
                 $query = $this->db->get();
                 return  $query->result_array();
         }
+
+        public function count_blood()
+        {
+        return $this->db->where('status', '1')->count_all("blood");
+        }
+
         public function bloodList(){
                 $this->db->select('*');
                 $this->db->from('blood');
@@ -73,6 +83,12 @@ class User_model extends CI_Model {
                 $query = $this->db->get();
                 return  $query->result_array();
         }
+
+        public function count_bed()
+        {
+        return $this->db->where('status', '1')->count_all("bed");
+        }
+
 
         public function bedList(){
                 $this->db->select('*');
@@ -82,13 +98,23 @@ class User_model extends CI_Model {
                 return  $query->result_array();
         } 
 
+        public function count_oxygen()
+        {
+        return $this->db->where('status', '1')->count_all("oxygen");
+        }
+
         public function oxygenList(){
                 $this->db->select('*');
                 $this->db->from('oxygen');
                 $this->db->where('status !=', '2');
                 $query = $this->db->get();
                 return  $query->result_array();
-        }     
+        }  
+
+        public function count_vaccine()
+        {
+        return $this->db->where('status', '1')->count_all("vaccine");
+        }   
 
         public function vaccineList(){
                 $this->db->select('*');

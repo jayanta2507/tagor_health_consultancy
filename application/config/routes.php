@@ -56,9 +56,14 @@ $route['user_registration'] 		= 'user/registration';
 $route['user_login'] 				= 'user/login';
 $route['submit_login'] 				= 'user/submit_login';
 $route['user_facility'] 			= 'user/facility';
+$route['user_vaccine'] 			    = 'user/vaccine';
+$route['user_oxygen'] 			    = 'user/oxygen';
+$route['user_blood'] 			    = 'user/blood';
+$route['user_doctor'] 			    = 'user/doctor';
 $route['submit_registration'] 		= 'user/submit_registration';
 $route['user_home'] 				= 'user/home';
 $route['user_about'] 				= 'user/user_about';
+$route['user_services'] 			= 'user/user_services';
 $route['user_forgotpassword'] 		= 'user/forgotpassword';
 $route['submit_forgotpassword'] 	= 'user/submit_forgotpassword';
 $route['user_confirmpassword'] 		= 'user/confirmpassword';
@@ -87,16 +92,19 @@ $route['admin_dashboard']      = 'admin/admin_dashboard';
 
 
 // ***************** Start Admin Doctor Section **************//
-$route['admin_doctor_list']    		       = 'admin/admin_doctor_list';
-$route['admin_doctor_add']     		       = 'admin/admin_doctor_add';
-$route['admin_doctor_submit']  		       = 'admin/admin_doctor_submit';
-$route['admin_doctor_edit/(:any)']         = 'admin/admin_doctor_edit/$1';
-$route['admin_doctor_edit_submit/(:any)']  = 'admin/admin_doctor_edit_submit/$1';
-$route['admin_doctor_delete/(:any)']       = 'admin/admin_doctor_delete/$1';
-$route['admin_doctor_availability/(:any)'] = 'admin/admin_doctor_availability/$1';
-$route['admin_doctor_availability_submit'] = 'admin/admin_doctor_availability_submit';
-$route['admin_doctor_availability_edit'] = 'admin/admin_doctor_availability_edit';
-$route['admin_doctor_availability_edit_submit'] = 'admin/admin_doctor_availability_edit_submit';
+$route['admin_doctor_list']    		              = 'admin/admin_doctor_list';
+$route['admin_doctor_add']     		              = 'admin/admin_doctor_add';
+$route['admin_doctor_submit']  		              = 'admin/admin_doctor_submit';
+$route['admin_doctor_edit/(:any)']                = 'admin/admin_doctor_edit/$1';
+$route['admin_doctor_edit_submit/(:any)']         = 'admin/admin_doctor_edit_submit/$1';
+$route['admin_doctor_delete/(:any)']              = 'admin/admin_doctor_delete/$1';
+$route['admin_doctor_availability_list']          = 'admin/admin_doctor_availability_list';
+$route['admin_doctor_availability/(:any)']        = 'admin/admin_doctor_availability/$1';
+$route['admin_doctor_availability_submit']        = 'admin/admin_doctor_availability_submit';
+$route['admin_doctor_availability_edit']          = 'admin/admin_doctor_availability_edit';
+$route['admin_doctor_availability_edit_submit']   = 'admin/admin_doctor_availability_edit_submit';
+$route['admin_doctor_availability_delete/(:any)'] = 'admin/admin_doctor_availability_delete/$1';
+
 
 // ***************** End Admin Doctor Section **************//
 

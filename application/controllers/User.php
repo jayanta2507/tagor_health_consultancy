@@ -28,6 +28,22 @@ class User extends CI_Controller {
         $this->load->view('User/facility');
     }
 
+    public function vaccine(){
+        $this->load->view('User/vaccine');
+    }
+
+    public function oxygen(){
+        $this->load->view('User/oxygen');
+    }
+
+    public function blood(){
+        $this->load->view('User/blood');
+    }
+
+    public function doctor(){
+        $this->load->view('User/doctor');
+    }
+
 
 
 	public function submit_login(){
@@ -142,6 +158,10 @@ class User extends CI_Controller {
 
     public function user_about(){
         $this->load->view('User/about_us');
+    }
+
+    public function user_services(){
+        $this->load->view('User/services');
     }
 	 
 
@@ -262,10 +282,15 @@ class User extends CI_Controller {
 
         $data['active_text'] = "dashboard";
         $data['user_type']   = $this->session->flashdata('user_type');
+        $dashboardData['doctor_count'] = $this->user_model->count_doctor();
+        $dashboardData['blood_count'] = $this->user_model->count_blood();
+        $dashboardData['bed_count'] = $this->user_model->count_bed();
+        $dashboardData['oxygen_count'] = $this->user_model->count_oxygen();
+        $dashboardData['vaccine_count'] = $this->user_model->count_vaccine();
 
         if ($user_type==0) {
             $this->load->view('common/header',$data);
-            $this->load->view('User/dashboard');
+            $this->load->view('User/dashboard',$dashboardData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/user_login');
