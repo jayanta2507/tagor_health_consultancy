@@ -15,7 +15,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
 
+ <style>
 
+      .facilities1 {
+    height: 750px;
+    width: 500px;
+    background-color: white;
+    float: center;
+    border: 1px solid;
+    margin: 15px;
+</style>
 </head>
 <body>
 
@@ -127,31 +136,35 @@
     <div class="py-5">
         <h2 class="text-center"><b>Services</b></h2>
     </div>
-    <div class="services">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-12">
-                <div class="card" >
-  <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/vcc3.jpg" alt="Vaccine image" width="100px">
-  <div class="card-body">
-    <h3 class="card-title">Vaccine</h3>
+  
+   <div class="facilities1">
+          <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/vcc3.jpg" alt="Vaccine image" width="100px">
+        <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <h3>
+            Vaccine </h3>
     <p class="card-text">A vaccine is a biological preparation that provides active acquired immunity to a particular infectious disease. A vaccine typically contains an agent that resembles a disease-causing microorganism and is often made from weakened or killed forms of the microbe, its toxins, or one of its surface proteins. The agent stimulates the body's immune system to recognize the agent as a threat, destroy it, and to further recognize and destroy any of the microorganisms associated with that agent that it may encounter in the future. Vaccines can be prophylactic (to prevent or ameliorate the effects of a future infection by a natural or "wild" pathogen), or therapeutic (to fight a disease that has already occurred, such as cancer).</p>
     <a href="http://localhost/tagor_health_consultancy/index.php/user_vaccine" class="btn btn-primary">See Profile</a>
+  
           </div>
       </div>
-    </div>
-  </div>
-</div>
+  
 
-    <div class="col-lg-4 col-md-4 col-12">
-                <div class="card" >
-  <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/oxy.jpg" alt="Vaccine image">
-  <div class="card-body">
-    <h3 class="card-title">Oxygen</h3>
+    
+   <div class="facilities1">
+          <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/oxy.jpg" alt="Vaccine image" alt="Vaccine image" width="100px">
+        <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <h3>
+            Vaccine </h3>
     <p class="card-text">Oxygen is the chemical element with the symbol O and atomic number 8. It is a member of the chalcogen group in the periodic table, a highly reactive nonmetal, and an oxidizing agent that readily forms oxides with most elements as well as with other compounds. After hydrogen and helium, oxygen is the third-most abundant element in the universe by mass. At standard temperature and pressure, two atoms of the element bind to form dioxygen, a colorless and odorless diatomic gas with the formula O2. Diatomic oxygen gas currently constitutes 20.95% of the Earth's atmosphere, though this has changed considerably over long periods of time. Oxygen makes up almost half of the Earth's crust in the form of oxides.</p>
     <a href="http://localhost/tagor_health_consultancy/index.php/user_oxygen" class="btn btn-primary">See Profile</a>
           </div>
       </div>
     </div>
+    
 
 
     <div class="col-lg-4 col-md-4 col-12">
@@ -175,6 +188,7 @@
           </div>
       </div>
     </div>
+  </section>
 
     <section class="my-5">
     <div class="py-5">
@@ -183,12 +197,12 @@
     <style>
 
       .facilities {
-    height: 175px;
-    width: 256px;
+    height: 190px;
+    width: 270px;
     background-color: white;
     float: center;
     border: 1px solid;
-    margin: 20px;
+    margin: 15px;
 
 }  
 .h1{
@@ -220,7 +234,7 @@ font-weight: normal;color:#20a5f1;
       <nav class="mt-4">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" text-align="center">
            </ul>
-           <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/outdoor.png" width="50px" height="50px">
+           <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/outdoor.png" width="256px" height="50px">
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon ion-home"></i>
@@ -230,10 +244,12 @@ font-weight: normal;color:#20a5f1;
             </a>
           </li>
     </div>                
-  </div>
+  
+  
+      </div>
 
       <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/indoor1.png" width="80px" height="50px">
+        <img src="http://localhost/tagor_health_consultancy/public/images/indoor1.png" width="256px" height="110px">
         <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -246,7 +262,7 @@ font-weight: normal;color:#20a5f1;
       </div>
 
       <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/health.png" width="80px" height="50px">
+        <img src="http://localhost/tagor_health_consultancy/public/images/health.png" width="256px" height="110px">
         <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -258,8 +274,8 @@ font-weight: normal;color:#20a5f1;
        </div>
 
     <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/phar.png" width="80px" height="50px">
-   <li class="nav-item menu-open">
+      <img src="http://localhost/tagor_health_consultancy/public/images/phar.png" width="256px" height="80px">
+      <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <h3>
@@ -270,21 +286,20 @@ font-weight: normal;color:#20a5f1;
         
       </div>
 
-      <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/24.png" width="80px" height="50px">
-         <li class="nav-item menu-open">
+     <div class="facilities">
+       <img src="http://localhost/tagor_health_consultancy/public/images/24.png" width="256px" height="50px">
+        <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <h3>
-              24 hours Emergency Service
-              </h3>
-            </a>
+             
+              <h2>
+             24 Hours Emergency Service </h2>
+              </a>
           </li>
         
       </div>
 
       <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/op.png" width="80px" height="50px">
+        <img src="http://localhost/tagor_health_consultancy/public/images/op.png" width="256px" height="90px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -296,7 +311,7 @@ font-weight: normal;color:#20a5f1;
        </div>
 
         <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/icu.png" width="80px" height="50px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/icu.png" width="270px" height="90px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -308,7 +323,7 @@ font-weight: normal;color:#20a5f1;
        </div>
 
         <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/dialysis.png" alt="Emergency" width="80px" height="50px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/dialysis.png" alt="Emergency" width="256px" height="80">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -318,9 +333,9 @@ font-weight: normal;color:#20a5f1;
             </a>
           </li>
        </div>
-        
+
         <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/amb.png" width="256px" height="120px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/amb.png" width="256px" height="110px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -332,7 +347,7 @@ font-weight: normal;color:#20a5f1;
        </div>
         
          <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/cafe.png" width="80px" height="50px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/cafe.png" width="256px" height="110px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -344,7 +359,7 @@ font-weight: normal;color:#20a5f1;
        </div>
 
          <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/vacc.png" width="80px" height="50px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/vacc.png" width="256px" height="110px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -357,7 +372,7 @@ font-weight: normal;color:#20a5f1;
 
 
        <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/o2.png" width="120px" height="80px">
+        <img src="http://localhost/tagor_health_consultancy/public/images/o2.png" width="256px" height="110px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -367,8 +382,7 @@ font-weight: normal;color:#20a5f1;
             </a>
           </li>
        </div>
-    
-        
+
 
 
 </section>

@@ -327,7 +327,7 @@ class User extends CI_Controller {
         $doctorData['doctors'] = $this->user_model->doctorList();
         
         if (!empty($user_id)) {
-            $this->load->view('common/header',$data);
+            $this->load->view('common/header', $data);
             $this->load->view('doctors/doctor',$doctorData);
             $this->load->view('common/footer');
         }else{
@@ -367,8 +367,8 @@ class User extends CI_Controller {
         $bedData['bed'] = $this->user_model->bedList();
 
         if (!empty($user_id)) {
-            $this->load->view('common/header',$data);
-            $this->load->view('bed/bed_list',$bedData);
+            $this->load->view('common/header', $data);
+            $this->load->view('bed/bed_list', $bedData);
             $this->load->view('common/footer');
            
         }else{

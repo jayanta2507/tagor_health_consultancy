@@ -3,12 +3,12 @@
   <style>
 
       .facilities {
-    height: 175px;
-    width: 256px;
+    height: 190px;
+    width: 270px;
     background-color: white;
     float: center;
     border: 1px solid;
-    margin: 20px;
+    margin: 10px;
 
 }  
 .h1{
@@ -35,8 +35,10 @@ font-weight: normal;color:#20a5f1;
   </head>
 
   <section class="my-5">
-    <div class="py-5">
-        <h1 class="text-center"><a href="http://localhost/tagor_health_consultancy/index.php/user_home" class="btn btn-success"> <b>Home </b></a>/ <b>Facility</b></h1>
+    <div class="h1">
+        <h1 class="text-center"><a href="http://localhost/tagor_health_consultancy/index.php/user_home" class="btn btn-success">
+        <h1 class="text-left"> <p>Home </p></a> 
+          <h1 class="text-center"><b>Facility</b></h1>
     </div>
     <div class="container-fluid">
     <div class="row">
@@ -46,28 +48,24 @@ font-weight: normal;color:#20a5f1;
 
 
     <div class="col-lg-12 col-md-12 col-12">
-    <h2 class="display-80"><p><b>----------------Facilities----------------</p></b></h2>
+    <h1 class="text-center"><p><b>----------------Facilities----------------</p></b></h1>
   </div>
 
     <div class="facilities">
-      <div class="nav">
-      <nav class="mt-4">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" text-align="center">
-           </ul>
-           <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/outdoor.png" width="30px" height="50px">
-          <li class="nav-item menu-open">
+        <img src="http://localhost/tagor_health_consultancy/public/images/outdoor.png" width="256px" height="110px">
+        <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon ion-home"></i>
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <h3>
-              Outdoor Service
-              </h3>
+             Outdoor Service </h3>
+              
             </a>
           </li>
-    </div>                
-  </div>
+        
+      </div>
 
       <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/indoor1.png" width="80px" height="50px">
+        <img src="http://localhost/tagor_health_consultancy/public/images/indoor1.png" width="256px" height="110px">
         <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -80,7 +78,7 @@ font-weight: normal;color:#20a5f1;
       </div>
 
       <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/health.png" width="80px" height="50px">
+        <img src="http://localhost/tagor_health_consultancy/public/images/health.png" width="256px" height="110px">
         <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -92,7 +90,7 @@ font-weight: normal;color:#20a5f1;
        </div>
 
     <div class="facilities">
-      <img src="http://localhost/tagor_health_consultancy/public/images/phar.png" width="80px" height="50px">
+      <img src="http://localhost/tagor_health_consultancy/public/images/phar.png" width="256px" height="80px">
       <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -104,21 +102,20 @@ font-weight: normal;color:#20a5f1;
         
       </div>
 
-      <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/24.png" width="80px" height="50px">
-         <li class="nav-item menu-open">
+     <div class="facilities">
+       <img src="http://localhost/tagor_health_consultancy/public/images/24.png" width="256px" height="50px">
+        <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <h3>
-              24 hours Emergency Service
-              </h3>
-            </a>
+             
+              <h2>
+             24 Hours Emergency Service </h2>
+              </a>
           </li>
         
       </div>
 
       <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/op.png" width="80px" height="50px">
+        <img src="http://localhost/tagor_health_consultancy/public/images/op.png" width="256px" height="90px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -130,7 +127,7 @@ font-weight: normal;color:#20a5f1;
        </div>
 
         <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/icu.png" width="80px" height="50px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/icu.png" width="80px" height="80px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -142,7 +139,7 @@ font-weight: normal;color:#20a5f1;
        </div>
 
         <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/dialysis.png" alt="Emergency" width="80px" height="50px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/dialysis.png" alt="Emergency" width="256px" height="80">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -154,7 +151,7 @@ font-weight: normal;color:#20a5f1;
        </div>
 
         <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/amb.png" width="80px" height="50px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/amb.png" width="256px" height="110px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -166,7 +163,7 @@ font-weight: normal;color:#20a5f1;
        </div>
         
          <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/cafe.png" width="80px" height="50px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/cafe.png" width="256px" height="110px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -178,7 +175,7 @@ font-weight: normal;color:#20a5f1;
        </div>
 
          <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/vacc.png" width="80px" height="50px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/vacc.png" width="256px" height="110px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -191,7 +188,7 @@ font-weight: normal;color:#20a5f1;
 
 
        <div class="facilities">
-        <img src="http://localhost/tagor_health_consultancy/public/images/o2.png" width="120px" height="80px">
+        <img src="http://localhost/tagor_health_consultancy/public/images/o2.png" width="256px" height="110px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
