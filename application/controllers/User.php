@@ -24,6 +24,8 @@ class User extends CI_Controller {
 	public function login(){
 		$this->load->view('User/login');
 	}
+
+    
         public function facility(){
         $this->load->view('User/facility');
     }
@@ -328,12 +330,55 @@ class User extends CI_Controller {
         
         if (!empty($user_id)) {
             $this->load->view('common/header', $data);
-            $this->load->view('doctors/doctor',$doctorData);
+            $this->load->view('doctors/doctor', $doctorData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/user_login');
         }
     }
+
+
+
+     public function doctor_form(){
+        $user_id              = $this->session->flashdata('user_id');
+
+        if (!empty($user_id)) {
+
+            $data['doctor_form']  = $this->user_model->get_profile_details($user_id);
+            $data['user_type']    = $this->session->flashdata('user_type');
+            $data['active_text']  = "profile";
+
+
+            $this->load->view('common/header',$data);
+            $this->load->view('User/doctor_form');
+            $this->load->view('common/footer');
+        
+    }
+}
+
+
+    public function submit_doctor_form(){
+
+        //set validation rules
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+         $this->form_validation->set_rules('phone_no', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
+         $this->form_validation->set_rules('age', 'Age', 'trim|required');
+        $this->form_validation->set_rules('diagnosis', 'Diagnosis', 'trim|required');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->doctor_form();
+
+        }else{
+
+            //insert the user registration details into database
+            $data = array(
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post('login_password')
+            );
+}
+}
 
 
     public function blood_list(){
