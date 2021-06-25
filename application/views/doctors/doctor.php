@@ -119,7 +119,7 @@
                           
                       </td>
                       <td>
-                        Availability
+                        <input type="button" value="Appoitment" onclick="window.location.href='http://localhost/tagor_health_consultancy/index.php/doctor_form'" />
                       </td>
                    </tr>
 

@@ -39,6 +39,14 @@ class Admin_model extends CI_Model {
         return  $query->result_array();
     }
 
+    public function doctoravailabilityList(){
+        $this->db->select('*');
+        $this->db->from('doctor_availability');
+        $this->db->where('status !=', '2');
+        $query = $this->db->get();
+        return  $query->result_array();
+    }
+
 
     public function editDoctor($doctorId){
         $this->db->select('*');
@@ -47,6 +55,14 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->row_array();
     }
+        public function EditDoctorAvailability($data){
+        $this->db->select('*');
+        $this->db->from('doctor_availability');
+        $this->db->where('id', $data);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
 
 
     public function updateDoctor($doctorId,$data){
@@ -62,6 +78,11 @@ class Admin_model extends CI_Model {
     {
         return $this->db->insert('doctor_availability', $data);
     }
+
+    public function deleteDoctoravailability($doctorId){
+        return $this->db->where('id', $doctorId)->update('doctor_availability', array('status'=>'2'));
+    }
+
 
 
     //===================  Doctor Section ==============//
@@ -106,6 +127,12 @@ class Admin_model extends CI_Model {
 
     //===================  Bed Section ==============//
 
+    public function count_bed()
+    {
+        return $this->db->where('status', '1')->count_all("bed");
+    }
+
+
     public function createBed($data){
         return $this->db->insert('bed', $data);
     }
@@ -141,6 +168,11 @@ class Admin_model extends CI_Model {
 
 
     //===================  oxygen Section ==============//
+
+    public function count_oxygen()
+    {
+        return $this->db->where('status', '1')->count_all("oxygen");
+    }
 
     public function createOxygen($data){
         return $this->db->insert('oxygen', $data);
@@ -180,7 +212,11 @@ class Admin_model extends CI_Model {
 
 
     //===================  vaccine Section ==============//
-
+    
+    public function count_vaccine()
+    {
+        return $this->db->where('status', '1')->count_all("vaccine");
+    }
 
     public function createVaccine($data){
         return $this->db->insert('vaccine', $data);

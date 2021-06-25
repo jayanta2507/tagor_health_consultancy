@@ -34,7 +34,7 @@
             </button> -->
             <a href="<?php echo base_url(); ?>index.php/admin_oxygen_add">
               <button type="button" class="btn btn-success" title="Add">
-              <i class="fas fa-plus"></i>  Add
+              <i class="ion ion-soup-can-outline"></i>  Add
             </button>
             </a>
             

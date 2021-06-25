@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/admin_doctor_availability_submit" method="post" enctype="multipart/form-data">
+      <form action="<?php echo base_url(); ?>index.php/admin_doctor_availability_edit_submit" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -77,7 +77,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <a href="<?php echo base_url(); ?>index.php/admin_doctor_availability_list" class="btn btn-secondary">Back</a>
+            <a href="<?php echo base_url(); ?>index.php/admin_doctor_availability_edit" class="btn btn-secondary">Back</a>
             <input type="submit" value="Create Doctor Availability" class="btn btn-success float-right">
           </div>
         </div>

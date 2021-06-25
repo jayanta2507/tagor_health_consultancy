@@ -30,7 +30,7 @@
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
+                    <i class="ion ion-soup-can-outline"></i>
                   </button>
                 </div>
               </div>

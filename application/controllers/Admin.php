@@ -68,6 +68,9 @@ class Admin extends CI_Controller {
         $data['user_type']   = $this->session->flashdata('user_type');
         $dashboardData['doctor_count'] = $this->admin_model->count_doctor();
         $dashboardData['blood_count'] = $this->admin_model->count_blood();
+        $dashboardData['bed_count'] = $this->admin_model->count_bed();
+        $dashboardData['oxygen_count'] = $this->admin_model->count_oxygen();
+        $dashboardData['vaccine_count'] = $this->admin_model->count_vaccine();
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
@@ -207,6 +210,24 @@ class Admin extends CI_Controller {
 
     }
 
+    public function admin_doctor_availability_list(){
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        $doctoravailabilityData['doctors'] = $this->admin_model->doctoravailabilityList();
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/doctor/admin_doctor_availability_list', $doctoravailabilityData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }
+    }
+
 
     public function admin_doctor_availability_submit(){
 
@@ -256,6 +277,71 @@ class Admin extends CI_Controller {
     }
 
 
+    public function admin_doctor_availability_edit($doctorId){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        $doctorData['doctorId'] = $doctorId;
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/doctor/admin_doctor_availability_edit', $doctorData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+
+    public function admin_doctor_availability_edit_submit(){
+
+
+        //set validation rules
+        $this->form_validation->set_rules('date', 'Date', 'trim|required');
+        $this->form_validation->set_rules('from_time', 'From Time', 'trim|required');
+        $this->form_validation->set_rules('to_time', 'To Time', 'trim|required');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $doctorId = $this->input->post('doctor_id');
+            $this->admin_doctor_availability_edit($doctorId);
+        }else{
+
+            
+
+            $data = array(
+                'doctor_id'  => $this->input->post('doctor_id'),
+                'date'       => $this->input->post('date'),
+                'from_time'  => $this->input->post('from_time'),
+                'to_time'    => $this->input->post('to_time'),
+                'status'     => $this->input->post('status'),
+            );
+
+
+            echo "<pre>";
+            print_r($data);
+            die();
+
+
+            $updateDoctor = $this->admin_model->EditDoctorAvailability($data);
+
+            if ($updateDoctor) {
+                 // error
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Doctor successfully added</div>');
+                redirect('index.php/admin_doctor_list');
+            }else{
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+                redirect('index.php/admin_doctor_add');
+            }
+
+        }
+
+    }
 
     
 
@@ -354,6 +440,19 @@ class Admin extends CI_Controller {
         }else{
              $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
            redirect('index.php/admin_doctor_list');
+        }  
+    }
+
+    public function admin_doctor_availability_delete($doctorId){
+        
+        $deleteDoctorAvailability = $this->admin_model->deleteDoctoravailability($doctorId);
+
+        if ($deleteDoctorAvailability) {
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Doctor successfully deleted</div>');
+            redirect('index.php/admin_doctor_availabilty_list');
+        }else{
+             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
+           redirect('index.php/admin_doctor_availability_list');
         }  
     }
 

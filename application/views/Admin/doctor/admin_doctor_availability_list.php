@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Doctors</h1>
+            <h1>Doctor Availability</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Doctors</li>
+              <li class="breadcrumb-item active">Doctor Availability</li>
             </ol>
           </div>
         </div>
@@ -24,7 +24,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Doctors</h3>
+          <h3 class="card-title">Doctor Availability</h3>
           <span><?php echo $this->session->flashdata('msg'); ?></span>
           <div class="card-tools">
             <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -33,7 +33,7 @@
             <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
               <i class="fas fa-times"></i>
             </button> -->
-            <a href="<?php echo base_url(); ?>index.php/admin_doctor_add">
+            <a href="<?php echo base_url(); ?>index.php/admin_doctor_availability">
               <button type="button" class="btn btn-success" title="Add">
               <i class="ion-person-add"></i>  Add
             </button>
@@ -47,32 +47,19 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
-                          Sl No.
+                      <th style="width: 25%">
+                          Date
                       </th>
-                       <th style="width: 10%">
-                          Image
+                       <th style="width: 25%">
+                          From Time
                       </th>
-                      <th style="width: 10%">
-                          Doctor Name
+                      <th style="width: 25%">
+                          To Time
                       </th>
-                      <th style="width: 10%">
-                          Specialist
-                      </th>
-                      <th style="width: 10%">
-                          Email
-                      </th>
-                      <th style="width: 10%">
-                          Phone
-                      </th>
-                      <th style="width: 10%">
-                          Registration ID
-                      </th>
-                     
-                      <th style="width: 10%" class="text-center">
+                      <th style="width:25%" class="text-center">
                           Status
                       </th>
-                      <th style="width: 29%;">
+                      <th style="width: 25%">
                         Action
                       </th>
                   </tr>
@@ -86,29 +73,15 @@
                       <td>
                           <?php echo ($key+1); ?>
                       </td>
-                       <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img  src="<?php echo base_url(); ?>assests/doctor_image/<?php echo $value['image']; ?>" style="width: 60px; height: 60px; border-radius: 100%;">
-                              </li>
-                          </ul>
-                      </td>
                       <td>
-                          <?php echo $value['name']; ?>
+                          <?php echo $value['date']; ?>
                             
                       </td>
                       <td>
-                          <?php echo $value['specialist']; ?>
+                          <?php echo $value['from_time']; ?>
                       </td>
                       <td>
-                          <?php echo $value['email']; ?>
-                      </td>
-                      <td>
-                          <?php echo $value['phone']; ?>
-                      </td>
-
-                      <td>
-                          <?php echo $value['registration_id']; ?>
+                          <?php echo $value['to_time']; ?>
                       </td>
                       
                       <td class="project-state">
@@ -128,17 +101,12 @@
                           
                       </td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_availability/<?php echo $value['id']; ?>">
-                              <i class="fas fa-folder">
-                              </i>
-                              Availability 
-                          </a>
-                          <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_edit/<?php echo $value['id']; ?>">
+                        <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_availability_edit/<?php echo $value['id']; ?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_delete/<?php echo $value['id']; ?>">
+                          <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_availability_delete/<?php echo $value['id']; ?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete

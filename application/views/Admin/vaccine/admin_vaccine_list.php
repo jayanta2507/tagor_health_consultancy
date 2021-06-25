@@ -34,7 +34,7 @@
             </button> -->
             <a href="<?php echo base_url(); ?>index.php/admin_vaccine_add">
               <button type="button" class="btn btn-success" title="Add">
-              <i class="fas fa-plus"></i>  Add
+              <i class="ion ion-wand"></i>  Add
             </button>
             </a>
             

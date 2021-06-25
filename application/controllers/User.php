@@ -24,8 +24,26 @@ class User extends CI_Controller {
 	public function login(){
 		$this->load->view('User/login');
 	}
+
+    
         public function facility(){
         $this->load->view('User/facility');
+    }
+
+    public function vaccine(){
+        $this->load->view('User/vaccine');
+    }
+
+    public function oxygen(){
+        $this->load->view('User/oxygen');
+    }
+
+    public function blood(){
+        $this->load->view('User/blood');
+    }
+
+    public function doctor(){
+        $this->load->view('User/doctor');
     }
 
 
@@ -84,6 +102,10 @@ class User extends CI_Controller {
         
     }
 
+
+
+
+
 	public function submit_registration(){
 		
 		//set validation rules
@@ -136,12 +158,86 @@ class User extends CI_Controller {
 		//$this->user_model->user_registration($data);
 	}
 
+    public function contact(){
+        $this->load->view('User/contact');
+    }
+
+     public function contact_form(){
+        $user_id              = $this->session->flashdata('user_id');
+
+        if (!empty($user_id)) {
+
+            $data['contact_form']  = $this->user_model->get_contact_form($user_id);
+            $data['active_text']  = "contact";
+
+
+            $this->load->view('common/header',$data);
+            $this->load->view('User/contact_form',$data);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_contact');
+        }
+    }
+    
+
+    public function submit_contact_form(){
+
+        //set validation rules
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('email_id', 'Email ID', 'trim|required|valid_email');
+        $this->form_validation->set_rules('phone_no', 'Phone No', 'trim|required|min_length[10]|max_length[30]');
+        $this->form_validation->set_rules('subject', 'Subject', 'trim|required|valid_subject');
+        $this->form_validation->set_rules('message_box', 'Message Box', 'trim|required');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->contact();
+
+        }else{
+
+            //insert the user registration details into database
+            $data = array(
+                'name'        => $this->input->post('name'),
+                'email_id'    => $this->input->post('email_id'),
+                'phone_no'    => $this->input->post('phone_no'),
+                'subject'     => $this->input->post('subject'),
+                'message_box' => $this->input->post('message_box'),
+            );
+            
+
+            // insert form data into database
+            if ($this->user_model->contact_form($data))
+            {
+                $contactformData = $this->user_model->get_contact_form($data);
+                $this->session->set_flashdata('contact_us', $contactformData['id']);
+                $this->session->set_flashdata('user_type', $userData['type']);
+                 
+                redirect('index.php/user_contact');
+            }
+            else
+            {
+                // error
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have successfully submitted!</div>');
+                redirect('index.php/user_home');
+            }
+
+
+        }
+    }    
+
+
+
 	public function home(){
 		$this->load->view('User/home');
 	}
 
     public function user_about(){
         $this->load->view('User/about_us');
+    }
+
+    public function user_services(){
+        $this->load->view('User/services');
     }
 	 
 
@@ -262,10 +358,15 @@ class User extends CI_Controller {
 
         $data['active_text'] = "dashboard";
         $data['user_type']   = $this->session->flashdata('user_type');
+        $dashboardData['doctor_count'] = $this->user_model->count_doctor();
+        $dashboardData['blood_count'] = $this->user_model->count_blood();
+        $dashboardData['bed_count'] = $this->user_model->count_bed();
+        $dashboardData['oxygen_count'] = $this->user_model->count_oxygen();
+        $dashboardData['vaccine_count'] = $this->user_model->count_vaccine();
 
         if ($user_type==0) {
             $this->load->view('common/header',$data);
-            $this->load->view('User/dashboard');
+            $this->load->view('User/dashboard',$dashboardData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/user_login');
@@ -302,13 +403,56 @@ class User extends CI_Controller {
         $doctorData['doctors'] = $this->user_model->doctorList();
         
         if (!empty($user_id)) {
-            $this->load->view('common/header',$data);
-            $this->load->view('doctors/doctor',$doctorData);
+            $this->load->view('common/header', $data);
+            $this->load->view('doctors/doctor', $doctorData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/user_login');
         }
     }
+
+
+
+     public function doctor_form(){
+        $user_id              = $this->session->flashdata('user_id');
+
+        if (!empty($user_id)) {
+
+            $data['doctor_form']  = $this->user_model->get_profile_details($user_id);
+            $data['user_type']    = $this->session->flashdata('user_type');
+            $data['active_text']  = "profile";
+
+
+            $this->load->view('common/header',$data);
+            $this->load->view('User/doctor_form');
+            $this->load->view('common/footer');
+        
+    }
+}
+
+
+    public function submit_doctor_form(){
+
+        //set validation rules
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+         $this->form_validation->set_rules('phone_no', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
+         $this->form_validation->set_rules('age', 'Age', 'trim|required');
+        $this->form_validation->set_rules('diagnosis', 'Diagnosis', 'trim|required');
+
+        //validate form input
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->doctor_form();
+
+        }else{
+
+            //insert the user registration details into database
+            $data = array(
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post('login_password')
+            );
+}
+}
 
 
     public function blood_list(){
@@ -342,8 +486,8 @@ class User extends CI_Controller {
         $bedData['bed'] = $this->user_model->bedList();
 
         if (!empty($user_id)) {
-            $this->load->view('common/header',$data);
-            $this->load->view('bed/bed_list',$bedData);
+            $this->load->view('common/header', $data);
+            $this->load->view('bed/bed_list', $bedData);
             $this->load->view('common/footer');
            
         }else{
