@@ -127,7 +127,7 @@ font-weight: normal;color:#20a5f1;
        </div>
 
         <div class="facilities">
-          <img src="http://localhost/tagor_health_consultancy/public/images/icu.png" width="80px" height="80px">
+          <img src="http://localhost/tagor_health_consultancy/public/images/icu.png" width="256px" height="80px">
          <li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
