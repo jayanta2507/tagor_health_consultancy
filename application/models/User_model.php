@@ -23,6 +23,17 @@ class User_model extends CI_Model {
                 return  $query->row_array();
         }
 
+         public function get_contact_form($data){
+ 
+                $this->db->select('*');
+                $this->db->from('contact_us');
+                $this->db->where('id', $data);
+                $query = $this->db->get();
+                return  $query->row_array();
+        }
+
+
+
 
         public function get_profile_details($user_id){
  
