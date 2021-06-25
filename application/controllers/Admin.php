@@ -240,9 +240,9 @@ class Admin extends CI_Controller {
             die();*/
 
 
-            $createDoctor = $this->admin_model->createDoctorAvailability($data);
+            $createDoctorAvailability = $this->admin_model->createDoctorAvailability($data);
 
-            if ($createDoctor) {
+            if ($createDoctorAvailability) {
                  // error
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Doctor successfully added</div>');
                 redirect('index.php/admin_doctor_list');
