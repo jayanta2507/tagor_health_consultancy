@@ -83,8 +83,6 @@ class User extends CI_Controller {
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You are not a valid user!</div>');
                 redirect('index.php/user_login');
             }
-
-
         }
 	}
 
@@ -413,18 +411,19 @@ class User extends CI_Controller {
 
 
 
-     public function doctor_form(){
+     public function doctor_form($doctorId){
         $user_id              = $this->session->flashdata('user_id');
 
         if (!empty($user_id)) {
 
-            $data['doctor_form']  = $this->user_model->get_profile_details($user_id);
-            $data['user_type']    = $this->session->flashdata('user_type');
-            $data['active_text']  = "profile";
+            $data['doctor_form']         = $this->user_model->get_profile_details($user_id);
+            $data['doctor_availability'] = $this->user_model->doctoravailabilityList($doctorId);
+            $data['user_type']           = $this->session->flashdata('user_type');
+            $data['active_text']         = "doctor";
 
 
             $this->load->view('common/header',$data);
-            $this->load->view('User/doctor_form');
+            $this->load->view('doctors/doctor_appointment');
             $this->load->view('common/footer');
         
     }

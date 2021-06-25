@@ -133,7 +133,17 @@ class User_model extends CI_Model {
                 $this->db->where('status !=', '2');
                 $query = $this->db->get();
                 return  $query->result_array();
-        }      
+        }   
+
+
+        public function doctoravailabilityList($doctorId){
+            $this->db->select('*');
+            $this->db->from('doctor_availability');
+            $this->db->where('status !=', '2');
+            $this->db->where('doctor_id', $doctorId);
+            $query = $this->db->get();
+            return  $query->result_array();
+        }   
 
 }
 

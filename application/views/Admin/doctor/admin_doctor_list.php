@@ -128,7 +128,7 @@
                           
                       </td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_availability/<?php echo $value['id']; ?>">
+                          <a class="btn btn-primary btn-sm" href="<?php echo base_url(); ?>index.php/admin_doctor_availability_list/<?php echo $value['id']; ?>">
                               <i class="fas fa-folder">
                               </i>
                               Availability 

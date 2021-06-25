@@ -39,13 +39,38 @@ class Admin_model extends CI_Model {
         return  $query->result_array();
     }
 
-    public function doctoravailabilityList(){
+    public function getDoctorData($doctorId){
+        $this->db->select('*');
+        $this->db->from('doctors');
+        $this->db->where('status !=', '2');
+        $this->db->where('id', $doctorId);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
+    
+
+    public function doctoravailabilityList($doctorId){
         $this->db->select('*');
         $this->db->from('doctor_availability');
         $this->db->where('status !=', '2');
+        $this->db->where('doctor_id', $doctorId);
         $query = $this->db->get();
         return  $query->result_array();
     }
+
+
+    public function getDoctorAvailability($availabilityId){
+        $this->db->select('*');
+        $this->db->from('doctor_availability');
+        $this->db->where('status !=', '2');
+        $this->db->where('id', $availabilityId);
+        $query = $this->db->get();
+        return  $query->row_array();
+    }
+
+
+    
 
 
     public function editDoctor($doctorId){
@@ -55,15 +80,9 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->row_array();
     }
-        public function EditDoctorAvailability($data){
-        $this->db->select('*');
-        $this->db->from('doctor_availability');
-        $this->db->where('id', $data);
-        $query = $this->db->get();
-        return  $query->row_array();
-    }
 
 
+    
 
     public function updateDoctor($doctorId,$data){
         return $this->db->where('id', $doctorId)->update('doctors', $data);
@@ -81,6 +100,10 @@ class Admin_model extends CI_Model {
 
     public function deleteDoctoravailability($doctorId){
         return $this->db->where('id', $doctorId)->update('doctor_availability', array('status'=>'2'));
+    }
+
+    public function EditDoctorAvailability($availabilityId,$data){
+        return $this->db->where('id', $availabilityId)->update('doctor_availability', $data);
     }
 
 
