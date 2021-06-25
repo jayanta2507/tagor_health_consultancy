@@ -36,7 +36,7 @@
               </div>
               <div class="card-body">
                 
-                <input type="hidden" name="doctor_id" value="<?php echo $doctorId ?>">
+                <input type="hidden" name="doctor_id" value="<?php echo $doctorId; ?>">
 
 
                 <div class="form-group">
@@ -77,7 +77,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <a href="<?php echo base_url(); ?>index.php/admin_doctor_availability_list" class="btn btn-secondary">Back</a>
+            <a href="<?php echo base_url(); ?>index.php/admin_doctor_availability_list/<?php echo $doctorId ?>" class="btn btn-secondary">Back</a>
             <input type="submit" value="Create Doctor Availability" class="btn btn-success float-right">
           </div>
         </div>

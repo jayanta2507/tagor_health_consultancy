@@ -37,24 +37,25 @@
               <div class="card-body">
                 
                 <input type="hidden" name="doctor_id" value="<?php echo $doctorId ?>">
+                <input type="hidden" name="availabilityId" value="<?php echo $availabilityId ?>">
 
 
                 <div class="form-group">
                   <label for="inputName">Date</label>
-                  <input type="date" id="inputName" class="form-control" name="date">
+                  <input type="date" id="inputName" class="form-control" name="date" value="<?php echo date('Y-m-d',strtotime($availability['date'])); ?>">
                   <span class="text-danger"><?php echo form_error('date'); ?></span>
                 </div>
-
+                
 
                 <div class="form-group">
                   <label for="inputName">From Time</label>
-                  <input type="time" id="inputSpecialist" class="form-control" name="from_time">
+                  <input type="time" id="inputSpecialist" class="form-control" name="from_time" value="<?php echo $availability['from_time']; ?>">
                   <span class="text-danger"><?php echo form_error('from_time'); ?></span>
                 </div>
 
                 <div class="form-group">
                   <label for="inputName">To Time</label>
-                  <input type="time" id="inputEmail" class="form-control" name="to_time">
+                  <input type="time" id="inputEmail" class="form-control" name="to_time" value="<?php echo $availability['to_time']; ?>">
                   <span class="text-danger"><?php echo form_error('to_time'); ?></span>
                 </div>
 
@@ -63,8 +64,8 @@
                   <label for="inputStatus">Status</label>
                   <select id="inputStatus" class="form-control custom-select" name="status">
                     <option selected disabled>Select one</option>
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
+                    <option value="1" <?php echo ($availability['status']==1)?'selected':''; ?> >Active</option>
+                    <option value="0" <?php echo ($availability['status']==0)?'selected':''; ?> >Inactive</option>
                   </select>
                   <span class="text-danger"><?php echo form_error('status'); ?></span>
                 </div>
@@ -78,7 +79,7 @@
         <div class="row">
           <div class="col-12">
             <a href="<?php echo base_url(); ?>index.php/admin_doctor_availability_edit" class="btn btn-secondary">Back</a>
-            <input type="submit" value="Create Doctor Availability" class="btn btn-success float-right">
+            <input type="submit" value="Update Doctor Availability" class="btn btn-success float-right">
           </div>
         </div>
       </form>

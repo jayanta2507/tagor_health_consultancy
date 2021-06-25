@@ -210,14 +210,16 @@ class Admin extends CI_Controller {
 
     }
 
-    public function admin_doctor_availability_list(){
+    public function admin_doctor_availability_list($doctorId){
 
         $user_type     = $this->session->flashdata('user_type');
 
         $data['active_text'] = "doctor";
         $data['user_type']   = $this->session->flashdata('user_type');
 
-        $doctoravailabilityData['doctors'] = $this->admin_model->doctoravailabilityList();
+        $doctoravailabilityData['doctors']       = $this->admin_model->doctoravailabilityList($doctorId);
+        $doctoravailabilityData['doctors_data']  = $this->admin_model->getDoctorData($doctorId);
+        $doctoravailabilityData['doctorId']      = $doctorId;
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
@@ -237,11 +239,12 @@ class Admin extends CI_Controller {
         $this->form_validation->set_rules('from_time', 'From Time', 'trim|required');
         $this->form_validation->set_rules('to_time', 'To Time', 'trim|required');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
+        $doctorId = $this->input->post('doctor_id');
 
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
-            $doctorId = $this->input->post('doctor_id');
+            
             $this->admin_doctor_availability($doctorId);
         }else{
 
@@ -254,22 +257,16 @@ class Admin extends CI_Controller {
                 'to_time'    => $this->input->post('to_time'),
                 'status'     => $this->input->post('status'),
             );
+ 
+            $createDoctorAvailability = $this->admin_model->createDoctorAvailability($data);
 
-
-            /*echo "<pre>";
-            print_r($data);
-            die();*/
-
-
-            $createDoctor = $this->admin_model->createDoctorAvailability($data);
-
-            if ($createDoctor) {
+            if ($createDoctorAvailability) {
                  // error
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Doctor successfully added</div>');
-                redirect('index.php/admin_doctor_list');
+                redirect('index.php/admin_doctor_availability_list/'.$doctorId);
             }else{
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
-                redirect('index.php/admin_doctor_add');
+                redirect('index.php/admin_doctor_availability/'.$doctorId);
             }
 
         }
@@ -277,13 +274,16 @@ class Admin extends CI_Controller {
     }
 
 
-    public function admin_doctor_availability_edit($doctorId){
+    public function admin_doctor_availability_edit($doctorId , $availabilityId){
 
         $user_type           = $this->session->flashdata('user_type');
         $data['active_text'] = "doctor";
         $data['user_type']   = $this->session->flashdata('user_type');
 
-        $doctorData['doctorId'] = $doctorId;
+        $doctorData['doctorId']         = $doctorId;
+        $doctorData['availabilityId']   = $availabilityId;
+        $doctorData['availability']     = $this->admin_model->getDoctorAvailability($availabilityId);
+ 
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
@@ -304,39 +304,35 @@ class Admin extends CI_Controller {
         $this->form_validation->set_rules('from_time', 'From Time', 'trim|required');
         $this->form_validation->set_rules('to_time', 'To Time', 'trim|required');
         $this->form_validation->set_rules('status', 'Status', 'trim|required');
+        echo $doctorId = $this->input->post('doctor_id');
+        echo "<br>";
+        echo $availabilityId = $this->input->post('availabilityId');
 
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
-            $doctorId = $this->input->post('doctor_id');
-            $this->admin_doctor_availability_edit($doctorId);
+            
+            $this->admin_doctor_availability_edit($doctorId , $availabilityId);
         }else{
 
             
 
             $data = array(
-                'doctor_id'  => $this->input->post('doctor_id'),
                 'date'       => $this->input->post('date'),
                 'from_time'  => $this->input->post('from_time'),
                 'to_time'    => $this->input->post('to_time'),
                 'status'     => $this->input->post('status'),
             );
 
-
-            echo "<pre>";
-            print_r($data);
-            die();
-
-
-            $updateDoctor = $this->admin_model->EditDoctorAvailability($data);
+            $updateDoctor = $this->admin_model->EditDoctorAvailability($availabilityId, $data);
 
             if ($updateDoctor) {
                  // error
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Doctor successfully added</div>');
-                redirect('index.php/admin_doctor_list');
+                redirect('index.php/admin_doctor_availability_list/'.$doctorId);
             }else{
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
-                redirect('index.php/admin_doctor_add');
+                redirect('index.php/admin_doctor_availability_edit'.$doctorId.'/'.$availabilityId);
             }
 
         }

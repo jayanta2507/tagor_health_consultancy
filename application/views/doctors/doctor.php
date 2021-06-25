@@ -119,7 +119,9 @@
                           
                       </td>
                       <td>
-                        <input type="button" value="Appoitment" onclick="window.location.href='http://localhost/tagor_health_consultancy/index.php/doctor_form'" />
+                        <a href="<?php echo base_url(); ?>index.php/doctor_form/<?php echo $value['id']; ?>">
+                          <button class="btn btn-primary">Appoitment</button>
+                        </a>
                       </td>
                    </tr>
 
