@@ -574,6 +574,8 @@ class User extends CI_Controller {
                 echo '<img src="'.base_url().'assets/user_images/'.$image.'" width="300" height="225" class="img-thumbnail" />';  
             }  
         }  
-    } 
+    }
+
+    
 }
 
