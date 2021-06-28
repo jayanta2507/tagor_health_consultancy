@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/admin_blood_submit" method="post">
+      <form action="<?php echo base_url(); ?>index.php/admin_blood_submit" method="post" enctype="multipart/form-data">>
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -39,8 +39,8 @@
                
                 <div class="form-group">
                   <label for="inputName">Blood Group</label>
-                  <input type="text" id="inputTypes_Blood" class="form-control" name="blood_gr">
-                  <span class="text-danger"><?php echo form_error('blood_gr'); ?></span>
+                  <input type="text" id="inputTypes_Blood" class="form-control" name="blood_group">
+                  <span class="text-danger"><?php echo form_error('blood_group'); ?></span>
                 </div>
 
                 <div class="form-group">

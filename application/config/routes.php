@@ -88,7 +88,6 @@ $route['upload_image']   			= 'user/upload_image';
 
 
 
-
 $route['admin_login']          = 'admin/adminlogin';
 $route['submit_adminlogin']    = 'admin/submit_adminlogin';
 $route['admin_dashboard']      = 'admin/admin_dashboard';

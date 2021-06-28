@@ -20,6 +20,9 @@ class User extends CI_Controller {
 	public function registration(){
 		$this->load->view('User/registration');
 	}
+public function home_url(){
+        $this->load->view('User/home_url');
+    }
 
 	public function login(){
 		$this->load->view('User/login');

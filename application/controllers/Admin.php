@@ -452,10 +452,10 @@ class Admin extends CI_Controller {
         }  
     }
 
+//===================  Doctor Section ==============//
 
 
-
-
+ //===================  Blood Section ==============//
 
 
     public function admin_blood_list(){
@@ -482,7 +482,10 @@ class Admin extends CI_Controller {
         $user_type           = $this->session->flashdata('user_type');
         $data['active_text'] = "blood";
         $data['user_type']   = $this->session->flashdata('user_type');
-
+// echo "<pre>";
+//             print_r($data);
+//             echo "</pre>";
+//             die();
         
 
         if ($user_type==1) {
@@ -521,7 +524,7 @@ class Admin extends CI_Controller {
                 'hospital_phn_no'           => $this->input->post('hospital_phn_no'),
                 'status'                    => $this->input->post('status'),
             );
-             
+               
             $createBlood = $this->admin_model->createBlood($data);
 
             if ($createBlood) {

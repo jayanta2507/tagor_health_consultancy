@@ -256,7 +256,7 @@
         <nav class="mt-4">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" text-align="center">
              </ul>
-             <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/outdoor.png" width="256px" height="50px">
+             <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/outdoor.png" width="256px" height="110px">
             <li class="nav-item menu-open">
               <a href="#" class="nav-link">
                 <i class="nav-icon ion-home"></i>
