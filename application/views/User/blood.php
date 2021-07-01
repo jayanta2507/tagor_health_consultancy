@@ -1,6 +1,80 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://localhost/tagor_health_consultancy/public/css/style1.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>  
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+    }  
+
+
+  </style>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Tagore Health Consultancy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">  
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost/tagor_health_consultancy/index.php/user_home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_about">About Us</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_services">Services</a>
+        </li>
+ 
+        <?php 
+          $user_id = $this->session->flashdata('user_id');
+          $user_type = $this->session->flashdata('user_type');
+
+          if (!empty($user_id)) { ?>
+
+
+            <?php if ($user_type==0) { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_dashboard">Dashboard</a>
+              </li>
+            <?php } else { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/admin_dashboard">Dashboard</a>
+              </li>
+            <?php } ?>
+        <?php } else { ?>
+
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_login">Login</a>
+            </li>
+        <?php } ?>
+
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_facility">Facility</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/tagor_health_consultancy/index.php/user_contact">Contact</a>
+        </li>
+
+      </ul>
+      
+</nav>
 <section class="my-5">
     <div class="py-5">
-        <h2 class="text-center"><a href="http://localhost/tagor_health_consultancy/index.php/user_services" class="btn btn-success"> <b>Services</b></a>/ <b>blood</b></h2>
+        <h2 class="text-center"><b>Blood</b></h2>
     </div>
     <div class="container-fluid">
     <div class="row">
@@ -8,7 +82,7 @@
             <img src="http://localhost/tagor_health_consultancy/public/images/bd4.jpg" class="img-fluid" width="100%">    
     </div>
     <div class="col-lg-6 col-md-6 col-12">
-    <h3 class="display-7">Blood</h3>
+    
     <p class="py-2">Blood is a body fluid in humans and other animals that delivers necessary substances such as nutrients and oxygen to the cells and transports metabolic waste products away from those same cells.
 
 In vertebrates, it is composed of blood cells suspended in blood plasma. Plasma, which constitutes 55% of blood fluid, is mostly water (92% by volume),[2] and contains proteins, glucose, mineral ions, hormones, carbon dioxide (plasma being the main medium for excretory product transportation), and blood cells themselves. Albumin is the main protein in plasma, and it functions to regulate the colloidal osmotic pressure of blood. The blood cells are mainly red blood cells (also called RBCs or erythrocytes), white blood cells (also called WBCs or leukocytes) and platelets (also called thrombocytes). The most abundant cells in vertebrate blood are red blood cells. These contain hemoglobin, an iron-containing protein, which facilitates oxygen transport by reversibly binding to this respiratory gas and greatly increasing its solubility in blood. In contrast, carbon dioxide is mostly transported extracellularly as bicarbonate ion transported in plasma.
@@ -28,5 +102,11 @@ Vertebrate blood is bright red when its hemoglobin is oxygenated and dark red wh
     People that have the D antigen on their red blood cells are RhD positive, while those people that don’t have the D antigen are Rh D negative. The positive and negative suffix on blood types, such as A+ and B- refers to your Rh D type, also known as your Rhesus D type.</p>
 
      </div>
+
+ <footer class="main-footer">
+    <strong> @ Copyright & copy; 2021-2022   Tagor Health Consultancy </strong>
+     All rights reserved.
+    <div class="float-right d-none d-sm-inline-block"><b>Version 1.0.0 </b></div>
+</footer>
 </div>
 </section>

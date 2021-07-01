@@ -82,15 +82,22 @@ $route['user_logout']    			= 'user/user_logout';
 $route['doctor_list']    			= 'user/doctor_list';
 $route['blood_list']    			= 'user/blood_list';
 $route['bed_list']    	 			= 'user/bed_list';
-$route['oxygen_list']    			= 'user/oxygen_list';
-$route['vaccine_list']    			= 'user/vaccine_list';
-$route['upload_image']   			= 'user/upload_image';
+$route['oxygen_list']    			       = 'user/oxygen_list';
+$route['vaccine_list']    			       = 'user/vaccine_list';
+$route['upload_image']   			       = 'user/upload_image';
+$route['doctor_appointment/(:any)']        = 'user/doctor_appointment/$1';
+$route['doctor_appointment_list/(:any)']   = 'user/doctor_appointment_list/$1';
+$route['doctor_appointment_submit']        = 'user/doctor_appointment_submit';
 
 
 
-$route['admin_login']          = 'admin/adminlogin';
-$route['submit_adminlogin']    = 'admin/submit_adminlogin';
-$route['admin_dashboard']      = 'admin/admin_dashboard';
+
+
+$route['admin_login']               = 'admin/adminlogin';
+$route['submit_adminlogin']         = 'admin/submit_adminlogin';
+$route['admin_dashboard']           = 'admin/admin_dashboard';
+$route['admin_user_list']           = 'admin/admin_user_list';
+
 
 
 
@@ -105,10 +112,9 @@ $route['admin_doctor_delete/(:any)']              = 'admin/admin_doctor_delete/$
 $route['admin_doctor_availability_list/(:any)']   = 'admin/admin_doctor_availability_list/$1';
 $route['admin_doctor_availability/(:any)']        = 'admin/admin_doctor_availability/$1';
 $route['admin_doctor_availability_submit']        = 'admin/admin_doctor_availability_submit';
-$route['admin_doctor_availability_edit/(:any)/(:any)']   = 'admin/admin_doctor_availability_edit/$1/$2';
+$route['admin_doctor_availability_edit/(:any)/(:any)'] = 'admin/admin_doctor_availability_edit/$1/$2';
 $route['admin_doctor_availability_edit_submit']   = 'admin/admin_doctor_availability_edit_submit';
 $route['admin_doctor_availability_delete/(:any)'] = 'admin/admin_doctor_availability_delete/$1';
-
 
 // ***************** End Admin Doctor Section **************//
 

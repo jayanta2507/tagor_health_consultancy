@@ -143,7 +143,18 @@ class User_model extends CI_Model {
             $this->db->where('doctor_id', $doctorId);
             $query = $this->db->get();
             return  $query->result_array();
-        }   
+        }
+
+        public function doctorappointmentList($doctorId){
+            $this->db->select('*');
+            $this->db->from('appointment');
+            $this->db->where('status !=', '2');
+            $this->db->where('appointment_id', $doctorId);
+            $query = $this->db->get();
+            return  $query->result_array();
+        }
+
+
 
 }
 

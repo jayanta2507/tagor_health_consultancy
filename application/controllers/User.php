@@ -433,27 +433,85 @@ public function home_url(){
 }
 
 
-    public function submit_doctor_form(){
+    public function submit_doctor_form($doctorId){
 
-        //set validation rules
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
          $this->form_validation->set_rules('phone_no', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
          $this->form_validation->set_rules('age', 'Age', 'trim|required');
         $this->form_validation->set_rules('diagnosis', 'Diagnosis', 'trim|required');
 
-        //validate form input
+        
         if ($this->form_validation->run() == FALSE)
         {
-            $this->doctor_form();
+            $this->doctor_form($doctorId);
+
+        }else{
+
+            $data = array(
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post('login_password')
+            );
+        }
+    }
+
+    public function doctor_appointment($doctorId){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        $doctorData['doctorId'] = $doctorId;
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('User/doctor/doctor_appointment', $doctorData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+    public function doctor_appointment_list($doctorId){
+        $user_id             = $this->session->flashdata('user_id');
+
+        $data['active_text'] = "doctor";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+
+        $doctorData['doctors'] = $this->user_model->doctorappointmentList($doctorId);
+        
+        if (!empty($user_id)) {
+            $this->load->view('common/header', $data);
+            $this->load->view('doctors/doctor_appointment', $doctorData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_login');
+        }
+    }
+
+    public function submit_doctor_appointment($doctorId){
+
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('phone_no', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
+        $this->form_validation->set_rules('age', 'Age', 'trim|required');
+        $this->form_validation->set_rules('diagnosis', 'Diagnosis', 'trim|required');
+
+        
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->doctor_appointment($doctorId);
 
         }else{
 
             //insert the user registration details into database
             $data = array(
-                'email' => $this->input->post('email'),
-                'password' => $this->input->post('login_password')
+                'name'      => $this->input->post('name'),
+                'phone_no'  => $this->input->post('phone_no'),
+                'age'       => $this->input->post('age'),
+                'diagnosis' => $this->input->post('diagnosis')
             );
-}
+    }
 }
 
 

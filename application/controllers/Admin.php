@@ -66,6 +66,7 @@ class Admin extends CI_Controller {
 
         $data['active_text'] = "dashboard";
         $data['user_type']   = $this->session->flashdata('user_type');
+        $dashboardData['user_count'] = $this->admin_model->count_user();
         $dashboardData['doctor_count'] = $this->admin_model->count_doctor();
         $dashboardData['blood_count'] = $this->admin_model->count_blood();
         $dashboardData['bed_count'] = $this->admin_model->count_bed();
@@ -1098,6 +1099,25 @@ class Admin extends CI_Controller {
              $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Something went wrong!</div>');
            redirect('index.php/admin_vaccine_list');
         }  
+    }
+
+    public function admin_user_list(){
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "users";
+        $data['user_type']   = $this->session->flashdata('user_type');
+
+        $userData['users'] = $this->admin_model->userList();
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/admin_user_list', $userData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
     }
 
 

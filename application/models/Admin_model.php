@@ -17,6 +17,22 @@ class Admin_model extends CI_Model {
         $query = $this->db->get();
         return  $query->row_array();
     }
+    
+    //===================  User Section ==============//
+    public function userList(){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('status !=', '2');
+        $query = $this->db->get();
+        return  $query->result_array();
+    }
+
+     public function count_user()
+    {
+        return $this->db->where('status', '1')->count_all("users");
+    }
+
+    //===================  End User Section ==============//
 
     //===================  Doctor Section ==============//
 

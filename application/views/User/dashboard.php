@@ -62,7 +62,7 @@
                 <p>Bed</p>
               </div>
               <div class="icon">
-                <i class="fas fa-minus"></i>
+                <i class="fas fa-bed"></i>
               </div>
               <a href="<?php echo base_url(); ?>index.php/bed_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>

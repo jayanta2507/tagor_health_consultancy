@@ -118,9 +118,22 @@
             <li class="nav-item menu-open">
                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <a href="<?php echo base_url(); ?>index.php/user_profile_details" class="nav-link <?php echo ($active_text=='profile')?'active':'' ?>">
-                <i class="nav-icon fas fa-users"></i>
+                <i class="nav-icon ion-android-contact"></i>
                 <p>
                   Profile Detials
+                </p>
+              </a>
+            </li>
+          <?php } ?>
+
+          
+          <?php if($user_type==1){ ?>
+            <li class="nav-item menu-open">
+               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <a href="<?php echo base_url(); ?>index.php/admin_user_list" class="nav-link <?php echo ($active_text=='profile')?'active':'' ?>">
+                <i class="nav-icon ion-android-contact"></i>
+                <p>
+                  User list
                 </p>
               </a>
             </li>
@@ -218,7 +231,7 @@
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/oxygen_list" class="nav-link <?php echo ($active_text=='oxygen')?'active':'' ?>">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon ion-soup-can-outline"></i>
               <p>
                 Oxygen
               </p>
@@ -233,7 +246,7 @@
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <a href="<?php echo base_url(); ?>index.php/admin_oxygen_list" class="nav-link <?php echo ($active_text=='Oxygen')?'active':'' ?>">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon ion-soup-can-outline"></i>
               <p>
                 Oxygen List
               </p>
@@ -248,7 +261,7 @@
           <li class="nav-item menu-open">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/vaccine_list" class="nav-link <?php echo ($active_text=='vaccine')?'active':'' ?>">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon ion-wand"></i>
               <p>
                 Vaccine
               </p>
@@ -264,7 +277,7 @@
           <li class="nav-item menu-open">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <a href="<?php echo base_url(); ?>index.php/admin_vaccine_list" class="nav-link <?php echo ($active_text=='Vaccine')?'active':'' ?>">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon ion-wand"></i>
               <p>
                 Vaccine List
               </p>
