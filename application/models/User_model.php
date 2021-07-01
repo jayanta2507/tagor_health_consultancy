@@ -71,7 +71,7 @@ class User_model extends CI_Model {
 
         public function count_doctor()
         {
-        return $this->db->where('status', '1')->count_all("doctors");
+            return $this->db->where('status', '1')->count_all("doctors");
         }
 
         public function doctorList(){
@@ -80,6 +80,10 @@ class User_model extends CI_Model {
                 $this->db->where('status !=', '2');
                 $query = $this->db->get();
                 return  $query->result_array();
+        }
+
+        public function saveAppointment($data){
+            return $this->db->insert('appointment', $data);
         }
 
         public function count_blood()

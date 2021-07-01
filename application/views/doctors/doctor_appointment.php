@@ -19,7 +19,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/submit_doctor_form" method="post" enctype="multipart/form-data">
+      <form action="<?php echo base_url(); ?>index.php/submit_doctor_form/<?php echo $doctorId; ?>" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
@@ -63,11 +63,11 @@
                  <div class="form-group">
                   	<label for="inputName">Doctor Availability</label><br>
                   	<select name="doctor_availability" id="doctor_availability" class="form-control">
-	                  <option value="">Select Doctor Availability</option>
+	                   <option value="">Select Doctor Availability</option>
 
-	                  <?php foreach ($doctor_availability as $key => $value) { ?>
-	                  	<option value="$value['id']">Date <?php echo date('d-m-Y', strtotime($value['date'])).' - '.$value['from_time'].' - '.$value['to_time'];?> </option>
-	                  <?php } ?>
+  	                  <?php foreach ($doctor_availability as $key => $value) { ?>
+  	                  	<option value="<?php echo $value['id'] ?>">Date <?php echo date('d-m-Y', strtotime($value['date'])).' - '.$value['from_time'].' - '.$value['to_time'];?> </option>
+  	                  <?php } ?>
 	                  
 	              	</select>
 

@@ -98,11 +98,13 @@
                           <?php echo ($key+1); ?>
                       </td>
                        <td>
-                          <ul class="list-inline">
+
+                        <img src="<?php echo base_url(); ?>assests/user_images/<?php echo $value['image'] ?>"  style="width: 60px; height: 60px; border-radius: 100%;">
+                          <!-- <ul class="list-inline">
                               <li class="list-inline-item">
                                   <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url(); ?>assests/user_images/<?php echo $prfile_data['image'] ?>"  alt="User profile picture" style="width: 60px; height: 60px; border-radius: 100%;">
                               </li>
-                          </ul>
+                          </ul> -->
                       </td>
                       <td>
                           <?php echo $value['name']; ?>

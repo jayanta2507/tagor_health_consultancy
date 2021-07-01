@@ -130,7 +130,7 @@
           <?php if($user_type==1){ ?>
             <li class="nav-item menu-open">
                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-              <a href="<?php echo base_url(); ?>index.php/admin_user_list" class="nav-link <?php echo ($active_text=='profile')?'active':'' ?>">
+              <a href="<?php echo base_url(); ?>index.php/admin_user_list" class="nav-link <?php echo ($active_text=='users')?'active':'' ?>">
                 <i class="nav-icon ion-android-contact"></i>
                 <p>
                   User list
@@ -173,7 +173,7 @@
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/blood_list" class="nav-link <?php echo ($active_text=='blood')?'active':'' ?>"> 
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon ion ion-waterdrop"></i>
               <p>
                 Blood
               </p>

@@ -423,6 +423,8 @@ public function home_url(){
             $data['doctor_availability'] = $this->user_model->doctoravailabilityList($doctorId);
             $data['user_type']           = $this->session->flashdata('user_type');
             $data['active_text']         = "doctor";
+            $data['doctorId']            = $doctorId;
+
 
 
             $this->load->view('common/header',$data);
@@ -435,10 +437,14 @@ public function home_url(){
 
     public function submit_doctor_form($doctorId){
 
+        $user_id = $this->session->flashdata('user_id');
+
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
-         $this->form_validation->set_rules('phone_no', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
-         $this->form_validation->set_rules('age', 'Age', 'trim|required');
+        $this->form_validation->set_rules('phone_no', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
+        $this->form_validation->set_rules('age', 'Age', 'trim|required');
         $this->form_validation->set_rules('diagnosis', 'Diagnosis', 'trim|required');
+        $this->form_validation->set_rules('doctor_availability', 'Doctor Availability', 'trim|required');
+
 
         
         if ($this->form_validation->run() == FALSE)
@@ -448,9 +454,21 @@ public function home_url(){
         }else{
 
             $data = array(
-                'email' => $this->input->post('email'),
-                'password' => $this->input->post('login_password')
+                'userid'    => $user_id,
+                'name'      => $this->input->post('name'),
+                'phone'     => $this->input->post('phone_no'),
+                'age'       => $this->input->post('age'),
+                'diagnosis' => $this->input->post('diagnosis'),
+                'appointment_id' => $this->input->post('doctor_availability'),
             );
+
+            $insertAppointment = $this->user_model->saveAppointment($data);
+
+            if ($insertAppointment) {
+                redirect('index.php/doctor_list');
+            }else{
+                redirect('index.php/doctor_form/'.$doctorId);
+            }
         }
     }
 

@@ -58,8 +58,8 @@
 
                 <div class="form-group">
                   <label for="inputName">Hospital Registration ID</label>
-                  <input type="text" id="inputRegistrationID" class="form-control" name="hospital_registration_id">
-                  <span class="text-danger"><?php echo form_error('hospital_registration_id'); ?></span>
+                  <input type="text" id="inputRegistrationID" class="form-control" name="hospital_registration_number">
+                  <span class="text-danger"><?php echo form_error('hospital_registration_number'); ?></span>
                 </div>
 
                 <div class="form-group">

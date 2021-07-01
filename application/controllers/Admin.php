@@ -481,14 +481,10 @@ class Admin extends CI_Controller {
     public function admin_blood_add(){
 
         $user_type           = $this->session->flashdata('user_type');
-        $data['active_text'] = "blood";
+        $data['active_text'] = "Blood";
         $data['user_type']   = $this->session->flashdata('user_type');
-// echo "<pre>";
-//             print_r($data);
-//             echo "</pre>";
-//             die();
-        
-
+ 
+ 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
             $this->load->view('Admin/blood/admin_blood_add');
@@ -513,7 +509,7 @@ class Admin extends CI_Controller {
 
         //validate form input
         if ($this->form_validation->run() == FALSE)
-        {
+        {   
             $this->admin_blood_add();
         }else{
 
@@ -525,7 +521,7 @@ class Admin extends CI_Controller {
                 'hospital_phn_no'           => $this->input->post('hospital_phn_no'),
                 'status'                    => $this->input->post('status'),
             );
-               
+
             $createBlood = $this->admin_model->createBlood($data);
 
             if ($createBlood) {
@@ -572,8 +568,6 @@ class Admin extends CI_Controller {
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
-
-
             $this->admin_blood_edit($bloodId);
         }else{
 
