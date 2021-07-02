@@ -152,13 +152,13 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="http://localhost/tagor_health_consultancy/public/images/bg1.jpg" alt="Los Angeles" width="1100" height="500">
+      <img src="http://localhost/tagor_health_consultancy/public/images/bg1.jpg" alt="Los Angeles" width="100%" height="50%">
     </div>
     <div class="carousel-item">
-      <img src="http://localhost/tagor_health_consultancy/public/images/bg2.jpg" alt="Chicago" width="1100" height="500">
+      <img src="http://localhost/tagor_health_consultancy/public/images/bg2.jpg" alt="Chicago" width="100%" height="50%">
     </div>
     <div class="carousel-item">
-      <img src="http://localhost/tagor_health_consultancy/public/images/bg3.jpg" alt="New York" width="1100" height="500">
+      <img src="http://localhost/tagor_health_consultancy/public/images/bg3.jpg" alt="New York" width="100%" height="50%">
     </div>
   </div>
   
@@ -256,7 +256,7 @@
         <nav class="mt-4">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" text-align="center">
              </ul>
-             <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/outdoor.png" width="256px" height="60px">
+             <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/outdoor.png" width="300px" height="60px">
             <li class="nav-item menu-open">
               <a href="#" class="nav-link">
                 <i class="nav-icon ion-home"></i>

@@ -79,47 +79,46 @@
     <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-12">
-            <img src="http://localhost/tagor_health_consultancy/public/images/oxy4.jpg" class="img-fluid" width="100%">    
+                  <img src="http://localhost/tagor_health_consultancy/public/images/oxy4.jpg" alt="Los Angeles" width="100%" height="500">   
     </div>
     <div class="col-lg-6 col-md-6 col-12">
    
-    <p class="py-2">Oxygen is the chemical element with the symbol O and atomic number 8. It is a member of the chalcogen group in the periodic table, a highly reactive nonmetal, and an oxidizing agent that readily forms oxides with most elements as well as with other compounds. After hydrogen and helium, oxygen is the third-most abundant element in the universe by mass. At standard temperature and pressure, two atoms of the element bind to form dioxygen, a colorless and odorless diatomic gas with the formula O2. Diatomic oxygen gas currently constitutes 20.95% of the Earth's atmosphere, though this has changed considerably over long periods of time. Oxygen makes up almost half of the Earth's crust in the form of oxides.</p> 
+    <h5 class="py-2">Oxygen is the chemical element with the symbol O and atomic number 8. It is a member of the chalcogen group in the periodic table, a highly reactive nonmetal, and an oxidizing agent that readily forms oxides with most elements as well as with other compounds. After hydrogen and helium, oxygen is the third-most abundant element in the universe by mass. At standard temperature and pressure, two atoms of the element bind to form dioxygen, a colorless and odorless diatomic gas with the formula O2. Diatomic oxygen gas currently constitutes 20.95% of the Earth's atmosphere, though this has changed considerably over long periods of time. Oxygen makes up almost half of the Earth's crust in the form of oxides.</h5> 
     
-    <p class="py-4"><h4>Oxygen Is Essential for Brain Activity :</h4>
+    <h3>Oxygen Is Essential for Brain Activity :</h3>
 
-    The brain demands at least 20% of the body’s oxygen supply, when it doesn’t get this supply it can lead to issues such as sleep apnea, poor concentration, forgetfulness, mood swings, restlessness, depressive thoughts and low drive.
+   <h5> The brain demands at least 20% of the body’s oxygen supply, when it doesn’t get this supply it can lead to issues such as sleep apnea, poor concentration, forgetfulness, mood swings, restlessness, depressive thoughts and low drive.</h5>
 
-    <h5>Benefits of Oxygen:</h5>
+    <h3>Benefits of Oxygen:</h3>
 
-    1.Stimulate brain activity</p>
+    <h5>1.Stimulate brain activity</h5>
 
-    <p>2.Increase memory capacity</p>
+    <h5>2.Increase memory capacity</h5>
+    <h5>3.Boost concentration</h5>
 
-    <p>3.Boost concentration</p>
+    <h5>4.Develop stronger alertness</h5>
 
-    <p>4.Develop stronger alertness</p>
-
-    <p>5.Raise energy levels</p>
+    <h5>5.Raise energy levels</h5>
     
-    <p>6.Improve strength</p>
+    <h5>6.Improve strength</h5>
     
-    <p>7.Build endurance</p>
+    <h5>7.Build endurance</h5>
     
-    <p>8.Detox your blood</p>
+    <h5>8.Detox your blood</h5>
     
-    <p>9.Reduce stress</p>
+    <h5>9.Reduce stress</h5>
     
-    <p>10.Calm anxiety</p>
+    <h5>10.Calm anxiety</h5>
     
-    <p>11.Alleviate tension headaches</p>
+    <h5>11.Alleviate tension headaches</h5>
     
-    <p>12.Remedy irregular sleeping patterns</p>
+    <h5>12.Remedy irregular sleeping patterns</h5>
     
-    <p>13.Help with cardiovascular activity</p>
+    <h5>13.Help with cardiovascular activity</h5>
     
-    <p>14.Prevent lactic acid build up</p>
+    <h5>14.Prevent lactic acid build up</h5>
     
-    <p>15.Strengthen the immune system</p>
+    <h5>15.Strengthen the immune system</h5>
 
      </div>
 

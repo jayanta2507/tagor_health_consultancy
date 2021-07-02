@@ -428,7 +428,7 @@ public function home_url(){
 
 
             $this->load->view('common/header',$data);
-            $this->load->view('doctors/doctor_appointment');
+            $this->load->view('User/profile_details');
             $this->load->view('common/footer');
         
     }
@@ -472,65 +472,65 @@ public function home_url(){
         }
     }
 
-    public function doctor_appointment($doctorId){
+//     public function doctor_appointment($doctorId){
 
-        $user_type           = $this->session->flashdata('user_type');
-        $data['active_text'] = "doctor";
-        $data['user_type']   = $this->session->flashdata('user_type');
+//         $user_type           = $this->session->flashdata('user_type');
+//         $data['active_text'] = "doctor";
+//         $data['user_type']   = $this->session->flashdata('user_type');
 
-        $doctorData['doctorId'] = $doctorId;
+//         $doctorData['doctorId'] = $doctorId;
 
-        if ($user_type==1) {
-            $this->load->view('common/header',$data);
-            $this->load->view('User/doctor/doctor_appointment', $doctorData);
-            $this->load->view('common/footer');
-        }else{
-            redirect('index.php/admin_login');
-        }  
+//         if ($user_type==1) {
+//             $this->load->view('common/header',$data);
+//             $this->load->view('User/doctor/doctor_appointment', $doctorData);
+//             $this->load->view('common/footer');
+//         }else{
+//             redirect('index.php/admin_login');
+//         }  
 
-    }
+//     }
 
-    public function doctor_appointment_list($doctorId){
-        $user_id             = $this->session->flashdata('user_id');
+//     public function doctor_appointment_list($doctorId){
+//         $user_id             = $this->session->flashdata('user_id');
 
-        $data['active_text'] = "doctor";
-        $data['user_type']   = $this->session->flashdata('user_type');
+//         $data['active_text'] = "doctor";
+//         $data['user_type']   = $this->session->flashdata('user_type');
 
 
-        $doctorData['doctors'] = $this->user_model->doctorappointmentList($doctorId);
+//         $doctorData['doctors'] = $this->user_model->doctorappointmentList($doctorId);
         
-        if (!empty($user_id)) {
-            $this->load->view('common/header', $data);
-            $this->load->view('doctors/doctor_appointment', $doctorData);
-            $this->load->view('common/footer');
-        }else{
-            redirect('index.php/user_login');
-        }
-    }
+//         if (!empty($user_id)) {
+//             $this->load->view('common/header', $data);
+//             $this->load->view('doctors/doctor_appointment', $doctorData);
+//             $this->load->view('common/footer');
+//         }else{
+//             redirect('index.php/user_login');
+//         }
+//     }
 
-    public function submit_doctor_appointment($doctorId){
+//     public function doctor_appointment_submit($doctorId){
 
-        $this->form_validation->set_rules('name', 'Name', 'trim|required');
-        $this->form_validation->set_rules('phone_no', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
-        $this->form_validation->set_rules('age', 'Age', 'trim|required');
-        $this->form_validation->set_rules('diagnosis', 'Diagnosis', 'trim|required');
+//         $this->form_validation->set_rules('name', 'Name', 'trim|required');
+//         $this->form_validation->set_rules('phone_no', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
+//         $this->form_validation->set_rules('age', 'Age', 'trim|required');
+//         $this->form_validation->set_rules('diagnosis', 'Diagnosis', 'trim|required');
 
         
-        if ($this->form_validation->run() == FALSE)
-        {
-            $this->doctor_appointment($doctorId);
+//         if ($this->form_validation->run() == FALSE)
+//         {
+//             $this->doctor_appointment($doctorId);
 
-        }else{
+//         }else{
 
-            //insert the user registration details into database
-            $data = array(
-                'name'      => $this->input->post('name'),
-                'phone_no'  => $this->input->post('phone_no'),
-                'age'       => $this->input->post('age'),
-                'diagnosis' => $this->input->post('diagnosis')
-            );
-    }
-}
+//             //insert the user registration details into database
+//             $data = array(
+//                 'name'      => $this->input->post('name'),
+//                 'phone_no'  => $this->input->post('phone_no'),
+//                 'age'       => $this->input->post('age'),
+//                 'diagnosis' => $this->input->post('diagnosis')
+//             );
+//     }
+// }
 
 
     public function blood_list(){

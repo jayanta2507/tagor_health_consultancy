@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Form
+            <h1>Doctor Appointment
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Form</li>
+              <li class="breadcrumb-item active">Doctor Appointment</li>
             </ol>
           </div>
         </div>
@@ -19,12 +19,12 @@
 
     <!-- Main content -->
     <section class="content">
-      <form action="<?php echo base_url(); ?>index.php/submit_doctor_form" method="post" enctype="multipart/form-data">
+      <form action="<?php echo base_url(); ?>index.php/submit_doctor_form/<?php echo $doctorId; ?>" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Form</h3>
+                <h3 class="card-title">Doctor Appointment</h3>
                 
                 <span><?php echo $this->session->flashdata('msg'); ?></span>
 
@@ -61,13 +61,17 @@
                 </div>
 
                  <div class="form-group">
-                  <label for="inputName">Select</label><br>
-                  <select name="state" id="state">
-                  <option value="Select">Select </option>
-                   <option value="Andhra Pradesh">Andhra Pradesh </option>
+                    <label for="inputName">Doctor Availability</label><br>
+                    <select name="doctor_availability" id="doctor_availability" class="form-control">
+                     <option value="">Select Doctor Availability</option>
 
-                
-                  <span class="text-danger"><?php echo form_error('age'); ?></span>
+                      <?php foreach ($doctor_availability as $key => $value) { ?>
+                        <option value="<?php echo $value['id'] ?>">Date <?php echo date('d-m-Y', strtotime($value['date'])).' - '.$value['from_time'].' - '.$value['to_time'];?> </option>
+                      <?php } ?>
+                    
+                  </select>
+
+                    <span class="text-danger"><?php echo form_error('doctor_availability'); ?></span>
                 </div>
 
  

@@ -73,13 +73,11 @@
 </nav>
 
 <section class="my-5">
-  <div class="py-5">
-    <h2 class="text-center"> <b>Services</b></h2>
-      <div class="container-fluid">
-        <div class="row">
-         <div class="col-lg-14 col-md-14 col-14">
-          <img src="http://localhost/tagor_health_consultancy/public/images/s1.jpg" class="img-fluid" width="100%" height="500">    
-            <div class="col-lg-14 col-md-14 col-14">
+  <h2 class="text-center"> <b>Services</b></h2>
+      <div class="col-lg-12 col-md-12 col-12">
+          <div class="card" >
+            <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/s1.jpg" alt="Vaccine image" width="100%" height="500">
+              <div class="card-body">
               <h2 class="display-7" style="background-color:Orange;">Services</h2> 
                 <p class="py-4">Consultants will help you reach your business goals and will provide advice on multiple areas such as search engine optimization (SEO), information architecture, brand awareness improvements, brand management, content planning, will identify loopholes in your brand management, and will propose data-driven marketing</p>
                  <p><h3 style="background-color:Gray;"> List Of  Services that are Offered here, are as follows:</h3></p>
@@ -89,8 +87,7 @@
       </div>
   </div>
      
-<div class="services">
-  <div class="row">
+
       <div class="col-lg-12 col-md-12 col-12">
           <div class="card" >
             <img class="card-img-top" src="http://localhost/tagor_health_consultancy/public/images/vcc3.jpg" alt="Vaccine image" width="100%" height="500">

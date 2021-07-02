@@ -63,9 +63,9 @@
                           Status
                       </th>
 
-                      <th style="width: 7%" class="text-center">
+                   <!--    <th style="width: 7%" class="text-center">
                           Action
-                      </th>
+                      </th> -->
                   </tr>
               </thead>
               <tbody>
