@@ -400,15 +400,13 @@
         </li>
      </div>
   </div>
-
-  <footer class="main-footer">
-    <strong> @ Copyright & copy; 2021-2022   Tagor Health Consultancy </strong>
-     All rights reserved.
-    <div class="float-right d-none d-sm-inline-block"><b>Version 1.0.0 </b></div>
-    </footer>
-
 </section>
-
-
 </body>
 </html>
+
+<footer class="main-footer">
+      <strong> @ Copyright & copy; 2021-2022   Tagor Health Consultancy </strong>
+       All rights reserved.
+      <div class="float-right d-none d-sm-inline-block"><b>Version 1.0.0 </b></div>
+    </footer>
+</div>

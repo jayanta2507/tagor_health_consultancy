@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Doctors</h1>
+            <h1>Doctors Appointment List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Doctors</li>
+              <li class="breadcrumb-item active">Doctors Appointment List</li>
             </ol>
           </div>
         </div>
@@ -24,7 +24,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Doctors</h3>
+          <h3 class="card-title">Doctors Appointment List</h3>
           <span><?php echo $this->session->flashdata('msg'); ?></span>
           <div class="card-tools">
             
@@ -37,28 +37,36 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
+                      <th style="width: 10%">
                           Sl No.
                       </th>
-                       <th style="width: 12%">
+                       <th style="width: 10%">
                           Image
                       </th>
-                      <th style="width: 12%">
+                      <th style="width: 10%">
                           Doctor Name
                       </th>
-                      <th style="width: 12%">
-                          Specialist
+                      <th style="width: 10%">
+                          Appointment Name
                       </th>
-                      <th style="width: 12%">
-                          Email
+                      <th style="width: 10%">
+                          User Name
                       </th>
-                      <th style="width: 12%">
-                          Phone
+                      <th style="width: 10%">
+                          Appointment Phone number
                       </th>
-                      <th style="width: 12%">
-                          Registration ID
+                      <th style="width: 10%">
+                          Appointment Diagnosis
                       </th>
-                     
+                      <th style="width: 10%">
+                          Date
+                      </th>
+                      <th style="width: 10%">
+                          From time 
+                      </th>
+                      <th style="width: 10%">
+                          To time
+                      </th>
                       <th style="width: 7%" class="text-center">
                           Status
                       </th>
@@ -71,7 +79,7 @@
               <tbody>
 
 
-                <?php foreach ($doctors as $key => $value) { ?>
+                <?php foreach ($appointment as $key => $value) { ?>
 
                   <tr>
                       <td>
@@ -80,7 +88,7 @@
                        <td>
                           <ul class="list-inline">
                               <li class="list-inline-item">
-                                  <img  src="<?php echo base_url(); ?>assests/doctor_image/<?php echo $value['image']; ?>" style="width: 60px; height: 60px; border-radius: 100%;">
+                                <img  src="<?php echo base_url(); ?>assests/doctors_image/<?php echo $value['image']; ?>" style="width: 60px; height: 60px; border-radius: 100%;">
                               </li>
                           </ul>
                       </td>
@@ -89,17 +97,30 @@
                             
                       </td>
                       <td>
-                          <?php echo $value['specialist']; ?>
-                      </td>
-                      <td>
-                          <?php echo $value['email']; ?>
+                          <?php echo $value['userid']; ?>
                       </td>
                       <td>
                           <?php echo $value['phone']; ?>
                       </td>
+                      <td>
+                          <?php echo $value['age']; ?>
+                      </td>
+                      <td>
+                          <?php echo $value['diagnosis']; ?>
+                      </td>
 
                       <td>
-                          <?php echo $value['registration_id']; ?>
+                          <?php echo $value['availability_id']; ?>
+                      </td>
+                      <td>
+                          <?php echo date('d-m-Y', strtotime( $value['date'])); ?>
+                            
+                      </td>
+                      <td>
+                          <?php echo $value['from_time']; ?>
+                      </td>
+                      <td>
+                          <?php echo $value['to_time']; ?>
                       </td>
                       
                       <td class="project-state">
@@ -117,11 +138,6 @@
                              <?php }  ?>
 
                           
-                      </td>
-                      <td>
-                        <a href="<?php echo base_url(); ?>index.php/doctor_form/<?php echo $value['id']; ?>">
-                          <button class="btn btn-primary">Appoitment</button>
-                        </a>
                       </td>
                    </tr>
 

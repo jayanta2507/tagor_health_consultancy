@@ -102,11 +102,13 @@ Vertebrate blood is bright red when its hemoglobin is oxygenated and dark red wh
     People that have the D antigen on their red blood cells are RhD positive, while those people that don’t have the D antigen are Rh D negative. The positive and negative suffix on blood types, such as A+ and B- refers to your Rh D type, also known as your Rhesus D type.</h5>
 
      </div>
-
- <footer class="main-footer">
-    <strong> @ Copyright & copy; 2021-2022   Tagor Health Consultancy </strong>
-     All rights reserved.
-    <div class="float-right d-none d-sm-inline-block"><b>Version 1.0.0 </b></div>
-</footer>
 </div>
 </section>
+
+
+<footer class="main-footer">
+      <strong> @ Copyright & copy; 2021-2022   Tagor Health Consultancy </strong>
+       All rights reserved.
+      <div class="float-right d-none d-sm-inline-block"><b>Version 1.0.0 </b></div>
+    </footer>
+</div>

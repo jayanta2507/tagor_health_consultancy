@@ -172,10 +172,10 @@
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_appointment_list" class="nav-link <?php echo ($active_text=='availability')?'active':'' ?>"> 
+            <a href="<?php echo base_url(); ?>index.php/doctor_appointment_list" class="nav-link <?php echo ($active_text=='appointment')?'active':'' ?>"> 
               <i class="nav-icon ion-ios-pulse-strong"></i>
               <p>
-                Doctor Appoitment
+                Doctor Appointment Details
               </p>
             </a>
           </li>
@@ -187,10 +187,10 @@
 
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php echo base_url(); ?>index.php/doctor_form" class="nav-link <?php echo ($active_text=='availability')?'active':'' ?>">
-              <i class="nav-icon ion ion-waterdrop"></i>             
+            <a href="<?php echo base_url(); ?>index.php/admin_doctor_appointment_list" class="nav-link <?php echo ($active_text=='appointment')?'active':'' ?>">
+              <i class="nav-icon ion-ios-pulse-strong"></i>             
               <p>
-                Appoitment List
+                Doctor Appointment List
               </p>
             </a>
           </li>

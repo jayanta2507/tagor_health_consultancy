@@ -226,26 +226,14 @@ class User extends CI_Controller {
         }
     } 
     
-
-    
-
-
-	
-
-
-    public function user_logout(){
-        $this->session->unset_userdata('user_id'); 
-
-        if ($this->session->flashdata('user_type')==0) {
-            redirect('index.php/user_login');
-        }
-
-        if ($this->session->flashdata('user_type')==1) {
-            redirect('index.php/admin_login');
-        }
-        
+    public function confirmpassword(){
+        $this->load->view('home/confirmpassword');
     }
 
+
+    public function submit_confirmpassword(){
+        $this->load->view('home/confirmpassword');
+    }
 
 
     public function user_dashboard(){
@@ -269,7 +257,7 @@ class User extends CI_Controller {
         }  
     }
 
-	
+    
     public function profile_deatails(){
         $user_id              = $this->session->flashdata('user_id');
 
@@ -287,8 +275,6 @@ class User extends CI_Controller {
             redirect('index.php/user_login');
         }
     }
-    
-
     
 
     public function update_profile(){
@@ -346,11 +332,8 @@ class User extends CI_Controller {
 
     }
 
-	
-
-    
-
-   public function doctor_list(){
+	//==================== Doctor ==============================
+    public function doctor_list(){
         $user_id             = $this->session->flashdata('user_id');
 
         $data['active_text'] = "doctor";
@@ -375,7 +358,6 @@ class User extends CI_Controller {
 
         if ($user_type==0) {
 
-            //$data['doctor_form']         = $this->user_model->get_profile_details($user_id);
             $data['doctor_availability'] = $this->user_model->doctoravailabilityList($doctorId);
             $data['user_type']           = $this->session->flashdata('user_type');
             $data['active_text']         = "doctor";
@@ -435,65 +417,29 @@ class User extends CI_Controller {
 
         $user_type           = $this->session->flashdata('user_type');
         $user_id             = $this->session->flashdata('user_id');
-        $data['active_text'] = "doctor";
+        $data['active_text'] = "appointment";
 
-        $data['appointment_list'] = $this->user_model->getAppointmentList($user_id);
+        $appointmentdata['appointment'] = $this->user_model->getAppointmentList($user_id);
 
-        echo "<pre>";
+        /*echo "<pre>";
         print_r($data['appointment_list']);
-        die();
+        die();*/
 
-        if ($user_type==1) {
+        if ($user_type==0) {
             $this->load->view('common/header',$data);
-            $this->load->view('User/doctors/doctor_appointment');
+            $this->load->view('User/doctors/doctor_appointment_list',$appointmentdata);
             $this->load->view('common/footer');
         }else{
-            redirect('index.php/admin_login');
+            redirect('index.php/user_login');
         }  
 
     }
-
-
-	 
-
-    public function confirmpassword(){
-        $this->load->view('User/confirmpassword');
-    }
-
-
-    public function submit_confirmpassword(){
-        $this->load->view('User/confirmpassword');
-    }
-	
-
-
-	
-
-
-    function callback_date_valid($date){
-        $day = (int) substr($date, 0, 2);
-        $month = (int) substr($date, 3, 2);
-        $year = (int) substr($date, 6, 4);
-        return checkdate($month, $day, $year);
-    }
-
-		  
-    
-
-
-    
-    
-
-    
+    //==================== Doctor ==============================
 
 
 
-   
 
-    
-
-
-
+    //==================== Blood ==============================
     public function blood_list(){
         $user_id             = $this->session->flashdata('user_id');
         $user_type           = $this->session->flashdata('user_type');
@@ -505,7 +451,7 @@ class User extends CI_Controller {
 
         if (!empty($user_id)) {
             $this->load->view('common/header',$data);
-            $this->load->view('blood/blood_list',$bloodData);
+            $this->load->view('User/blood/blood_list',$bloodData);
             $this->load->view('common/footer');
            
         }else{
@@ -513,8 +459,12 @@ class User extends CI_Controller {
         }  
 
     }
+    //==================== Blood ==============================
 
 
+
+    
+    //==================== Bed ==============================
     public function bed_list(){
         $user_id             = $this->session->flashdata('user_id');
         $user_type           = $this->session->flashdata('user_type');
@@ -526,7 +476,7 @@ class User extends CI_Controller {
 
         if (!empty($user_id)) {
             $this->load->view('common/header', $data);
-            $this->load->view('bed/bed_list', $bedData);
+            $this->load->view('User/bed/bed_list', $bedData);
             $this->load->view('common/footer');
            
         }else{
@@ -534,8 +484,12 @@ class User extends CI_Controller {
         }  
 
     }
+    //==================== Bed ==============================
 
-    
+
+
+
+    //==================== Oxygen ==============================
     public function oxygen_list(){
         $user_id             = $this->session->flashdata('user_id');
         $user_type           = $this->session->flashdata('user_type');
@@ -547,7 +501,7 @@ class User extends CI_Controller {
 
         if (!empty($user_id)) {
             $this->load->view('common/header',$data);
-            $this->load->view('oxygen/oxygen_list',$oxygenData);
+            $this->load->view('User/oxygen/oxygen_list',$oxygenData);
             $this->load->view('common/footer');
            
         }else{
@@ -555,13 +509,15 @@ class User extends CI_Controller {
         }  
 
     }
+    //==================== Oxygen ==============================
 
 
+
+
+    //==================== Vaccine ==============================
 
     public function vaccine_list(){
-         $user_id             = $this->session->flashdata('user_id');
-        //  echo $user_id;
-        // die();
+        $user_id             = $this->session->flashdata('user_id');
 
         $user_type     = $this->session->flashdata('user_type');
 
@@ -569,14 +525,10 @@ class User extends CI_Controller {
         $data['user_type']   = $this->session->flashdata('user_type');
         $vaccineData['vaccine'] = $this->user_model->vaccineList();
         
-      // echo "<pre>";
-      //           print_r($bloodData);
-      //           echo "</pre>";
-      //           die();
 
         if (!empty($user_id)) {
             $this->load->view('common/header',$data);
-            $this->load->view('vaccine/vaccine_list',$vaccineData);
+            $this->load->view('User/vaccine/vaccine_list',$vaccineData);
             $this->load->view('common/footer');
            
         }else{
@@ -584,10 +536,7 @@ class User extends CI_Controller {
         }  
 
     }
-
-
-
-
+    //==================== Vaccine ==============================
 
     public function upload_image() {  
 
@@ -616,6 +565,25 @@ class User extends CI_Controller {
         }  
     }
 
+    public function user_logout(){
+        $this->session->unset_userdata('user_id'); 
+
+        if ($this->session->flashdata('user_type')==0) {
+            redirect('index.php/user_login');
+        }
+
+        if ($this->session->flashdata('user_type')==1) {
+            redirect('index.php/admin_login');
+        }
+        
+    }
+
+    function callback_date_valid($date){
+        $day = (int) substr($date, 0, 2);
+        $month = (int) substr($date, 3, 2);
+        $year = (int) substr($date, 6, 4);
+        return checkdate($month, $day, $year);
+    }
     
 }
 

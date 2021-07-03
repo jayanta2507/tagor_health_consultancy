@@ -89,11 +89,39 @@
         </div>
         <div class="container-fluid contact-class">
           <div class="row">
-               
-          </div>
-        </div>
+                  <form action="<?php echo base_url(); ?>index.php/submit_contactus" method="post">
+                      <label>
+                        <span>Name</span>
+                        <input type="text" name="name" autocomplete="false">
+                        <span class="text-danger"><?php echo form_error('name'); ?></span>
+                      </label>
+                      <label>
+                        <span>Emailid</span>
+                        <input type="text" name="email" autocomplete="false">
+                        <span class="text-danger"><?php echo form_error('email'); ?></span>
+                      </label>
+                      <label>
+                        <span>Phone Number</span>
+                        <input type="text" name="phone" autocomplete="false">
+                        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+                      </label>
+                      <label>
+                        <span>Subject</span>
+                        <input type="text" name="subject" autocomplete="false">
+                        <span class="text-danger"><?php echo form_error('subject'); ?></span>
+                      </label>
+                      <label>
+                        <span>Message Box</span>
+                        <input type="text" name="message" autocomplete="false">
+                        <span class="text-danger"><?php echo form_error('message'); ?></span>
+                      </label>
+                      <label>
+                        <button class="submit" type="submit">Confirm</button>
+                      </label>
+                  </form>
+                </div>  
+            </div>
         <div class="contact-details">
-          
         </div>
       </section>
     </main>

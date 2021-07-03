@@ -134,6 +134,11 @@ class Admin_model extends CI_Model {
             return  $query->result_array();
     }
 
+    public function count_appointment()
+    {
+        return $this->db->where('status', '1')->count_all("appointment");
+    }
+
 
     //===================  Doctor Section ==============//
 

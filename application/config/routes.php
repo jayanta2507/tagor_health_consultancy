@@ -56,6 +56,10 @@ $route['user_login'] 				= 'user/login';
 $route['submit_login'] 				= 'user/submit_login';
 $route['submit_registration'] 		= 'user/submit_registration';
 
+$route['user_forgotpassword'] 		= 'user/forgotpassword';
+$route['user_confirmpassword'] 		= 'user/confirmpassword';
+$route['submit_confirmpassword'] 	= 'user/submit_confirmpassword';
+
 $route['user_home'] 				= 'user/home';
 $route['user_about'] 				= 'user/user_about';
 
@@ -68,17 +72,18 @@ $route['user_doctor'] 			    = 'user/doctor';
 
 $route['user_facility'] 			= 'user/facility';
 $route['user_contact'] 				= 'user/contact_form';
-$route['submit_contact_form'] 		= 'user/submit_contact_form';
-
-$route['user_forgotpassword'] 		= 'user/forgotpassword';
-$route['submit_forgotpassword'] 	= 'user/submit_forgotpassword';
+$route['submit_contactus'] 		    = 'user/submit_contactus';
 
 
 
 
+
+
+//==================== Start User Dashboard ==============================
 $route['user_dashboard'] 			= 'user/user_dashboard';
 $route['user_profile_details'] 		= 'user/profile_deatails';
 $route['update_profile'] 			= 'user/update_profile';
+
 
 
 
@@ -90,20 +95,38 @@ $route['doctor_appointment_list']   = 'user/doctor_appointment_list';
 //==================== Doctor ==============================
 
 
+//==================== Blood ==============================
+$route['blood_list']    			= 'user/blood_list';
+//==================== Blood ==============================
 
-$route['user_confirmpassword'] 		= 'user/confirmpassword';
-$route['submit_confirmpassword'] 	= 'user/submit_confirmpassword';
 
+
+//==================== Bed ==============================
+$route['bed_list']    	 			= 'user/bed_list';
+//==================== Bed ==============================
+
+
+
+//==================== Oxygen ==============================
+$route['oxygen_list']    			= 'user/oxygen_list';
+//==================== Oxygen ==============================
+
+
+
+//==================== Vaccine ==============================
+$route['vaccine_list']    			= 'user/vaccine_list';
+//==================== Vaccine ==============================
+
+
+$route['upload_image']   			= 'user/upload_image';
 $route['404_override'] 				= '';
 $route['translate_uri_dashes'] 		= FALSE;
 
 $route['user_logout']    			= 'user/user_logout';
 
-$route['blood_list']    			= 'user/blood_list';
-$route['bed_list']    	 			= 'user/bed_list';
-$route['oxygen_list']    			       = 'user/oxygen_list';
-$route['vaccine_list']    			       = 'user/vaccine_list';
-$route['upload_image']   			       = 'user/upload_image';
+
+
+//==================== End User Dashboard ==============================
 
  
 
@@ -111,6 +134,7 @@ $route['upload_image']   			       = 'user/upload_image';
 
 
 
+//==================== Start Admin Dashboard ==============================
 
 
 $route['admin_login']               = 'admin/adminlogin';
@@ -135,7 +159,7 @@ $route['admin_doctor_availability_submit']        = 'admin/admin_doctor_availabi
 $route['admin_doctor_availability_edit/(:any)/(:any)'] = 'admin/admin_doctor_availability_edit/$1/$2';
 $route['admin_doctor_availability_edit_submit']   = 'admin/admin_doctor_availability_edit_submit';
 $route['admin_doctor_availability_delete/(:any)'] = 'admin/admin_doctor_availability_delete/$1';
-
+$route['admin_doctor_appointment_list']           = 'admin/admin_doctor_appointment_list';
 // ***************** End Admin Doctor Section **************//
 
 
@@ -193,6 +217,6 @@ $route['admin_vaccine_edit/(:any)']         = 'admin/admin_vaccine_edit/$1';
 $route['admin_vaccine_edit_submit/(:any)']  = 'admin/admin_vaccine_edit_submit/$1';
 $route['admin_vaccine_delete/(:any)']       = 'admin/admin_vaccine_delete/$1';
 
-
-
 // ***************** End Admin vaccine Section **************//
+
+//==================== End Admin Dashboard ==============================

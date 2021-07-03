@@ -453,6 +453,28 @@ class Admin extends CI_Controller {
         }  
     }
 
+    public function admin_doctor_appointment_list(){
+
+        $user_type           = $this->session->flashdata('user_type');
+        $user_id             = $this->session->flashdata('user_id');
+        $data['active_text'] = "appointment";
+
+        $adminappointmentdata['appointment'] = $this->admin_model->getAdminAppointmentList($user_id);
+
+        /*echo "<pre>";
+        print_r($adminappointmentdata['appointment']);
+        die();*/
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/doctor/admin_doctor_appointment_list',$adminappointmentdata);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
 //===================  Doctor Section ==============//
 
 
