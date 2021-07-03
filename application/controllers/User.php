@@ -17,54 +17,26 @@ class User extends CI_Controller {
 		//$this->load->view('welcome_message');
 	}
 
-	public function registration(){
-		$this->load->view('User/registration');
-	}
-public function home_url(){
-        $this->load->view('User/home_url');
-    }
+
 
 	public function login(){
-		$this->load->view('User/login');
+		$this->load->view('home/login');
 	}
 
-    
-        public function facility(){
-        $this->load->view('User/facility');
-    }
+    public function submit_login(){
 
-    public function vaccine(){
-        $this->load->view('User/vaccine');
-    }
-
-    public function oxygen(){
-        $this->load->view('User/oxygen');
-    }
-
-    public function blood(){
-        $this->load->view('User/blood');
-    }
-
-    public function doctor(){
-        $this->load->view('User/doctor');
-    }
-
-
-
-	public function submit_login(){
-
-		//set validation rules
+        //set validation rules
         $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email');
-		$this->form_validation->set_rules('login_password', 'Password', 'trim|required|sha1');
+        $this->form_validation->set_rules('login_password', 'Password', 'trim|required|sha1');
 
-		//validate form input
+        //validate form input
         if ($this->form_validation->run() == FALSE)
         {
             $this->login();
 
         }else{
 
-        	//insert the user registration details into database
+            //insert the user registration details into database
             $data = array(
                 'email' => $this->input->post('email'),
                 'password' => $this->input->post('login_password')
@@ -87,29 +59,11 @@ public function home_url(){
                 redirect('index.php/user_login');
             }
         }
-	}
-
-
-    public function user_logout(){
-        $this->session->unset_userdata('user_id'); 
-
-        if ($this->session->flashdata('user_type')==0) {
-            redirect('index.php/user_login');
-        }
-
-        if ($this->session->flashdata('user_type')==1) {
-            redirect('index.php/admin_login');
-        }
-        
     }
 
-
-
-
-
-	public function submit_registration(){
-		
-		//set validation rules
+    public function submit_registration(){
+        
+        //set validation rules
         $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[3]|max_length[30]');
 
         $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email|is_unique[users.email]');
@@ -117,7 +71,6 @@ public function home_url(){
         $this->form_validation->set_rules('password', 'Password', 'trim|required|sha1');
 
         $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]|sha1');
-
 
 
         //validate form input
@@ -133,11 +86,7 @@ public function home_url(){
                 'email' => $this->input->post('email'),
                 'password' => $this->input->post('password')
             );
-            
-           /* echo "<pre>";
-            print_r($data);
-            die();*/
-
+        
             // insert form data into database
             if ($this->user_model->insertUser($data))
             {
@@ -152,32 +101,46 @@ public function home_url(){
                 redirect('index.php/user_registration');
             }
         }
-
-
-
-
-		//$this->user_model->user_registration($data);
-	}
-
-    public function contact(){
-        $this->load->view('User/contact');
     }
 
-     public function contact_form(){
-        $user_id              = $this->session->flashdata('user_id');
 
-        if (!empty($user_id)) {
+    public function home(){
+        $this->load->view('home/home');
+    }
 
-            $data['contact_form']  = $this->user_model->get_contact_form($user_id);
-            $data['active_text']  = "contact";
+    public function user_about(){
+        $this->load->view('home/about_us');
+    }
 
+    public function user_services(){
+        $this->load->view('home/services/services');
+    }
 
-            $this->load->view('common/header',$data);
-            $this->load->view('User/contact_form',$data);
-            $this->load->view('common/footer');
-        }else{
-            redirect('index.php/user_contact');
-        }
+    public function vaccine(){
+        $this->load->view('home/services/vaccine');
+    }
+
+    public function oxygen(){
+        $this->load->view('home/services/oxygen');
+    }
+
+    public function blood(){
+        $this->load->view('home/services/blood');
+    }
+
+    public function doctor(){
+        $this->load->view('home/services/doctor');
+    }
+
+    
+    public function facility(){
+        $this->load->view('home/facility');
+    }
+
+    
+
+    public function contact_form(){
+        $this->load->view('home/contact_form');
     }
     
 
@@ -225,38 +188,15 @@ public function home_url(){
 
 
         }
-    }    
+    }   
 
 
-
-	public function home(){
-		$this->load->view('User/home');
-	}
-
-    public function user_about(){
-        $this->load->view('User/about_us');
+    public function forgotpassword(){
+        $this->load->view('home/forgotpassword');
     }
 
-    public function user_services(){
-        $this->load->view('User/services');
-    }
-	 
-
-    public function confirmpassword(){
-        $this->load->view('User/confirmpassword');
-    }
-
-
-    public function submit_confirmpassword(){
-        $this->load->view('User/confirmpassword');
-    }
-	public function forgotpassword(){
-		$this->load->view('User/forgotpassword');
-	}
-
-
-	public function submit_forgotpassword(){
-		$this->form_validation->set_rules('emailid', 'Email ID', 'trim|required|valid_email');
+    public function submit_forgotpassword(){
+        $this->form_validation->set_rules('emailid', 'Email ID', 'trim|required|valid_email');
 
         //validate form input
         if ($this->form_validation->run() == FALSE)
@@ -284,10 +224,74 @@ public function home_url(){
                 redirect('index.php/user_login');
             }*/
         }
+    } 
+    
+
+    
+
+
+	
+
+
+    public function user_logout(){
+        $this->session->unset_userdata('user_id'); 
+
+        if ($this->session->flashdata('user_type')==0) {
+            redirect('index.php/user_login');
+        }
+
+        if ($this->session->flashdata('user_type')==1) {
+            redirect('index.php/admin_login');
+        }
+        
     }
 
 
-	public function update_profile(){
+
+    public function user_dashboard(){
+
+        $user_type     = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "dashboard";
+        $data['user_type']   = $this->session->flashdata('user_type');
+        $dashboardData['doctor_count'] = $this->user_model->count_doctor();
+        $dashboardData['blood_count'] = $this->user_model->count_blood();
+        $dashboardData['bed_count'] = $this->user_model->count_bed();
+        $dashboardData['oxygen_count'] = $this->user_model->count_oxygen();
+        $dashboardData['vaccine_count'] = $this->user_model->count_vaccine();
+
+        if ($user_type==0) {
+            $this->load->view('common/header',$data);
+            $this->load->view('User/dashboard',$dashboardData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_login');
+        }  
+    }
+
+	
+    public function profile_deatails(){
+        $user_id              = $this->session->flashdata('user_id');
+
+        if (!empty($user_id)) {
+
+            $data['prfile_data']  = $this->user_model->get_profile_details($user_id);
+            $data['user_type']    = $this->session->flashdata('user_type');
+            $data['active_text']  = "profile";
+
+
+            $this->load->view('common/header',$data);
+            $this->load->view('User/profile_details');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/user_login');
+        }
+    }
+    
+
+    
+
+    public function update_profile(){
 
         //set validation rules
         $this->form_validation->set_rules('user_name', 'Name', 'trim|required|min_length[3]|max_length[30]');
@@ -342,59 +346,11 @@ public function home_url(){
 
     }
 
+	
 
-    function callback_date_valid($date){
-        $day = (int) substr($date, 0, 2);
-        $month = (int) substr($date, 3, 2);
-        $year = (int) substr($date, 6, 4);
-        return checkdate($month, $day, $year);
-    }
-
-		  
-    public function user_dashboard(){
-
-        $user_type     = $this->session->flashdata('user_type');
-
-        //$data  = array('active_text' => "dasboard");
-
-        $data['active_text'] = "dashboard";
-        $data['user_type']   = $this->session->flashdata('user_type');
-        $dashboardData['doctor_count'] = $this->user_model->count_doctor();
-        $dashboardData['blood_count'] = $this->user_model->count_blood();
-        $dashboardData['bed_count'] = $this->user_model->count_bed();
-        $dashboardData['oxygen_count'] = $this->user_model->count_oxygen();
-        $dashboardData['vaccine_count'] = $this->user_model->count_vaccine();
-
-        if ($user_type==0) {
-            $this->load->view('common/header',$data);
-            $this->load->view('User/dashboard',$dashboardData);
-            $this->load->view('common/footer');
-        }else{
-            redirect('index.php/user_login');
-        }  
-    }
-
-
-    public function profile_deatails(){
-        $user_id              = $this->session->flashdata('user_id');
-
-        if (!empty($user_id)) {
-
-            $data['prfile_data']  = $this->user_model->get_profile_details($user_id);
-            $data['user_type']    = $this->session->flashdata('user_type');
-            $data['active_text']  = "profile";
-
-
-            $this->load->view('common/header',$data);
-            $this->load->view('User/profile_details');
-            $this->load->view('common/footer');
-        }else{
-            redirect('index.php/user_login');
-        }
-    }
     
 
-    public function doctor_list(){
+   public function doctor_list(){
         $user_id             = $this->session->flashdata('user_id');
 
         $data['active_text'] = "doctor";
@@ -405,7 +361,7 @@ public function home_url(){
         
         if (!empty($user_id)) {
             $this->load->view('common/header', $data);
-            $this->load->view('doctors/doctor', $doctorData);
+            $this->load->view('User/doctors/doctor', $doctorData);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/user_login');
@@ -413,13 +369,13 @@ public function home_url(){
     }
 
 
-
      public function doctor_form($doctorId){
-        $user_id              = $this->session->flashdata('user_id');
+        $user_id    = $this->session->flashdata('user_id');
+        $user_type  = $this->session->flashdata('user_type');
 
-        if (!empty($user_id)) {
+        if ($user_type==0) {
 
-            $data['doctor_form']         = $this->user_model->get_profile_details($user_id);
+            //$data['doctor_form']         = $this->user_model->get_profile_details($user_id);
             $data['doctor_availability'] = $this->user_model->doctoravailabilityList($doctorId);
             $data['user_type']           = $this->session->flashdata('user_type');
             $data['active_text']         = "doctor";
@@ -428,11 +384,13 @@ public function home_url(){
 
 
             $this->load->view('common/header',$data);
-            $this->load->view('User/profile_details');
+            $this->load->view('User/doctors/doctor_form');
             $this->load->view('common/footer');
         
+        }else{
+            redirect('index.php/user_login');
+        }
     }
-}
 
 
     public function submit_doctor_form($doctorId){
@@ -459,7 +417,7 @@ public function home_url(){
                 'phone'     => $this->input->post('phone_no'),
                 'age'       => $this->input->post('age'),
                 'diagnosis' => $this->input->post('diagnosis'),
-                'appointment_id' => $this->input->post('doctor_availability'),
+                'availability_id' => $this->input->post('doctor_availability'),
             );
 
             $insertAppointment = $this->user_model->saveAppointment($data);
@@ -472,65 +430,68 @@ public function home_url(){
         }
     }
 
-//     public function doctor_appointment($doctorId){
 
-//         $user_type           = $this->session->flashdata('user_type');
-//         $data['active_text'] = "doctor";
-//         $data['user_type']   = $this->session->flashdata('user_type');
+    public function doctor_appointment_list(){
 
-//         $doctorData['doctorId'] = $doctorId;
+        $user_type           = $this->session->flashdata('user_type');
+        $user_id             = $this->session->flashdata('user_id');
+        $data['active_text'] = "doctor";
 
-//         if ($user_type==1) {
-//             $this->load->view('common/header',$data);
-//             $this->load->view('User/doctor/doctor_appointment', $doctorData);
-//             $this->load->view('common/footer');
-//         }else{
-//             redirect('index.php/admin_login');
-//         }  
+        $data['appointment_list'] = $this->user_model->getAppointmentList($user_id);
 
-//     }
+        echo "<pre>";
+        print_r($data['appointment_list']);
+        die();
 
-//     public function doctor_appointment_list($doctorId){
-//         $user_id             = $this->session->flashdata('user_id');
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('User/doctors/doctor_appointment');
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
 
-//         $data['active_text'] = "doctor";
-//         $data['user_type']   = $this->session->flashdata('user_type');
+    }
 
 
-//         $doctorData['doctors'] = $this->user_model->doctorappointmentList($doctorId);
-        
-//         if (!empty($user_id)) {
-//             $this->load->view('common/header', $data);
-//             $this->load->view('doctors/doctor_appointment', $doctorData);
-//             $this->load->view('common/footer');
-//         }else{
-//             redirect('index.php/user_login');
-//         }
-//     }
+	 
 
-//     public function doctor_appointment_submit($doctorId){
+    public function confirmpassword(){
+        $this->load->view('User/confirmpassword');
+    }
 
-//         $this->form_validation->set_rules('name', 'Name', 'trim|required');
-//         $this->form_validation->set_rules('phone_no', 'Phone Number', 'trim|required|min_length[10]|max_length[30]');
-//         $this->form_validation->set_rules('age', 'Age', 'trim|required');
-//         $this->form_validation->set_rules('diagnosis', 'Diagnosis', 'trim|required');
 
-        
-//         if ($this->form_validation->run() == FALSE)
-//         {
-//             $this->doctor_appointment($doctorId);
+    public function submit_confirmpassword(){
+        $this->load->view('User/confirmpassword');
+    }
+	
 
-//         }else{
 
-//             //insert the user registration details into database
-//             $data = array(
-//                 'name'      => $this->input->post('name'),
-//                 'phone_no'  => $this->input->post('phone_no'),
-//                 'age'       => $this->input->post('age'),
-//                 'diagnosis' => $this->input->post('diagnosis')
-//             );
-//     }
-// }
+	
+
+
+    function callback_date_valid($date){
+        $day = (int) substr($date, 0, 2);
+        $month = (int) substr($date, 3, 2);
+        $year = (int) substr($date, 6, 4);
+        return checkdate($month, $day, $year);
+    }
+
+		  
+    
+
+
+    
+    
+
+    
+
+
+
+   
+
+    
+
 
 
     public function blood_list(){

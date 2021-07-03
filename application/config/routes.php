@@ -52,42 +52,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 
 
-$route['user_registration'] 		= 'user/registration';
 $route['user_login'] 				= 'user/login';
 $route['submit_login'] 				= 'user/submit_login';
-$route['user_facility'] 			= 'user/facility';
+$route['submit_registration'] 		= 'user/submit_registration';
+
+$route['user_home'] 				= 'user/home';
+$route['user_about'] 				= 'user/user_about';
+
+$route['user_services'] 			= 'user/user_services';
 $route['user_vaccine'] 			    = 'user/vaccine';
 $route['user_oxygen'] 			    = 'user/oxygen';
 $route['user_blood'] 			    = 'user/blood';
 $route['user_doctor'] 			    = 'user/doctor';
-$route['doctor_form/(:any)'] 	    = 'user/doctor_form/$1';
-$route['submit_doctor_form/(:any)'] = 'user/submit_doctor_form/$1';
-$route['submit_registration'] 		= 'user/submit_registration';
-$route['user_home'] 				= 'user/home';
-$route['user_about'] 				= 'user/user_about';
-$route['user_services'] 			= 'user/user_services';
-$route['user_contact'] 				= 'user/contact';
-$route['user_contact_form'] 		= 'user/contact_form';
+
+
+$route['user_facility'] 			= 'user/facility';
+$route['user_contact'] 				= 'user/contact_form';
 $route['submit_contact_form'] 		= 'user/submit_contact_form';
+
 $route['user_forgotpassword'] 		= 'user/forgotpassword';
 $route['submit_forgotpassword'] 	= 'user/submit_forgotpassword';
-$route['user_confirmpassword'] 		= 'user/confirmpassword';
-$route['submit_confirmpassword'] 	= 'user/submit_confirmpassword';
+
+
+
+
+$route['user_dashboard'] 			= 'user/user_dashboard';
 $route['user_profile_details'] 		= 'user/profile_deatails';
 $route['update_profile'] 			= 'user/update_profile';
+
+
+
+//==================== Doctor ==============================
+$route['doctor_list']    			= 'user/doctor_list';
+$route['doctor_form/(:any)'] 	    = 'user/doctor_form/$1';
+$route['submit_doctor_form/(:any)'] = 'user/submit_doctor_form/$1';
+$route['doctor_appointment_list']   = 'user/doctor_appointment_list';
+//==================== Doctor ==============================
+
+
+
+$route['user_confirmpassword'] 		= 'user/confirmpassword';
+$route['submit_confirmpassword'] 	= 'user/submit_confirmpassword';
+
 $route['404_override'] 				= '';
 $route['translate_uri_dashes'] 		= FALSE;
-$route['user_dashboard'] 			= 'user/user_dashboard';
+
 $route['user_logout']    			= 'user/user_logout';
-$route['doctor_list']    			= 'user/doctor_list';
+
 $route['blood_list']    			= 'user/blood_list';
 $route['bed_list']    	 			= 'user/bed_list';
 $route['oxygen_list']    			       = 'user/oxygen_list';
 $route['vaccine_list']    			       = 'user/vaccine_list';
 $route['upload_image']   			       = 'user/upload_image';
-$route['doctor_appointment/(:any)']        = 'user/doctor_appointment/$1';
-$route['doctor_appointment_list/(:any)']   = 'user/doctor_appointment_list/$1';
-$route['doctor_appointment_submit']        = 'user/doctor_appointment_submit';
+
+ 
+
+ 
 
 
 
