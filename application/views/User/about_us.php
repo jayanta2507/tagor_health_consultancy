@@ -19,7 +19,7 @@
 
   </style>
 
-  <link rel="stylesheet" type="text/css" href="http://localhost/tagor_health_consultancy/public/css/style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://localhost/tagor_health_consultancy/public/css/style.css"> -->
 
 
 <div class="main_div">
