@@ -123,6 +123,17 @@ class Admin_model extends CI_Model {
     }
 
 
+    public function getAdminAppointmentList($user_id){
+            $this->db->select('appointment.name as appointment_name, appointment.phone as appointment_phone, appointment.age as appointment_age, , appointment.diagnosis as appointment_diagnosis, appointment.status as appointment_status, users.name as user_name,  doctor_availability.date, doctor_availability.from_time, doctor_availability.to_time, doctors.name as doctor_name, ');
+            $this->db->from('appointment');
+            $this->db->join('users', 'appointment.userid = users.id');
+            $this->db->join('doctor_availability', 'appointment.availability_id = doctor_availability.id');
+            $this->db->join('doctors', 'doctor_availability.doctor_id = doctors.id');
+            $this->db->where('appointment.status', '1');
+            $query = $this->db->get();
+            return  $query->result_array();
+    }
+
 
     //===================  Doctor Section ==============//
 

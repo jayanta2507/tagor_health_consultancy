@@ -145,19 +145,22 @@ class User_model extends CI_Model {
             $this->db->from('doctor_availability');
             $this->db->where('status !=', '2');
             $this->db->where('doctor_id', $doctorId);
+            $this->db->where('date >=', date('Y-m-d'));
             $query = $this->db->get();
             return  $query->result_array();
         }
 
-        public function doctorappointmentList($doctorId){
-            $this->db->select('*');
+        public function getAppointmentList($user_id){
+            $this->db->select('appointment.name as appointment_name, appointment.phone as appointment_phone, appointment.age as appointment_age, , appointment.diagnosis as appointment_diagnosis, appointment.status as appointment_status, users.name as user_name,  doctor_availability.date, doctor_availability.from_time, doctor_availability.to_time, doctors.name as doctor_name, ');
             $this->db->from('appointment');
-            $this->db->where('status !=', '2');
-            $this->db->where('appointment_id', $doctorId);
+            $this->db->join('users', 'appointment.userid = users.id');
+            $this->db->join('doctor_availability', 'appointment.availability_id = doctor_availability.id');
+            $this->db->join('doctors', 'doctor_availability.doctor_id = doctors.id');
+            $this->db->where('appointment.status', '1');
+            $this->db->where('appointment.userid', $user_id);
             $query = $this->db->get();
             return  $query->result_array();
         }
-
 
 
 }
