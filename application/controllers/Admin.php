@@ -458,12 +458,13 @@ class Admin extends CI_Controller {
         $user_type           = $this->session->flashdata('user_type');
         $user_id             = $this->session->flashdata('user_id');
         $data['active_text'] = "appointment";
+        $data['user_type'] =  $user_type ;;
 
         $adminappointmentdata['appointment'] = $this->admin_model->getAdminAppointmentList($user_id);
 
-        /*echo "<pre>";
-        print_r($adminappointmentdata['appointment']);
-        die();*/
+        // echo "<pre>";
+        // print_r($adminappointmentdata);
+        // die();
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);

@@ -40,9 +40,6 @@
                       <th style="width: 10%">
                           Sl No.
                       </th>
-                       <th style="width: 10%">
-                          Image
-                      </th>
                       <th style="width: 10%">
                           Doctor Name
                       </th>
@@ -85,32 +82,25 @@
                       <td>
                           <?php echo ($key+1); ?>
                       </td>
-                       <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                <img  src="<?php echo base_url(); ?>assests/doctors_image/<?php echo $value['image']; ?>" style="width: 60px; height: 60px; border-radius: 100%;">
-                              </li>
-                          </ul>
+                     <td>
+                          <?php echo $value['doctor_name']; ?>
+                            
                       </td>
+                     
                       <td>
-                          <?php echo $value['name']; ?>
+                          <?php echo $value['appointment_name']; ?>
+                            
+                      </td>
+                       <td>
+                          <?php echo $value['user_name']; ?>
                             
                       </td>
                       <td>
-                          <?php echo $value['userid']; ?>
+                          <?php echo $value['appointment_phone']; ?>
                       </td>
+                    
                       <td>
-                          <?php echo $value['phone']; ?>
-                      </td>
-                      <td>
-                          <?php echo $value['age']; ?>
-                      </td>
-                      <td>
-                          <?php echo $value['diagnosis']; ?>
-                      </td>
-
-                      <td>
-                          <?php echo $value['availability_id']; ?>
+                          <?php echo $value['appointment_diagnosis']; ?>
                       </td>
                       <td>
                           <?php echo date('d-m-Y', strtotime( $value['date'])); ?>
@@ -126,7 +116,7 @@
                       <td class="project-state">
                           
 
-                            <?php if ($value['status']==1) { ?>
+                            <?php if ($value['appointment_status']==1) { ?>
 
                               <span class="badge badge-success">
                                 Active

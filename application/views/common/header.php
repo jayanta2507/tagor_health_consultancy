@@ -91,7 +91,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <?php if($user_type==0){ ?>
+          <?php if($user_type==0){ ?>
           <li class="nav-item menu-open">
             <a href="<?php echo base_url(); ?>index.php/user_dashboard" class="nav-link <?php echo ($active_text=='dashboard')?'active':'' ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>

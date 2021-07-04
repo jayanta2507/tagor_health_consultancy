@@ -418,12 +418,13 @@ class User extends CI_Controller {
         $user_type           = $this->session->flashdata('user_type');
         $user_id             = $this->session->flashdata('user_id');
         $data['active_text'] = "appointment";
+        $data['user_type'] =  $user_type ;
 
         $appointmentdata['appointment'] = $this->user_model->getAppointmentList($user_id);
 
-        /*echo "<pre>";
-        print_r($data['appointment_list']);
-        die();*/
+        // echo "<pre>";
+        // print_r($appointmentdata);
+        // die();
 
         if ($user_type==0) {
             $this->load->view('common/header',$data);
