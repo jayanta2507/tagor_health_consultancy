@@ -42,7 +42,7 @@
       <section class="my-home">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">Tagore Health Consultancy</a>
+            <a class="navbar-brand" href="#"> <img id="logo_pic" src="<?php echo base_url(); ?>/public/images/logo_pic.jpeg" style="height: 25px; width: 25px; border-radius: 100%;"> Tagore Health Consultancy</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -176,7 +176,7 @@
   
   <footer class="main-footer">
     <section>
-      <strong> @ Copyright & copy; 2021-2022   Tagor Health Consultancy </strong>
+      <strong> @ Copyright & copy; 2021-2022   Tagore Health Consultancy </strong>
        All rights reserved.
       <div class="float-right d-none d-sm-inline-block"><b>Version 1.0.0 </b></div>
     </section>

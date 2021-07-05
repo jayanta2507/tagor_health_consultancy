@@ -25,11 +25,11 @@ main{
   height: 85%;
 }
 
-/*footer{
+footer{
     height: 5%;
     background-color: #343a40;
     color: #fff;
-}*/
+}
 
 .main_div{
     width: 100%;
@@ -46,12 +46,12 @@ main{
   transform: translate(-50%, -50%);
 }
 
-/*.main-footer{
+.main-footer{
   height: 5%;
   background-color: #343a40;
   color: #fff;
 }
-*/
+
 input, button{
   border:none;
   outline: none;
