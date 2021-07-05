@@ -81,6 +81,14 @@
       height: 100%;
     }  
 
+  #logo_pic{
+    height: 65px;
+    width: 65px;
+    border-radius: 100%;
+  }
+
+
+
 
   </style>
 </head>
@@ -88,7 +96,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Tagore Health Consultancy</a>
+    <a class="navbar-brand" href="#"> <img id="logo_pic" src="<?php echo base_url(); ?>/public/images/logo_pic.jpeg" id="logo_pic"> Tagore Health Consultancy</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

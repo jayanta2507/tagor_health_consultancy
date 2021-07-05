@@ -37,27 +37,25 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 14.2%">
+                      <th style="width: 10%">
                           Sl No.
                       </th>
-                      <th style="width: 14.2%">
+                      <th style="width: 18%">
                           Name
                       </th>
-                      <th style="width: 14.2%">
+                      <th style="width: 18%">
                           Email id 
                       </th>
-                      <th style="width: 14.2%">
+                      <th style="width: 18%">
                           Phone Number
                       </th>
-                      <th style="width: 14.2%">
+                      <th style="width: 18%">
                           Subject
                       </th>
-                      <th style="width: 14.2%">
+                      <th style="width: 18%">
                           Message
                       </th>
-                      <th style="width: 14.2%" class="text-center">
-                          Status
-                      </th>
+                      
                   </tr>
               </thead>
               <tbody>
@@ -87,26 +85,11 @@
                       </td>
                     
                       <td>
-                          <?php echo $value[' message']; ?>
+                          <?php echo $value['message']; ?>
                       </td>
                       
                       
-                      <td class="project-state">
-                          
-
-                            <?php if ($value['appointment_status']==1) { ?>
-
-                              <span class="badge badge-success">
-                                Active
-                              </span>
-                            <?php  }else{ ?>
-                                <span class="badge badge-danger">
-                                  Inactive
-                                </span>
-                             <?php }  ?>
-
-                          
-                      </td>
+                      
                    </tr>
 
                   
@@ -122,5 +105,5 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper
+ 
 

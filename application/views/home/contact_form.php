@@ -27,7 +27,10 @@
       <section class="my-home">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">Tagore Health Consultancy</a>
+            <a class="navbar-brand" href="#">
+              <img id="logo_pic" src="<?php echo base_url(); ?>/public/images/logo_pic.jpeg">
+              Tagore Health Consultancy
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -89,30 +92,29 @@
         </div>
         <div class="container-fluid contact-class">
           <div>
-              <form action="<?php echo base_url(); ?>index.php/submit_contactus" method="post">
-                <label>
-                  <span>Name</span>
-                   <input type="text" name="name" autocomplete="false">
-                      <span class="text-center"><?php echo form_error('name'); ?></span>
-                </label>
+                  <form action="<?php echo base_url(); ?>index.php/submit_contactus" method="post">
                       <label>
-                        <span>Emailid</span>
-                        <input type="text" name="email" autocomplete="false">
+                         <input type="text" name="name" autocomplete="false" placeholder="Name">
+                            <span class="text-center"><?php echo form_error('name'); ?></span>
+                      </label>
+                      <label>
+                        
+                        <input type="text" name="email" autocomplete="false" placeholder="Email">
                         <span class="text-center"><?php echo form_error('email'); ?></span>
                       </label>
                       <label>
-                        <span>Phone Number</span>
-                        <input type="text" name="phone" autocomplete="false">
+                       
+                        <input type="text" name="phone" autocomplete="false" placeholder="Phone Number">
                         <span class="text-center"><?php echo form_error('phone'); ?></span>
                       </label>
                       <label>
-                        <span>Subject</span>
-                        <input type="text" name="subject" autocomplete="false">
+                         
+                        <input type="text" name="subject" autocomplete="false" placeholder="Subject">
                         <span class="text-center"><?php echo form_error('subject'); ?></span>
                       </label>
-                      <label>
-                        <span>Message Box</span>
-                        <input type="text" name="message" autocomplete="false">
+                      <label> 
+
+                        <textarea class="message_box" name="message" autocomplete="false" placeholder="Message Box"></textarea>
                         <span class="text-center"><?php echo form_error('message'); ?></span>
                       </label>
                       <label>
@@ -123,21 +125,17 @@
             </div>
         <div class="contact-details">
           <div class="text-left">
-             <h3><b>Address</b></h3>
-               <h4><p>Visit Our Website</p></h4>
-                 <p class="py-2">16/2,Shakespeare Sarani Rd,Elgin, Kolkata, West Bengal -700016</p>
+              <h5><b>Address</b></h5>
+              <h5 id="visit_id">Visit Our Website</h5>
+              <p class="py-2">16/2,Shakespeare Sarani Rd,Elgin, Kolkata, West Bengal -700016</p>
           </div>
 
-          
-          <div class="contact-details">
-            <div class="text-right">
-              <h3 class="text-right"><b>Email Address</b></h3>
-                <p class="py-0">tagorehealthcare20@gmai.com</p>
-                  <h3 class="text-right"><p><b>Phone Number</p></b></h3>
-                    <p class="py-0">9874356214/9330956281</p>
-                      <p class="py-0">033-2667-5577/033-2667-9696</p>
-            </div>
+          <div class="text-right">
+              <p class="py-0"><b>Email Address</b>: tagorehealthcare20@gmai.com</p>
+              <p class="py-0"><b>Phone Number</b>: 9874356214/9330956281</p>
+              <p class="py-0"><b>Tel</b>:033-2667-5577/033-2667-9696</p>
           </div>
+      
         </div>
       </section>
     </main>

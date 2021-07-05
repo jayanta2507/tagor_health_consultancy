@@ -25,7 +25,7 @@
 
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-primary">
               <div class="inner">
                 <h3><?php echo $user_count; ?></h3>
 
@@ -39,7 +39,7 @@
           </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-secondary">
               <div class="inner">
                 <h3><?php echo $doctor_count; ?></h3>
 
@@ -53,7 +53,7 @@
           </div>
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-success">
               <div class="inner">
                 <h3><?php echo $doctor_count; ?></h3>
 
@@ -68,7 +68,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-danger">
               <div class="inner">
                 <h3><?php echo $blood_count; ?></h3>
 
@@ -98,7 +98,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-info">
               <div class="inner">
                 <h3><?php echo $oxygen_count; ?></h3>
 
@@ -115,7 +115,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-secondary">
+            <div class="small-box bg-light">
               <div class="inner">
                 <h3><?php echo $vaccine_count; ?></h3>
 
@@ -131,20 +131,7 @@
         </div>
         <!-- /.row -->
 
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-secondary">
-              <div class="inner">
-                <h3><?php echo $contact_count; ?></h3>
-
-                <p>Contact List</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-android-contacts"></i>
-              </div>
-              <a href="<?php echo base_url(); ?>index.php/admin_contact_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+       
           <!-- ./col -->
         </div>
         

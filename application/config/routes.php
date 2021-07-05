@@ -72,10 +72,7 @@ $route['user_doctor'] 			    = 'user/doctor';
 
 $route['user_facility'] 			= 'user/facility';
 $route['user_contact'] 				= 'user/contact_form';
-$route['submit_contactus'] 		    = 'user/submit_contactus';
-
-
-
+$route['submit_contactus'] 		    = 'user/submit_contact_form';
 
 
 

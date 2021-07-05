@@ -9,7 +9,7 @@ class User extends CI_Controller {
 	    $this->load->model('user_model');
 	    $this->load->helper(array('form','url'));
         $this->load->library(array('session', 'form_validation', 'email'));
-        //$this->load->database();
+        $this->session->unset_userdata('msg'); 
 	}
 
 	public function index()
@@ -148,35 +148,31 @@ class User extends CI_Controller {
 
         //set validation rules
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
-        $this->form_validation->set_rules('email_id', 'Email ID', 'trim|required|valid_email');
-        $this->form_validation->set_rules('phone_no', 'Phone No', 'trim|required|min_length[10]|max_length[30]');
-        $this->form_validation->set_rules('subject', 'Subject', 'trim|required|valid_subject');
-        $this->form_validation->set_rules('message_box', 'Message Box', 'trim|required');
+        $this->form_validation->set_rules('email', 'Email ID', 'trim|required|valid_email');
+        $this->form_validation->set_rules('phone', 'Phone No', 'trim|required|min_length[10]|max_length[30]');
+        $this->form_validation->set_rules('subject', 'Subject', 'trim|required');
+        $this->form_validation->set_rules('message', 'Message Box', 'trim|required');
 
         //validate form input
         if ($this->form_validation->run() == FALSE)
         {
-            $this->contact();
-
+            $this->contact_form();
         }else{
 
             //insert the user registration details into database
             $data = array(
-                'name'        => $this->input->post('name'),
-                'email_id'    => $this->input->post('email_id'),
-                'phone_no'    => $this->input->post('phone_no'),
-                'subject'     => $this->input->post('subject'),
-                'message_box' => $this->input->post('message_box'),
+                'name'     => $this->input->post('name'),
+                'email'    => $this->input->post('email'),
+                'phone'    => $this->input->post('phone'),
+                'subject'  => $this->input->post('subject'),
+                'message'  => $this->input->post('message'),
             );
-            
+
+            $contactformData = $this->user_model->save_contact($data);
 
             // insert form data into database
-            if ($this->user_model->contact_form($data))
-            {
-                $contactformData = $this->user_model->get_contact_form($data);
-                $this->session->set_flashdata('contact_us', $contactformData['id']);
-                $this->session->set_flashdata('user_type', $userData['type']);
-                 
+            if ($contactformData)
+            {                 
                 redirect('index.php/user_contact');
             }
             else
@@ -185,8 +181,6 @@ class User extends CI_Controller {
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have successfully submitted!</div>');
                 redirect('index.php/user_home');
             }
-
-
         }
     }   
 

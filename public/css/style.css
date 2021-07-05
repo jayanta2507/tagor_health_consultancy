@@ -25,11 +25,11 @@ main{
   height: 85%;
 }
 
-footer{
+/*footer{
     height: 5%;
     background-color: #343a40;
     color: #fff;
-}
+}*/
 
 .main_div{
     width: 100%;
@@ -46,12 +46,12 @@ footer{
   transform: translate(-50%, -50%);
 }
 
-.main-footer{
+/*.main-footer{
   height: 5%;
   background-color: #343a40;
   color: #fff;
 }
-
+*/
 input, button{
   border:none;
   outline: none;
@@ -347,15 +347,44 @@ button{
    overflow:  hidden;
     position: absolute;
     width: 460px;
-    height: 400px;
+    height: 485px;
     left: 36%;
     background: #fff;
     box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
 }
 
 .contact-details{
-  width: 100%;
-  height: 15%;
-  background-color: aliceblue;
-  position: absolute;
+    width: 100%;
+    height: 15%;
+    background-color: white;
+    position: absolute;
+    display: flex;
+    top: 83%;
+}
+
+.text-left{
+  width:50%;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.text-right{
+  width:50%;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+#vist_id{
+  color: #278de6;
+}
+
+.message_box{
+    width: 260px;
+    height: 140px;
+}
+
+#logo_pic{
+  height: 65px;
+  width: 65px;
+  border-radius: 100%;
 }

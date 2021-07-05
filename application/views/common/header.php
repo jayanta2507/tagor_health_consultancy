@@ -59,7 +59,9 @@
     <!-- Brand Logo -->
     <a href="<?php echo base_url(); ?>index.php/user_home" class="brand-link">
      <!--  <img src="<?php echo base_url(); ?>assests/theme/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-      <span class="brand-text font-weight-light">Tagor Health Consultancy</span>
+      <span class="brand-text font-weight-light"><img id="logo_pic" src="<?php echo base_url(); ?>/public/images/logo_pic.jpeg" style="height: 25px;
+    width: 25px;
+    border-radius: 100%;"> Tagor Health Consultancy</span>
     </a>
 
     <!-- Sidebar -->
@@ -175,7 +177,7 @@
             <a href="<?php echo base_url(); ?>index.php/doctor_appointment_list" class="nav-link <?php echo ($active_text=='appointment')?'active':'' ?>"> 
               <i class="nav-icon ion ion-clipboard"></i>
               <p>
-                Doctor Appointment Details
+                Appointment Details
               </p>
             </a>
           </li>
@@ -190,7 +192,7 @@
             <a href="<?php echo base_url(); ?>index.php/admin_doctor_appointment_list" class="nav-link <?php echo ($active_text=='appointment')?'active':'' ?>">
               <i class="nav-icon ion ion-clipboard"></i>             
               <p>
-                Doctor Appointment List
+                Appointment List
               </p>
             </a>
           </li>
