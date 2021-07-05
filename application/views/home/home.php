@@ -61,6 +61,31 @@
     margin-left: 37px;
   }
 
+  .contact-details{
+    width: 100%;
+    height: 15%;
+    background-color: white;
+    position: absolute;
+    display: flex;
+    top: 83%;
+  }
+
+  .text-left{
+  width:50%;
+  margin-left: 10px;
+  margin-top: 10px;
+  }
+
+  .text-right{
+  width:50%;
+  margin-right: 10px;
+  margin-top: 10px;
+ }
+
+ #vist_id{
+  color: #278de6;
+ }
+
   </style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -407,8 +432,32 @@
           </a>
         </li>
      </div>
-  </div>
+    </div>
 </section>
+
+   
+
+  <section class="my-4">
+        <div class="py-7">
+            <h2 class="text-center"><b>Contact Us</b></h2>
+        </div>
+          <div class="container-fluid contact-class">
+          </div>
+           <div class="contact-details">
+          <div class="text-left">
+              <h5><b>Address</b></h5>
+              <h5 id="visit_id">Visit Our Website</h5>
+              <p class="py-2">16/2,Shakespeare Sarani Rd,Elgin, Kolkata, West Bengal -700016</p>
+          </div>
+
+          <div class="text-right">
+              <p class="py-0"><b>Email Address</b>: tagorehealthcare20@gmai.com</p>
+              <p class="py-0"><b>Phone Number</b>: 9874356214/9330956281</p>
+              <p class="py-0"><b>Tel</b>:033-2667-5577/033-2667-9696</p>
+          </div>
+      </section>
+
+  
 </body>
 </html>
 
