@@ -72,6 +72,7 @@ class Admin extends CI_Controller {
         $dashboardData['bed_count'] = $this->admin_model->count_bed();
         $dashboardData['oxygen_count'] = $this->admin_model->count_oxygen();
         $dashboardData['vaccine_count'] = $this->admin_model->count_vaccine();
+        $dashboardData['contact_count'] = $this->admin_model->count_contact();
 
         if ($user_type==1) {
             $this->load->view('common/header',$data);
@@ -1130,6 +1131,29 @@ class Admin extends CI_Controller {
         if ($user_type==1) {
             $this->load->view('common/header',$data);
             $this->load->view('Admin/admin_user_list', $userData);
+            $this->load->view('common/footer');
+        }else{
+            redirect('index.php/admin_login');
+        }  
+
+    }
+
+    public function admin_contact_list(){
+
+        $user_type           = $this->session->flashdata('user_type');
+
+        $data['active_text'] = "contact";
+        $data['user_type'] =  $user_type ;;
+
+        $contactdata['contact'] = $this->admin_model->contactList();
+
+        // echo "<pre>";
+        // print_r($adminappointmentdata);
+        // die();
+
+        if ($user_type==1) {
+            $this->load->view('common/header',$data);
+            $this->load->view('Admin/contact/admin_contact_list',$contactdata);
             $this->load->view('common/footer');
         }else{
             redirect('index.php/admin_login');

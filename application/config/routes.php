@@ -219,4 +219,13 @@ $route['admin_vaccine_delete/(:any)']       = 'admin/admin_vaccine_delete/$1';
 
 // ***************** End Admin vaccine Section **************//
 
+
+
+
+
+
+//==================  Start Contact Section ==============//=
+
+$route['admin_contact_list']  			    = 'admin/admin_contact_list';
+
 //==================== End Admin Dashboard ==============================

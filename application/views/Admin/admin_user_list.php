@@ -10,7 +10,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="http://localhost/tagor_health_consultancy/index.php/user_home">Home</a></li>
               <li class="breadcrumb-item active">User Profile</li>
             </ol>
           </div>
@@ -100,11 +100,6 @@
                        <td>
 
                         <img src="<?php echo base_url(); ?>assests/user_images/<?php echo $value['image'] ?>"  style="width: 60px; height: 60px; border-radius: 100%;">
-                          <!-- <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url(); ?>assests/user_images/<?php echo $prfile_data['image'] ?>"  alt="User profile picture" style="width: 60px; height: 60px; border-radius: 100%;">
-                              </li>
-                          </ul> -->
                       </td>
                       <td>
                           <?php echo $value['name']; ?>

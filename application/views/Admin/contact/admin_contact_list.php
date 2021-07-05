@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Doctors</h1>
+            <h1>Contact List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="http://localhost/tagor_health_consultancy/index.php/user_home">Home</a></li>
-              <li class="breadcrumb-item active">Doctors</li>
+              <li class="breadcrumb-item active">Contact List</li>
             </ol>
           </div>
         </div>
@@ -24,7 +24,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Doctors</h3>
+          <h3 class="card-title">Contact List</h3>
           <span><?php echo $this->session->flashdata('msg'); ?></span>
           <div class="card-tools">
             
@@ -37,75 +37,64 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
+                      <th style="width: 14.2%">
                           Sl No.
                       </th>
-                       <th style="width: 12%">
-                          Image
+                      <th style="width: 14.2%">
+                          Name
                       </th>
-                      <th style="width: 12%">
-                          Doctor Name
+                      <th style="width: 14.2%">
+                          Email id 
                       </th>
-                      <th style="width: 12%">
-                          Specialist
+                      <th style="width: 14.2%">
+                          Phone Number
                       </th>
-                      <th style="width: 12%">
-                          Email
+                      <th style="width: 14.2%">
+                          Subject
                       </th>
-                      <th style="width: 12%">
-                          Phone
+                      <th style="width: 14.2%">
+                          Message
                       </th>
-                      <th style="width: 12%">
-                          Registration ID
-                      </th>
-                     
-                      <th style="width: 7%" class="text-center">
+                      <th style="width: 14.2%" class="text-center">
                           Status
                       </th>
-
-                   <!--    <th style="width: 7%" class="text-center">
-                          Action
-                      </th> -->
                   </tr>
               </thead>
               <tbody>
 
 
-                <?php foreach ($doctors as $key => $value) { ?>
+                <?php foreach ($contact as $key => $value) { ?>
 
                   <tr>
                       <td>
                           <?php echo ($key+1); ?>
                       </td>
-                       <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img  src="<?php echo base_url(); ?>assests/doctor_image/<?php echo $value['image']; ?>" style="width: 60px; height: 60px; border-radius: 100%;">
-                              </li>
-                          </ul>
-                      </td>
-                      <td>
+                     <td>
                           <?php echo $value['name']; ?>
                             
                       </td>
-                      <td>
-                          <?php echo $value['specialist']; ?>
-                      </td>
+                     
                       <td>
                           <?php echo $value['email']; ?>
+                            
                       </td>
-                      <td>
+                       <td>
                           <?php echo $value['phone']; ?>
+                            
                       </td>
-
                       <td>
-                          <?php echo $value['registration_id']; ?>
+                          <?php echo $value['subject']; ?>
                       </td>
+                    
+                      <td>
+                          <?php echo $value[' message']; ?>
+                      </td>
+                      
                       
                       <td class="project-state">
                           
 
-                            <?php if ($value['status']==1) { ?>
+                            <?php if ($value['appointment_status']==1) { ?>
 
                               <span class="badge badge-success">
                                 Active
@@ -117,11 +106,6 @@
                              <?php }  ?>
 
                           
-                      </td>
-                      <td>
-                        <a href="<?php echo base_url(); ?>index.php/doctor_form/<?php echo $value['id']; ?>">
-                          <button class="btn btn-primary">Appoitment</button>
-                        </a>
                       </td>
                    </tr>
 

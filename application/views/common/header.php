@@ -173,7 +173,7 @@
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/doctor_appointment_list" class="nav-link <?php echo ($active_text=='appointment')?'active':'' ?>"> 
-              <i class="nav-icon ion-ios-pulse-strong"></i>
+              <i class="nav-icon ion ion-clipboard"></i>
               <p>
                 Doctor Appointment Details
               </p>
@@ -188,7 +188,7 @@
           <li class="nav-item menu-open">
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <a href="<?php echo base_url(); ?>index.php/admin_doctor_appointment_list" class="nav-link <?php echo ($active_text=='appointment')?'active':'' ?>">
-              <i class="nav-icon ion-ios-pulse-strong"></i>             
+              <i class="nav-icon ion ion-clipboard"></i>             
               <p>
                 Doctor Appointment List
               </p>
@@ -314,40 +314,26 @@
           </li>
 
         <?php } ?>
+       
+        <?php if($user_type==1){ ?>
+
+          <li class="nav-item menu-open">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <a href="<?php echo base_url(); ?>index.php/admin_contact_list" class="nav-link <?php echo ($active_text=='contact')?'active':'' ?>">
+              <i class="nav-icon ion-android-contacts"></i>
+              <p>
+                Contact List
+              </p>
+            </a>
+          </li>
+
+        <?php } ?>
 
                     
-         <!-- <li class="nav-item menu-open">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-             <a href="<?php //echo base_url(); ?>index.php/oxygen_list" class="nav-link <?php //echo ($active_text=='Services')?'active':'' ?>">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Services
-              </p>
-            </a>
-          </li>
+         
           
 
-          <li class="nav-item menu-open">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php //echo base_url(); ?>index.php/doctor_list" class="nav-link  <?php //echo ($active_text=='Team')?'active':'' ?>">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Team
-              </p>
-            </a>
-          </li>
           
-          
-
-          <li class="nav-item menu-open">
-             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <a href="<?php //echo base_url(); ?>index.php/doctor_list" class="nav-link  <?php //echo ($active_text=='Outcome')?'active':'' ?>">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Outcome
-              </p>
-            </a>      
-          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

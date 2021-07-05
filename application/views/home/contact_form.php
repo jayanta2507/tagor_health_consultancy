@@ -83,45 +83,61 @@
 
 
     <main>
-      <section class="my-5">
-        <div class="py-5">
+      <section class="my-4">
+        <div class="py-7">
             <h2 class="text-center"><b>Contact Us</b></h2>
         </div>
         <div class="container-fluid contact-class">
-          <div class="row">
-                  <form action="<?php echo base_url(); ?>index.php/submit_contactus" method="post">
-                      <label>
-                        <span>Name</span>
-                        <input type="text" name="name" autocomplete="false">
-                        <span class="text-danger"><?php echo form_error('name'); ?></span>
-                      </label>
+          <div>
+              <form action="<?php echo base_url(); ?>index.php/submit_contactus" method="post">
+                <label>
+                  <span>Name</span>
+                   <input type="text" name="name" autocomplete="false">
+                      <span class="text-center"><?php echo form_error('name'); ?></span>
+                </label>
                       <label>
                         <span>Emailid</span>
                         <input type="text" name="email" autocomplete="false">
-                        <span class="text-danger"><?php echo form_error('email'); ?></span>
+                        <span class="text-center"><?php echo form_error('email'); ?></span>
                       </label>
                       <label>
                         <span>Phone Number</span>
                         <input type="text" name="phone" autocomplete="false">
-                        <span class="text-danger"><?php echo form_error('phone'); ?></span>
+                        <span class="text-center"><?php echo form_error('phone'); ?></span>
                       </label>
                       <label>
                         <span>Subject</span>
                         <input type="text" name="subject" autocomplete="false">
-                        <span class="text-danger"><?php echo form_error('subject'); ?></span>
+                        <span class="text-center"><?php echo form_error('subject'); ?></span>
                       </label>
                       <label>
                         <span>Message Box</span>
                         <input type="text" name="message" autocomplete="false">
-                        <span class="text-danger"><?php echo form_error('message'); ?></span>
+                        <span class="text-center"><?php echo form_error('message'); ?></span>
                       </label>
                       <label>
-                        <button class="submit" type="submit">Confirm</button>
+                        <button class="submit" type="submit">Submit</button>
                       </label>
                   </form>
                 </div>  
             </div>
         <div class="contact-details">
+          <div class="text-left">
+             <h3><b>Address</b></h3>
+               <h4><p>Visit Our Website</p></h4>
+                 <p class="py-2">16/2,Shakespeare Sarani Rd,Elgin, Kolkata, West Bengal -700016</p>
+          </div>
+
+          
+          <div class="contact-details">
+            <div class="text-right">
+              <h3 class="text-right"><b>Email Address</b></h3>
+                <p class="py-0">tagorehealthcare20@gmai.com</p>
+                  <h3 class="text-right"><p><b>Phone Number</p></b></h3>
+                    <p class="py-0">9874356214/9330956281</p>
+                      <p class="py-0">033-2667-5577/033-2667-9696</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>

@@ -305,13 +305,25 @@ class Admin_model extends CI_Model {
         return $this->db->where('id', $vaccineId)->update('vaccine', array('status'=>'2'));
     }
 
-
-
-
-
-
     //===================  vaccine Section ==============//
 
+    //==================  Start Contact Section ==============//=
+
+    public function count_contact()
+    {
+        return $this->db->where('status', '1')->count_all("contact");
+    }
+
+    public function contactList(){
+        $this->db->select('*');
+        $this->db->from('contact');
+        $this->db->where('status !=', '2');
+        $query = $this->db->get();
+        return  $query->result_array();
+    }
+    
+
+    //==================  End Contact Section ==============//=
 
 }
 
