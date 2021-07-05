@@ -438,32 +438,37 @@
    
 
   <section class="my-4">
-        <div class="py-7">
-            <h2 class="text-center"><b>Contact Us</b></h2>
+    <div class="py-7">
+        <h2 class="text-center"><b>Contact Us</b></h2>
+    </div>
+      <div class="container-fluid contact-class">
+      </div>
+       <div style="width: 100%;
+    height: 18%;
+    background-color: #fbfafa;
+    position: absolute;
+    display: flex;">
+        <div class="text-left">
+            <h5><b>Address</b></h5>
+            <h5 id="visit_id">Visit Our Website</h5>
+            <p class="py-2">16/2,Shakespeare Sarani Rd,Elgin, Kolkata, West Bengal -700016</p>
         </div>
-          <div class="container-fluid contact-class">
-          </div>
-           <div class="contact-details">
-          <div class="text-left">
-              <h5><b>Address</b></h5>
-              <h5 id="visit_id">Visit Our Website</h5>
-              <p class="py-2">16/2,Shakespeare Sarani Rd,Elgin, Kolkata, West Bengal -700016</p>
-          </div>
 
-          <div class="text-right">
-              <p class="py-0"><b>Email Address</b>: tagorehealthcare20@gmai.com</p>
-              <p class="py-0"><b>Phone Number</b>: 9874356214/9330956281</p>
-              <p class="py-0"><b>Tel</b>:033-2667-5577/033-2667-9696</p>
-          </div>
-      </section>
-
+        <div class="text-right">
+            <p class="py-0"><b>Email Address</b>: tagorehealthcare20@gmai.com</p>
+            <p class="py-0"><b>Phone Number</b>: 9874356214/9330956281</p>
+            <p class="py-0"><b>Tel</b>:033-2667-5577/033-2667-9696</p>
+        </div>
+      </div>
+  </section>
+  <!-- <footer class="main-footer">
+      <strong> @ Copyright & copy; 2021-2022   Tagore Health Consultancy </strong>
+       All rights reserved.
+      <div class="float-right d-none d-sm-inline-block"><b>Version 1.0.0 </b></div>
+    </footer> -->
   
 </body>
 </html>
 
-<footer class="main-footer">
-      <strong> @ Copyright & copy; 2021-2022   Tagore Health Consultancy </strong>
-       All rights reserved.
-      <div class="float-right d-none d-sm-inline-block"><b>Version 1.0.0 </b></div>
-    </footer>
+
 </div>
